@@ -55,6 +55,8 @@ docker rmi [imageId]
 docker rm [name or id]
 #进入某容器
 docker attach [name or id]
+#在运行中的容器中执行脚本
+docker exec 
 ```
 
 
