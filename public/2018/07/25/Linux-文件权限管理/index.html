@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Linux-文件权限管理 | 老陈皮加工厂</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Linux,技术" />
+    
+    <meta name="description" content="为了保证文件系统的安全隐私，对文件进行权限控制，防止非法用户查看、修改、删除等操作。只有在指定用户或用户组才能进行操作，例如一些隐私文件或者文件夹不想被其他人进行访问查看可对文件进行权限控制。  1. ls 命令查询文件属性12345678910111213[root@vultr ~]# ls -altotal 44dr-xr-x---  4     root     root    4096">
+<meta name="keywords" content="Linux,技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-文件权限管理">
+<meta property="og:url" content="http://laochenpi.top/2018/07/25/Linux-文件权限管理/index.html">
+<meta property="og:site_name" content="老陈皮加工厂">
+<meta property="og:description" content="为了保证文件系统的安全隐私，对文件进行权限控制，防止非法用户查看、修改、删除等操作。只有在指定用户或用户组才能进行操作，例如一些隐私文件或者文件夹不想被其他人进行访问查看可对文件进行权限控制。  1. ls 命令查询文件属性12345678910111213[root@vultr ~]# ls -altotal 44dr-xr-x---  4     root     root    4096">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://laochenpi.top/images/linux-1.jpg">
+<meta property="og:updated_time" content="2018-07-26T09:32:07.118Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-文件权限管理">
+<meta name="twitter:description" content="为了保证文件系统的安全隐私，对文件进行权限控制，防止非法用户查看、修改、删除等操作。只有在指定用户或用户组才能进行操作，例如一些隐私文件或者文件夹不想被其他人进行访问查看可对文件进行权限控制。  1. ls 命令查询文件属性12345678910111213[root@vultr ~]# ls -altotal 44dr-xr-x---  4     root     root    4096">
+<meta name="twitter:image" content="http://laochenpi.top/images/linux-1.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="老陈皮加工厂" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Linux/">Linux</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Linux-文件权限管理" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Linux-文件权限管理
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/07/25/Linux-文件权限管理/" class="article-date">
+            <time datetime="2018-07-25T07:07:09.000Z" itemprop="datePublished">2018-07-25</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/技术/">技术</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/linux-1.jpg" alt="Linux"></p>
+<blockquote>
+<p>为了保证文件系统的安全隐私，对文件进行权限控制，防止非法用户查看、修改、删除等操作。只有在指定用户或用户组才能进行操作，例如一些隐私文件或者文件夹不想被其他人进行访问查看可对文件进行权限控制。</p>
+</blockquote>
+<h2 id="1-ls-命令查询文件属性"><a href="#1-ls-命令查询文件属性" class="headerlink" title="1. ls 命令查询文件属性"></a>1. ls 命令查询文件属性</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@vultr ~]<span class="comment"># ls -al</span></span><br><span class="line">total 44</span><br><span class="line">dr-xr-x---  4     root     root    4096      Jul 19 05:05 .</span><br><span class="line">dr-xr-xr-x 18    root     root    4096      Jun  5 21:42 ..</span><br><span class="line">-rw-------  1     root     root    4369       Jul 25 07:02 .bash_history</span><br><span class="line">-rw-r--r--  1     root     root    18           Dec 29  2013 .bash_logout</span><br><span class="line">-rw-r--r--  1     root     root     176         Dec 29  2013 .bash_profile</span><br><span class="line">-rw-r--r--  1     root     root     176         Dec 29  2013 .bashrc</span><br><span class="line">drwx------ 3     root     root     4096       Jul 18 07:35 .cache</span><br><span class="line">-rw-r--r--  1     root     root      100         Dec 29  2013 .cshrc</span><br><span class="line">drwxr----- 3     root     root      4096       Jun  5 21:45 .pki</span><br><span class="line">-rw-r--r--  1     root     root      129         Dec 29  2013 .tcshrc</span><br><span class="line">[权限]    [连接数][所有者][用户组][文件容量][修改时间] [文件名]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h5 id="权限"><a href="#权限" class="headerlink" title="[权限]"></a>[权限]</h5>第一个字符代表文件是 “目录、文件或链接文件等”<br>  <code>[d]</code> 代表是目录，例如 .pki<br>  <code>[-]</code> 代表是文件，例如 .tcshrc<br>  <code>[l]</code> 代表为链接文件(linkfile)<br>  <code>[b]</code> 代表设备文件里的可以供存储的接口设备<br>  <code>[c]</code> 代表设备文件里的串行端口，例如键盘、鼠标<br>接下来的3个为位一组，均为 “rwx” 3个参数组合<br>  <code>[r]</code> 代表read 可读<br>  <code>[w]</code> 代表write 可写<br>  <code>[x]</code> 代表execute 可执行<br>  <code>[-]</code> 代表没有权限<br>  第一组代表 “文件所有者的权限”，第二组代表 “同用户组的权限”，第三组代表 “其他非本用户组的权限”</li>
+<li><strong>[连接数]</strong> 文件的硬链接个数</li>
+<li><strong>[所有者]</strong> 文件的所有者账号</li>
+<li><strong>[用户组]</strong> 文件的所有用户组</li>
+<li><strong>[文件容量]</strong> 文件的容量 单位/B</li>
+<li><strong>[修改时间]</strong> 文件的创建时间或最近的一次修改时间</li>
+<li><strong>[文件名]</strong>     文件的名称 带 “.” 则表示当前文件为<code>隐藏文件</code></li>
+</ul>
+<h2 id="3-改变文件属性和权限命令"><a href="#3-改变文件属性和权限命令" class="headerlink" title="3.改变文件属性和权限命令"></a>3.改变文件属性和权限命令</h2><ul>
+<li><h5 id="chgrp-改变文件所属用户组"><a href="#chgrp-改变文件所属用户组" class="headerlink" title="chgrp 改变文件所属用户组"></a>chgrp 改变文件所属用户组</h5><p>改变的用户组必须存在于/etc/group，对于不存在的用户组改变会执行失败</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#示例 [-R] 递归 文件或者目录下所有的的文件</span></span><br><span class="line">chgrp [-R] [文件或目录]</span><br><span class="line"><span class="comment">#更新install.log用户组为user</span></span><br><span class="line">chgrp user install.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="chown-改变文件所有者"><a href="#chown-改变文件所有者" class="headerlink" title="chown 改变文件所有者"></a>chown 改变文件所有者</h5><p>改变的用户必须存在于/etc/passwd，对于不存在的用户改变会执行失败</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#示例 [-R] 递归 文件或者目录下所有的的文件</span></span><br><span class="line">chown [-R] [文件或目录]</span><br><span class="line"><span class="comment">#更新install.log用户所属为test</span></span><br><span class="line">chown <span class="built_in">test</span> install.log</span><br><span class="line"><span class="comment">#可用.[用户组] 改变用户组 将install.log所属用户组改为groupTest</span></span><br><span class="line">chown .groupTest install.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="chmod-改变文件的权限"><a href="#chmod-改变文件的权限" class="headerlink" title="chmod 改变文件的权限"></a>chmod 改变文件的权限</h5><p>改变rwx 读写执 3个权限，3个身份owner，group，others，组合9个权限。  </p>
+<ul>
+<li><p>数字类型改变权限:<br>权限rwx按分数 <code>r : 4</code> <code>w : 2</code>  <code>x : 1</code>，改变权限的组合方式按分数来决定权限rwxrwxrwx 对应777，rw–wx— 对应610</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#示例 [-R] 递归 文件或者目录下所有的的文件</span></span><br><span class="line">chmod [-R] [分数组合] [文件或目录]</span><br><span class="line"><span class="comment">#改变install.log的权限 763代表了 rwxrw---x</span></span><br><span class="line">chown 763 install.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>符号类型改变权限:<br>权限rwx按符号 u(user)，g(group)，o(others)，a(all)，+(加入)，-(除去)，=(设置)组合。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用户拥有读写，用户组读，其他执行 u=rw-,g=r--,o=--x</span></span><br><span class="line">chmod u=rw-,g=r--,o=--x install.log</span><br><span class="line"><span class="comment">#所有身份都去除写权限 </span></span><br><span class="line">chmod a-r install.log</span><br><span class="line"><span class="comment">#所有身份都添加执行权限</span></span><br><span class="line">chmod a+x install.log</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-RWX-对于文件和目录的差别"><a href="#2-RWX-对于文件和目录的差别" class="headerlink" title="2.RWX 对于文件和目录的差别"></a>2.RWX 对于文件和目录的差别</h2><h5 id="对于文件来说："><a href="#对于文件来说：" class="headerlink" title="对于文件来说："></a>对于文件来说：</h5><ul>
+<li>r  (read)  可以读取文件的实际内容</li>
+<li>w (write) 可以编辑、新增、或修改文件的内容，但是不能删除文件</li>
+<li>x (execute) 可以执行，可执行并非由文件的后缀来决定例如常见的<code>.exe</code> <code>.bat</code> <code>.com</code> 等，而是由x 属性来决定</li>
+</ul>
+<h5 id="对于文件目录来说："><a href="#对于文件目录来说：" class="headerlink" title="对于文件目录来说："></a>对于文件目录来说：</h5><ul>
+<li>r  (read contents in directory)  可以查询该目录下的文件名数据既可使用<code>ls</code>查询</li>
+<li>w (modify contents of directory) 可以新建新的文件和目录、删除已存在的文件和目录（无视改文件的权限控制）、转义目录内的文件和文件夹</li>
+<li>x (access directory) 可以进入该目录文件 既可使用<code>cd</code>进入该目录</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://laochenpi.top/2018/07/25/Linux-文件权限管理/" data-id="cjl204l6q000nuguskbaka0j7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="lv-container" data-id="city" data-uid=MTAyMC8zODM1Ni8xNDg4NA==></div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/hilton1977/hilton1977.github.io" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/07/26/Hexo部署到VPS自动发布/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            Hexo部署到VPS自动发布
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/07/25/Linux-关机重启命令/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Linux 关机重启命令</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/20/Docker环境搭建/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.ruanyifeng.com/blogimg/asset/2018/bg2018020901.png)" alt="Docker环境搭建" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/20/Docker环境搭建/" class="title">Docker环境搭建</a></p>
+                            <p class="item-date"><time datetime="2018-08-20T06:11:30.000Z" itemprop="datePublished">2018-08-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/16/Winsw把java项目做成服务/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/winsw.png)" alt="Winsw把java项目做成服务" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/16/Winsw把java项目做成服务/" class="title">Winsw把java项目做成服务</a></p>
+                            <p class="item-date"><time datetime="2018-08-16T12:04:17.000Z" itemprop="datePublished">2018-08-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/01/SprintCloud微服务-Eureka/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2025237148,485432478&amp;fm=27&amp;gp=0.jpg)" alt="SpringCloud服务中心之Eureka" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/01/SprintCloud微服务-Eureka/" class="title">SpringCloud服务中心之Eureka</a></p>
+                            <p class="item-date"><time datetime="2018-08-01T08:43:15.000Z" itemprop="datePublished">2018-08-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/26/Hexo部署到VPS自动发布/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/linux-1.jpg)" alt="Hexo部署到VPS自动发布" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2018/07/26/Hexo部署到VPS自动发布/" class="title">Hexo部署到VPS自动发布</a></p>
+                            <p class="item-date"><time datetime="2018-07-26T07:02:30.000Z" itemprop="datePublished">2018-07-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/25/Linux-文件权限管理/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/linux-1.jpg)" alt="Linux-文件权限管理" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2018/07/25/Linux-文件权限管理/" class="title">Linux-文件权限管理</a></p>
+                            <p class="item-date"><time datetime="2018-07-25T07:07:09.000Z" itemprop="datePublished">2018-07-25</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log4j/">Log4j</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logstash-ELK/">logstash,ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Log4j/" style="font-size: 10px;">Log4j</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/logstash-ELK/" style="font-size: 10px;">logstash,ELK</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/心得/" style="font-size: 13.33px;">心得</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 老陈皮</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+
+         if (typeof LivereTower === 'function') { return; }
+
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+    </script>
+  <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+  <!-- City版安装代码已完成 -->
+
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

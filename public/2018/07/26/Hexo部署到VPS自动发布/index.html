@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Hexo部署到VPS自动发布 | 老陈皮加工厂</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Linux" />
+    
+    <meta name="description" content="Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己VPS上去，部署一套git环境以后方便自动发布更新  1.Git 安装1234#通常使用的方法下载gityum -y install git#查看版本 这种下载一般不是最新的版本yum --version 发现并不是最新版本逼死强迫症啊，只能通过下载最新git源码自行编译安装。Git 的工作需要调用 curl，zlib，o">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo部署到VPS自动发布">
+<meta property="og:url" content="http://laochenpi.top/2018/07/26/Hexo部署到VPS自动发布/index.html">
+<meta property="og:site_name" content="老陈皮加工厂">
+<meta property="og:description" content="Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己VPS上去，部署一套git环境以后方便自动发布更新  1.Git 安装1234#通常使用的方法下载gityum -y install git#查看版本 这种下载一般不是最新的版本yum --version 发现并不是最新版本逼死强迫症啊，只能通过下载最新git源码自行编译安装。Git 的工作需要调用 curl，zlib，o">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://laochenpi.top/images/linux-1.jpg">
+<meta property="og:updated_time" content="2018-08-20T09:26:52.664Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo部署到VPS自动发布">
+<meta name="twitter:description" content="Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己VPS上去，部署一套git环境以后方便自动发布更新  1.Git 安装1234#通常使用的方法下载gityum -y install git#查看版本 这种下载一般不是最新的版本yum --version 发现并不是最新版本逼死强迫症啊，只能通过下载最新git源码自行编译安装。Git 的工作需要调用 curl，zlib，o">
+<meta name="twitter:image" content="http://laochenpi.top/images/linux-1.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="老陈皮加工厂" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Linux/">Linux</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Hexo部署到VPS自动发布" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Hexo部署到VPS自动发布
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/07/26/Hexo部署到VPS自动发布/" class="article-date">
+            <time datetime="2018-07-26T07:02:30.000Z" itemprop="datePublished">2018-07-26</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/linux-1.jpg" alt="Linux"></p>
+<blockquote>
+<p>Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己VPS上去，部署一套git环境以后方便自动发布更新</p>
+</blockquote>
+<h2 id="1-Git-安装"><a href="#1-Git-安装" class="headerlink" title="1.Git 安装"></a>1.Git 安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#通常使用的方法下载git</span></span><br><span class="line">yum -y install git</span><br><span class="line"><span class="comment">#查看版本 这种下载一般不是最新的版本</span></span><br><span class="line">yum --version</span><br></pre></td></tr></table></figure>
+<p>发现并不是最新版本逼死强迫症啊，只能通过下载最新git源码自行编译安装。<br>Git 的工作需要调用 <code>curl</code>，<code>zlib</code>，<code>openssl</code>，<code>expat</code>，<code>libiconv</code> 等库的代码，所以需要先安装这些依赖工具。在有 <code>yum</code> 的系统上（比如 Fedora）或者有 <code>apt-get</code> 的系统上（比如 Debian 体系），可以用   下面的命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#卸载旧版本git</span></span><br><span class="line">yum remove git</span><br><span class="line"><span class="comment">#安装依赖环境</span></span><br><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br><span class="line"><span class="comment">#安装编译工具</span></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br><span class="line"><span class="comment">#下载最新版git</span></span><br><span class="line">wget https://github.com/git/git/archive/v2.18.0.tar.gz</span><br><span class="line"><span class="comment">#解压</span></span><br><span class="line">tar -zxvf v2.18.0.tar.gz</span><br><span class="line"><span class="comment">#进入解压文件夹</span></span><br><span class="line"><span class="built_in">cd</span> git-2.18.0</span><br><span class="line"><span class="comment">#编译代码 perfix这里为赋值变量</span></span><br><span class="line">make prefix=/usr/<span class="built_in">local</span>/git all</span><br><span class="line"><span class="comment">#安装软件 </span></span><br><span class="line">make prefix=/usr/<span class="built_in">local</span>/git install</span><br><span class="line"><span class="comment">#清除编译数据</span></span><br><span class="line">make clean all</span><br><span class="line"><span class="comment">#环境变量配置</span></span><br><span class="line"><span class="built_in">echo</span> <span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/git/bin &gt;&gt;/etc/bashrc</span><br><span class="line"><span class="comment">#生效环境变量</span></span><br><span class="line"><span class="built_in">source</span> /etc/bashrc</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>/etc/profile，/etc/bashrc 是系统全局环境变量设定 ~/.profile，~/.bashrc用户家目录下的私有环境变量设定</p>
+</blockquote>
+<h2 id="2-创建git仓库"><a href="#2-创建git仓库" class="headerlink" title="2.创建git仓库"></a>2.创建git仓库</h2><p>创建一个git库用来存放Hexo生成的html静态文件和相关资源，然后通过post-receive 钩子函数进行自动执行脚本讲生成的资源checkout发布到nginx达到自动发布更新的功能。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建git用户</span></span><br><span class="line">adduser git</span><br><span class="line"><span class="comment">#设置密码</span></span><br><span class="line">passwd git</span><br><span class="line"><span class="comment">#创建Hexo博客库 目录自行选择</span></span><br><span class="line">mkdir laochenpiBlog &amp;&amp; chown git:git laochenpiBlog</span><br><span class="line"><span class="comment">#laochenpiBlog目录下创建blog.git  --bare裸仓库 没有工作空间</span></span><br><span class="line">git init --bare blog.git &amp;&amp; chown git:git -R blog.git </span><br><span class="line"><span class="comment">#laochenpiBlog 目录下创建静态网页库 </span></span><br><span class="line">mkdir blog.site &amp;&amp; chown git:git blog.site</span><br><span class="line"><span class="comment">#进入钩子函数目录</span></span><br><span class="line"><span class="built_in">cd</span> hooks/</span><br><span class="line"><span class="comment">#创建钩子函数文件</span></span><br><span class="line">touch post-service &amp;&amp; chown git:git post-receive &amp;&amp; chmod 755 post-service</span><br></pre></td></tr></table></figure></p>
+<p>为Hexo编写自动化脚本在仓库hooks创建脚本 <code>vi post-receive</code> ,脚本会在git有收发的时候就会调用执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --work-tree=/var/laochenpiBlog/blog.site --git-dir=/var/laochenpiBlog/blog.git checkout -f</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-Hexo配置发布测试"><a href="#3-Hexo配置发布测试" class="headerlink" title="3.Hexo配置发布测试"></a>3.Hexo配置发布测试</h2><p>终于把Git环境弄好了，现在就需要修改配置文件<code>_config.yml</code> 中的发布项<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#Deployment</span><br><span class="line">## repo  为你的vps创建的库地址</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo : git@45.77.87.214:/var/laochenpiBlog/blog.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>修改完毕，见证奇迹的时候到了，找到自己博客目录下用 <code>git bash</code>  发布<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#清除缓存  重编译  发布</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></p>
+<p> <img src="/images/passwd.png" alt="OpenSSH"><br> 输入密码发布完毕，然后远程上你的VPS查看下你的 <code>blog.site</code> 是否自动 <code>check out</code>了最新发布的内容了。</p>
+<h2 id="4-Git-免密发布"><a href="#4-Git-免密发布" class="headerlink" title="4.Git 免密发布"></a>4.Git 免密发布</h2><p>每次发布都需要输入密码实在是太麻烦了而且在有可能泄露密码引起安全问题，有什么比较方面安全的方式呢，通过google一波发现可以通过秘钥的形式实现无密码发布登录。</p>
+<p>秘钥方式通过RSA加密生成公有秘钥，然后把公有秘钥提交到VPS 上的秘钥认证文件中 <code>authroized_keys</code>，修改 OpenSSH 客户端的配置 <code>sshd_config</code>  实现RSA秘钥认证方式。</p>
+<p>那么我们开始吧！</p>
+<ul>
+<li><h5 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h5>修改 OpenSSH 认证 <code>vi /etc/ssh/sshd_config</code><br>开启公钥认证 <code>PubkeyAuthentication yes</code><br>认证Keys文件目录 用户/.ssh/文件名 <code>AuthorizedKeysFile      .ssh/authorized_keys</code><br>RSA加密认证 <code>RSAAuthentication yes</code><br><code></code></li>
+</ul>
+<p>这里要提示一点 Centos 7 和 Centos 6 遇到的问题，Centos 7 由于OpenSSH版本原因 RSAAuthentication 已经弃用，无需添加修改.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#用户提交的git用户的秘钥文件夹创建和权限分配#</span><br><span class="line">——————————————————————————————————————</span><br><span class="line">#创建认证文件authorized_keys</span><br><span class="line">touch /home/git/.ssh/authorized_keys</span><br><span class="line">#.ssh权限 700 authorize_keys 权限600</span><br><span class="line">chmod 700 /home/git/.ssh &amp;&amp; chmod 600 /home/git/.ssh/authorize_keys</span><br></pre></td></tr></table></figure></p>
+<p>这里要注意 <code>.ssh</code> 和 <code>authorize_keys</code> 的权限问题，可能在加密认证的时候由于权限导致失败,SSH登录日志可以用 <code>tail /var/log/secure</code> 查看，<code>sshd -t</code>进行查看配置是否正常 需要在~目录下执行，执行<code>systemctl restart sshd</code> 重启 <code>SSH</code>服务</p>
+<ul>
+<li><h5 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h5><code>ssh-keygen -t rsa -C userName</code>  生成秘钥文件，地址一般在 <code>~/.ssh</code> 中。<br><code>id_rsa</code> 加密公钥 <code>id_rsa.pub</code> 加密公钥  多用户用<code>cat</code> 追加秘钥到认证文件中</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#上传认证秘钥到服务器上 对应用户的authorized_keys中</span></span><br><span class="line">cat ~/.ssh/id_rsa.pub | ssh git@45.77.87.214 <span class="string">"cat - &gt;&gt; /home/git/.ssh/authorized_keys"</span></span><br></pre></td></tr></table></figure>
+<p>配置完毕后使用 <code>ssh -vvT git@45.77.87.214</code> 看看是不是不用密码就可以登录VPS了，然后发布就再也不用密码了，一条命令就OK。</p>
+<h2 id="5-Nginx配置映射"><a href="#5-Nginx配置映射" class="headerlink" title="5.  Nginx配置映射"></a>5.  Nginx配置映射</h2><p>终于到最后一步了，就差最后一步配置 Nginx 服务映射静态文件了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Centos yum源安装</span></span><br><span class="line">yum install nginx</span><br><span class="line"><span class="comment">#启动nginx服务</span></span><br><span class="line">systemctl start nginx</span><br><span class="line"><span class="comment">#查看服务状态</span></span><br><span class="line">systemctl status nginx -l</span><br></pre></td></tr></table></figure></p>
+<p>这里有可能出现的问题：<br>1.无法从外网访问 检查下80端口是否开启,添加80端口<code>firewall-cmd --permanent --zone=public --add-port=80/tcp --permanent</code> 和 <code>firewall-cmd --reload</code> 重载配置<br>2.服务可能没有启动成功，排查下配置问题</p>
+<p>修改80端口默认映射库地址，<code>nginx -t</code>查看nginx配置文件地址  </p>
+<p><img src="/images/nginx.png" alt="nginx configuration file path"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#停止Nginx服务</span></span><br><span class="line">systemctl stop nginx</span><br><span class="line"><span class="comment">#修改Nginx的配置文件root</span></span><br><span class="line">vi /etc/nginx/nginx_conf</span><br><span class="line"><span class="comment">#修改 root 配置hexo静态文件地址，即之前创建的静态文件地址</span></span><br><span class="line">root [hexo静态文件地址]</span><br><span class="line"><span class="comment">#修改完毕退出 重启Nginx服务</span></span><br><span class="line">systemctl start nginx</span><br></pre></td></tr></table></figure></p>
+<p>修改完毕启动好服务然后通过外网访问你 VPS IP地址即可访问，大功告成以后可以在任意地方通过git提交的方式进行自动发布。请记得随时备份自己的重要文件以免丢失！</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>已配置秘钥但是SSH还是需要密码，相信很多小伙伴都遇到过，下面是可能原因</p>
+<ol>
+<li>查看sshd_config 配置文件是否正确开启了3个认证配置，更改后重启OpenSSH服务</li>
+<li>查看下ssh登录日志 排查下原因，可能是认证文件目录权限问题，<code>.shh 700</code> <code>authorized_key 600</code> 过大或者过小的权限都有可能导致认证是失败。</li>
+<li><code>authorized_key</code> 中秘钥千万千万不要直接从客户端直接复制过来，可能会有空格和其他转义一些特殊情况导致秘钥不正确。可通过 <code>cat</code>或<code>scp</code> 命令远程进行上传秘钥保证正确性。</li>
+<li>Centos 7 版本的 <code>OpenSSH</code> RSAAuthentication已经弃用无需设置、添加该设置可能导致启动异常。</li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://laochenpi.top/2018/07/26/Hexo部署到VPS自动发布/" data-id="cjl204l5n0003ugusda6f7jdj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="lv-container" data-id="city" data-uid=MTAyMC8zODM1Ni8xNDg4NA==></div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/hilton1977/hilton1977.github.io" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/08/01/SprintCloud微服务-Eureka/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            SpringCloud服务中心之Eureka
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/07/25/Linux-文件权限管理/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Linux-文件权限管理</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/20/Docker环境搭建/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.ruanyifeng.com/blogimg/asset/2018/bg2018020901.png)" alt="Docker环境搭建" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/20/Docker环境搭建/" class="title">Docker环境搭建</a></p>
+                            <p class="item-date"><time datetime="2018-08-20T06:11:30.000Z" itemprop="datePublished">2018-08-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/16/Winsw把java项目做成服务/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/winsw.png)" alt="Winsw把java项目做成服务" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/16/Winsw把java项目做成服务/" class="title">Winsw把java项目做成服务</a></p>
+                            <p class="item-date"><time datetime="2018-08-16T12:04:17.000Z" itemprop="datePublished">2018-08-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/01/SprintCloud微服务-Eureka/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2025237148,485432478&amp;fm=27&amp;gp=0.jpg)" alt="SpringCloud服务中心之Eureka" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/01/SprintCloud微服务-Eureka/" class="title">SpringCloud服务中心之Eureka</a></p>
+                            <p class="item-date"><time datetime="2018-08-01T08:43:15.000Z" itemprop="datePublished">2018-08-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/26/Hexo部署到VPS自动发布/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/linux-1.jpg)" alt="Hexo部署到VPS自动发布" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2018/07/26/Hexo部署到VPS自动发布/" class="title">Hexo部署到VPS自动发布</a></p>
+                            <p class="item-date"><time datetime="2018-07-26T07:02:30.000Z" itemprop="datePublished">2018-07-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/25/Linux-文件权限管理/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/linux-1.jpg)" alt="Linux-文件权限管理" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2018/07/25/Linux-文件权限管理/" class="title">Linux-文件权限管理</a></p>
+                            <p class="item-date"><time datetime="2018-07-25T07:07:09.000Z" itemprop="datePublished">2018-07-25</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log4j/">Log4j</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logstash-ELK/">logstash,ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Log4j/" style="font-size: 10px;">Log4j</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/logstash-ELK/" style="font-size: 10px;">logstash,ELK</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/心得/" style="font-size: 13.33px;">心得</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 老陈皮</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+
+         if (typeof LivereTower === 'function') { return; }
+
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+    </script>
+  <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+  <!-- City版安装代码已完成 -->
+
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

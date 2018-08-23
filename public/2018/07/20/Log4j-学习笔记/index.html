@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Log4j 自定义多文件分离 | 老陈皮加工厂</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Log4j,心得" />
+    
+    <meta name="description" content="在工作开发中遇到一个需求需要通过某一些条件逻辑进行分组细化日志，用配置的一些条件进行不同的日志管理和处理，由于之前的日志没有细化会导致在很多日志中无法更快和更精准的定位某一个模块的错误，如大海捞针效率极低，细分后方便开发和维护人员对日志更快更精准的排查修改BUG。  1.Log4j 介绍   Log4j有三个主要的组件：Loggers(记录器)，Appenders (输出源)和Layouts(">
+<meta name="keywords" content="Log4j,心得">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Log4j 自定义多文件分离">
+<meta property="og:url" content="http://laochenpi.top/2018/07/20/Log4j-学习笔记/index.html">
+<meta property="og:site_name" content="老陈皮加工厂">
+<meta property="og:description" content="在工作开发中遇到一个需求需要通过某一些条件逻辑进行分组细化日志，用配置的一些条件进行不同的日志管理和处理，由于之前的日志没有细化会导致在很多日志中无法更快和更精准的定位某一个模块的错误，如大海捞针效率极低，细分后方便开发和维护人员对日志更快更精准的排查修改BUG。  1.Log4j 介绍   Log4j有三个主要的组件：Loggers(记录器)，Appenders (输出源)和Layouts(">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1533619453&amp;di=71e7053f6a5104d2ee0501827d562550&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fstatic.open-open.com%2Fnews%2FuploadImg%2F20160530%2F20160530232653_508.jpg">
+<meta property="og:updated_time" content="2018-08-06T04:11:38.154Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Log4j 自定义多文件分离">
+<meta name="twitter:description" content="在工作开发中遇到一个需求需要通过某一些条件逻辑进行分组细化日志，用配置的一些条件进行不同的日志管理和处理，由于之前的日志没有细化会导致在很多日志中无法更快和更精准的定位某一个模块的错误，如大海捞针效率极低，细分后方便开发和维护人员对日志更快更精准的排查修改BUG。  1.Log4j 介绍   Log4j有三个主要的组件：Loggers(记录器)，Appenders (输出源)和Layouts(">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1533619453&amp;di=71e7053f6a5104d2ee0501827d562550&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fstatic.open-open.com%2Fnews%2FuploadImg%2F20160530%2F20160530232653_508.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="老陈皮加工厂" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    未分类
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Log4j-学习笔记" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Log4j 自定义多文件分离
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/07/20/Log4j-学习笔记/" class="article-date">
+            <time datetime="2018-07-20T09:32:59.000Z" itemprop="datePublished">2018-07-20</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Log4j/">Log4j</a>, <a class="tag-link" href="/tags/心得/">心得</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1533619453&amp;di=71e7053f6a5104d2ee0501827d562550&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fstatic.open-open.com%2Fnews%2FuploadImg%2F20160530%2F20160530232653_508.jpg" alt="Log4j"></p>
+<blockquote>
+<p>在工作开发中遇到一个需求需要通过某一些条件逻辑进行分组细化日志，用配置的一些条件进行不同的日志管理和处理，由于之前的日志没有细化会导致在很多日志中无法更快和更精准的定位某一个模块的错误，如大海捞针效率极低，细分后方便开发和维护人员对日志更快更精准的排查修改BUG。</p>
+</blockquote>
+<h2 id="1-Log4j-介绍"><a href="#1-Log4j-介绍" class="headerlink" title="1.Log4j 介绍"></a>1.Log4j 介绍</h2><p>   Log4j有三个主要的组件：Loggers(记录器)，Appenders (输出源)和Layouts(布局)。这里可简单理解为日志类别，日志要输出的地方和日志以何种形式输出。综合使用这三个组件可以轻松地记录信息的类型和级别，并可以在运行时控制日志输出的样式和位置。</p>
+<h2 id="2-Log4j-组件"><a href="#2-Log4j-组件" class="headerlink" title="2.Log4j 组件"></a>2.Log4j 组件</h2><h3 id="Appender-配置"><a href="#Appender-配置" class="headerlink" title="Appender 配置"></a>Appender 配置</h3><ul>
+<li><h5 id="ConsoleAppender-控制台"><a href="#ConsoleAppender-控制台" class="headerlink" title="ConsoleAppender (控制台)"></a>ConsoleAppender (控制台)</h5><ol>
+<li>Threshold=WARN：指定日志信息的最低输出级别，默认为DEBUG。</li>
+<li>ImmediateFlush=true：消息都会被立即输出，设为false则不输出，默认值是true。</li>
+<li>Target=System.err：默认值是System.out。</li>
+</ol>
+</li>
+<li><h5 id="FileAppender-文件"><a href="#FileAppender-文件" class="headerlink" title="FileAppender (文件)"></a>FileAppender (文件)</h5><ol>
+<li>Append=false：true表示消息增加到指定文件中，false则将消息覆盖指定的文件内容，默认值是true。</li>
+<li>File=D:/logs/logging.log4j：指定消息输出到logging.log4j文件中。</li>
+</ol>
+</li>
+<li><h5 id="DailyRollingFileAppender-按照日期格式生成"><a href="#DailyRollingFileAppender-按照日期格式生成" class="headerlink" title="DailyRollingFileAppender (按照日期格式生成)"></a>DailyRollingFileAppender (按照日期格式生成)</h5><ol>
+<li>DatePattern=’.’yyyy-MM：根据时间格式按照年月日为单位生成log文件<br>‘.’yyyy-MM：每月<br>‘.’yyyy-ww：每周<br>‘.’yyyy-MM-dd：每天<br>‘.’yyyy-MM-dd-a：每天两次<br>‘.’yyyy-MM-dd-HH：每小时<br>‘.’yyyy-MM-dd-HH-mm：每分钟</li>
+</ol>
+</li>
+<li><h5 id="RollingFileAppender-文件大小到达指定尺寸的时候产生一个新的文件"><a href="#RollingFileAppender-文件大小到达指定尺寸的时候产生一个新的文件" class="headerlink" title="RollingFileAppender (文件大小到达指定尺寸的时候产生一个新的文件)"></a>RollingFileAppender (文件大小到达指定尺寸的时候产生一个新的文件)</h5><ol>
+<li>MaxFileSize=100KB：后缀可以是KB, MB 或者GB。在日志文件到达该大小时，将会自动滚动，即将原来的内容移到logging.log4j.1文件中。</li>
+<li>MaxBackupIndex=2：指定可以产生的滚动文件的最大数，例如，设为2则可以产生logging.log4j.1，logging.log4j.2两个滚动文件和一个logging.log4j文</li>
+</ol>
+</li>
+<li><h5 id="SocketAppender-发送远程服务-Tip-可配合logstash使用"><a href="#SocketAppender-发送远程服务-Tip-可配合logstash使用" class="headerlink" title="SocketAppender (发送远程服务 Tip:可配合logstash使用)"></a>SocketAppender (发送远程服务 Tip:可配合logstash使用)</h5><ol>
+<li>host，String，指定服务器的主机名。（必需）</li>
+<li>immediateFlush，boolean，是否立即flush，还是等待缓存到一定大小后在flush。</li>
+<li>layout，Layout，log event输出的格式。</li>
+<li>port，integer，远程服务器坚挺log event的应用的端口号。</li>
+<li>protocol，String，发送log event所使用的协议，”TCP” 或”UDP”。</li>
+<li>reconnectionDelay，integer，当连接断开时，延迟等待的ms数。</li>
+<li>name，String ，Appender的名称。</li>
+<li>protocol，String，通讯协议 默认TCP。可选值 “TCP” (default), “SSL” or “UDP”.</li>
+<li>SSL，SslConfiguration，包含密钥存储库和信任存储库的配置.</li>
+<li>filter，Filter，一个过滤器来确定事件应该由这个Appender。 不止一个过滤器 可以通过使用一个CompositeFilter。</li>
+<li>immediateFail，boolean，设置为true时,日志事件不会等待尝试重新连接,将立即如果失败 套接字是不可用的。</li>
+<li>immediateFlush，boolean， 当该值设置成真时,默认情况下,每个写将冲洗。 这将保证写的数据 到磁盘,但可能会影响性能。</li>
+<li>layout，Layout，LogEvent ，布局使用格式。 缺省值是SerializedLayout。</li>
+<li>reconnectionDelay，integer ，如果设置为值大于0,一个错误后SocketManager将尝试重新连接 在指定的毫秒数后的服务器。 如果连接失败 将抛出一个异常(可以被应用程序如果ignoreExceptions是 设置为假)。</li>
+<li>ignoreExceptions，boolean，默认值是真正的添加事件时,遇到了引起异常 内部记录,然后忽略。 当设置为假将传播到异常 调用者。 你必须设置这个假当包装这个AppenderFailoverAppender。</li>
+</ol>
+</li>
+<li><h5 id="SMTPAppender-发送邮件"><a href="#SMTPAppender-发送邮件" class="headerlink" title="SMTPAppender (发送邮件)"></a>SMTPAppender (发送邮件)</h5><ol>
+<li>smtpHost= mtp.163.com：邮件服务器地址</li>
+<li>smtpPort=30 ：端口号</li>
+<li>from= <strong>*@</strong>.com：发送方邮箱</li>
+<li>replyTo = <strong>*@</strong>.com： 接收方方邮箱</li>
+<li>smtpUsername = <a href="mailto:285635652@qq.com" target="_blank" rel="noopener">285635652@qq.com</a>：发送方邮箱账号</li>
+<li>smtpPassword = <strong><strong>**</strong></strong>：发送方邮箱密码</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>log4j.additivity.[appenderName]=false (用于独立输出日志，Logger只会在自己的appender里输出，而不会在父Logger的appender里输出。)默认为true</p>
+</blockquote>
+<h3 id="Layouts"><a href="#Layouts" class="headerlink" title="Layouts"></a>Layouts</h3><ul>
+<li><h5 id="HTMLLayout（以HTML表格形式布局）"><a href="#HTMLLayout（以HTML表格形式布局）" class="headerlink" title="HTMLLayout（以HTML表格形式布局）"></a>HTMLLayout（以HTML表格形式布局）</h5></li>
+<li><h5 id="PatternLayout（可以灵活地指定布局模式）"><a href="#PatternLayout（可以灵活地指定布局模式）" class="headerlink" title="PatternLayout（可以灵活地指定布局模式）"></a>PatternLayout（可以灵活地指定布局模式）</h5></li>
+<li><h5 id="SimpleLayout（包含日志信息的级别和信息字符串）"><a href="#SimpleLayout（包含日志信息的级别和信息字符串）" class="headerlink" title="SimpleLayout（包含日志信息的级别和信息字符串）"></a>SimpleLayout（包含日志信息的级别和信息字符串）</h5></li>
+<li><h5 id="TTCCLayout（包含日志产生的时间、线程、类别等信息）"><a href="#TTCCLayout（包含日志产生的时间、线程、类别等信息）" class="headerlink" title="TTCCLayout（包含日志产生的时间、线程、类别等信息）"></a>TTCCLayout（包含日志产生的时间、线程、类别等信息）</h5></li>
+</ul>
+<h2 id="3-Spring-运用-Log4j"><a href="#3-Spring-运用-Log4j" class="headerlink" title="3.Spring 运用 Log4j"></a>3.Spring 运用 Log4j</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># LOG4J配置</span><br><span class="line">log4j.rootCategory=INFO, stdout, file</span><br><span class="line">log4j.logger.errorfile=error,errorfile</span><br><span class="line"></span><br><span class="line"># 控制台输出</span><br><span class="line">log4j.appender.stdout=org.apache.log4j.ConsoleAppender</span><br><span class="line">log4j.appender.stdout.layout=org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.stdout.layout.ConversionPattern=%d&#123;yyyy-MM-dd HH:mm:ss,SSS&#125; %5p %c&#123;1&#125;:%L - %m%n</span><br><span class="line"></span><br><span class="line"># root日志输出</span><br><span class="line">log4j.appender.file=org.apache.log4j.DailyRollingFileAppender</span><br><span class="line">log4j.appender.file.file=logs/all.log</span><br><span class="line">log4j.appender.file.DatePattern=&apos;.&apos;yyyy-MM-dd</span><br><span class="line">log4j.appender.file.layout=org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.file.layout.ConversionPattern=%d&#123;yyyy-MM-dd HH:mm:ss,SSS&#125; %5p %c&#123;1&#125;:%L - %m%n</span><br><span class="line"></span><br><span class="line"># error日志输出</span><br><span class="line">log4j.appender.errorfile=org.apache.log4j.DailyRollingFileAppender</span><br><span class="line">log4j.appender.errorfile.file=logs/error.log</span><br><span class="line">log4j.appender.errorfile.DatePattern=&apos;.&apos;yyyy-MM-dd</span><br><span class="line">log4j.appender.errorfile.Threshold = ERROR</span><br><span class="line">log4j.appender.errorfile.layout=org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.errorfile.layout.ConversionPattern=%d&#123;yyyy-MM-dd HH:mm:ss,SSS&#125; %5p %c&#123;1&#125;:%L - %m%n</span><br><span class="line"></span><br><span class="line">#自定义业务分组 team mytest输出目标</span><br><span class="line">log4j.logger.team=INFO,mytest</span><br><span class="line">#自定义日志输出</span><br><span class="line">#输出的各种Appender</span><br><span class="line">log4j.appender.mytest=org.apache.log4j.DailyRollingFileAppender</span><br><span class="line">#父类节点不输出 分级</span><br><span class="line">log4j.additivity.team=false</span><br><span class="line">#输出的日志地址</span><br><span class="line">log4j.appender.mytest.file=logs/mytest.log</span><br><span class="line">#记录的时间单位 天 </span><br><span class="line">log4j.appender.mytest.DatePattern=&apos;.&apos;yyyy-MM-dd</span><br><span class="line">#布局</span><br><span class="line">log4j.appender.mytest.layout=org.apache.log4j.PatternLayout</span><br><span class="line">#输出内容</span><br><span class="line">log4j.appender.mytest.layout.ConversionPattern=%d&#123;yyyy-MM-dd HH:mm:ss,SSS&#125; %5p %c&#123;1&#125;:%L ---- %m%n</span><br></pre></td></tr></table></figure>
+<h4 id="讲解"><a href="#讲解" class="headerlink" title="讲解"></a>讲解</h4><ol>
+<li>rootCategory 主节点 [日志级别],[输出目标],[输出目标],[…]</li>
+<li>category 子节点 特别会集成主节点的设置 日志级别</li>
+<li>log4j.appender.[输出目标] 日志的输出设置 包含输出格式、布局、方式等</li>
+<li>优先级：DEBUG &lt; INFO &lt; WARN &lt; ERROR &lt; FATAL</li>
+<li>PatternLayout 布局 ConversionPattern相关设置<br>%m 输出代码中指定的消息<br>%p 输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL<br>%r 输出自应用启动到输出该log信息耗费的毫秒数<br>%c 输出所属的类目，通常就是所在类的全名<br>%t 输出产生该日志事件的线程名<br>%n 输出一个回车换行符，Windows平台为“rn”，Unix平台为“n”<br>%d 输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyyy MMM ddHH:mm:ss,SSS}，输出类似：2002年10月18日 22：10：28，921<br>%l 输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。<br>[QC]是log信息的开头，可以为任意字符，一般为项目简称。</li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://laochenpi.top/2018/07/20/Log4j-学习笔记/" data-id="cjl204l5z0009ugus579108um" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="lv-container" data-id="city" data-uid=MTAyMC8zODM1Ni8xNDg4NA==></div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/hilton1977/hilton1977.github.io" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/07/25/Linux-关机重启命令/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            Linux 关机重启命令
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/07/19/CentOs-Firewalld-脚本/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">CentOs FireWall 脚本</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/20/Docker环境搭建/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.ruanyifeng.com/blogimg/asset/2018/bg2018020901.png)" alt="Docker环境搭建" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/20/Docker环境搭建/" class="title">Docker环境搭建</a></p>
+                            <p class="item-date"><time datetime="2018-08-20T06:11:30.000Z" itemprop="datePublished">2018-08-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/16/Winsw把java项目做成服务/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/winsw.png)" alt="Winsw把java项目做成服务" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/16/Winsw把java项目做成服务/" class="title">Winsw把java项目做成服务</a></p>
+                            <p class="item-date"><time datetime="2018-08-16T12:04:17.000Z" itemprop="datePublished">2018-08-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/01/SprintCloud微服务-Eureka/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2025237148,485432478&amp;fm=27&amp;gp=0.jpg)" alt="SpringCloud服务中心之Eureka" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/01/SprintCloud微服务-Eureka/" class="title">SpringCloud服务中心之Eureka</a></p>
+                            <p class="item-date"><time datetime="2018-08-01T08:43:15.000Z" itemprop="datePublished">2018-08-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/26/Hexo部署到VPS自动发布/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/linux-1.jpg)" alt="Hexo部署到VPS自动发布" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2018/07/26/Hexo部署到VPS自动发布/" class="title">Hexo部署到VPS自动发布</a></p>
+                            <p class="item-date"><time datetime="2018-07-26T07:02:30.000Z" itemprop="datePublished">2018-07-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/25/Linux-文件权限管理/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/linux-1.jpg)" alt="Linux-文件权限管理" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2018/07/25/Linux-文件权限管理/" class="title">Linux-文件权限管理</a></p>
+                            <p class="item-date"><time datetime="2018-07-25T07:07:09.000Z" itemprop="datePublished">2018-07-25</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log4j/">Log4j</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logstash-ELK/">logstash,ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Log4j/" style="font-size: 10px;">Log4j</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/logstash-ELK/" style="font-size: 10px;">logstash,ELK</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/心得/" style="font-size: 13.33px;">心得</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 老陈皮</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+
+         if (typeof LivereTower === 'function') { return; }
+
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+    </script>
+  <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+  <!-- City版安装代码已完成 -->
+
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
