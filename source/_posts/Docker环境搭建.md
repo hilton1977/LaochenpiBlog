@@ -27,17 +27,37 @@ yum install yum-utils
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 #查询docker-ce版本
 yum list docker-ce --showduplicates | sort -r 
-```
-安装docker,默认是安装最高版本测试可以用，但是生产环境为了稳定尽量指定版本。stable稳定版
- ``` bash
 #指定安装18.06.0 版本
 yum install dock-ce-18.06.0.ce
- ```
-启动docker服务，测试运行
+```
+安装docker,默认是安装最高版本测试可以用，但是生产环境为了稳定尽量指定版本(stable稳定版)
+
+## 3.Docker常用命令
+
 ``` bash
-#启动docker
+#启动docker服务
 systemctl start docker
+#自动启动docker服务
+systemctl enable docker
 #运行一个容器
 docker run hello-world
+#查看所有运行中容器
+docker ps
+#查看所有容器
+docker ps -a
+#停止容器
+docker stop [name]
+#查看镜像
+docker images
+#删除镜像
+docker rmi [imageId]
+#删除容器 
+docker rm [name or id]
+#进入某容器
+docker attach [name or id]
 ```
+
+
+
+
 
