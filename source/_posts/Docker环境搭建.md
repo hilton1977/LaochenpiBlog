@@ -33,7 +33,6 @@ yum install dock-ce-18.06.0.ce
 安装docker,默认是安装最高版本测试可以用，但是生产环境为了稳定尽量指定版本(stable稳定版)
 
 ## 3.Docker常用命令
-
 ``` bash
 #启动docker服务
 systemctl start docker
@@ -55,8 +54,10 @@ docker rmi [imageId]
 docker rm [name or id]
 #进入某容器
 docker attach [name or id]
-#在运行中的容器中执行脚本 控制台交互  这里注意 有的镜像是 /bin/sh 
+#在运行中的容器中执行脚本 控制台交互  这里注意 有的镜像是 /bin/sh 例如alpine
 docker exec -itd [id or name] /bin/bash
+#容器重命名
+docker rename [id] [new name]
 ```
 
 
