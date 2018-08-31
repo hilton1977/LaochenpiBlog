@@ -29,37 +29,52 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 yum list docker-ce --showduplicates | sort -r 
 #指定安装18.06.0 版本
 yum install dock-ce-18.06.0.ce
-```
-安装docker,默认是安装最高版本测试可以用，但是生产环境为了稳定尽量指定版本(stable稳定版)
-
-## 3.Docker常用命令
-``` bash
 #启动docker服务
 systemctl start docker
 #自动启动docker服务
 systemctl enable docker
-#运行一个容器
-docker run hello-world
-#查看所有运行中容器
-docker ps
-#查看所有容器
-docker ps -a
-#停止容器
-docker stop [name]
-#查看镜像
-docker images
-#删除镜像
-docker rmi [imageId]
-#删除容器 
-docker rm [name or id]
-#进入某容器
-docker attach [name or id]
-#在运行中的容器中执行脚本 控制台交互  这里注意 有的镜像是 /bin/sh 例如alpine
-docker exec -itd [id or name] /bin/bash
-#容器重命名
-docker rename [id] [new name]
 ```
+安装docker,默认是安装最高版本测试可以用，但是生产环境为了稳定尽量指定版本(stable稳定版)
 
+## 3.Docker 镜像 容器
+#### 镜像查询拉取
+安装 docker 完毕，可以尝试安装一个镜像并运行，搜索镜像使用 `docker search [镜像名称]`,搜索的镜像 `OFFICAL` 标识的为官方镜像，其余的都是非官方人员自行构建的镜像并上传库共享。
+![docker-search-alpine](/images/docker-search.png)
+使用 `docker pull alpine` 下载拉取alpine镜像,然后使用`docker images` 查看镜像已有镜像，这里以`alpine`为模板
+![docker-images](/images/docker-images.png)
+
+#### 运行容器
+基于alpine镜像启动一个容器 
+``` bash
+docker run -itd -p  8081:8081 --name myTest  alpine
+```
+- -i：以交互模式运行容器，通常与 -t 同时使用
+- -d: 后台运行容器，并返回容器ID
+- -t : 为容器重新分配一个伪输入终端，通常与 -i 同时使用
+- -p: 端口映射，格式为：主机(宿主)端口:容器端口 8080端口的访问转发到容器的8080端口上
+- --name: 为容器指定一个容器名
+- alpine：这是指用 alpine 镜像为基础来启动容器。
+
+启动完毕后 `docker ps` 查看正在运行的容器,  `docker ps -a` 查看容器。
+
+#### 容器操作
+
+``` bash
+##### myTest 为容器名称 ##### 
+#进行容器
+docker attach myTest
+#容器中执行脚本返回结果 (由于是alpine所以执行的)
+docker exec -it myTest /bin/sh
+#删除容器
+docker rm myTest
+#启动已有容器
+docker start myTest
+#停止容器
+docker stop myTest
+```
+在容器中退出容器时需要注意的是通过`exit`返回宿主主机会导致容器直接停止并不是我们想要的结果，官方给出的退出容器并使其在后台继续运行使用 `ctrl+p+q` 安全退出不影响容器运行。 
+
+## 4.DockerFile编写
 
 
 
