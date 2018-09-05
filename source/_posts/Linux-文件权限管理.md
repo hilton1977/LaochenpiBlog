@@ -49,7 +49,7 @@ drwxr----- 3     root     root      4096       Jun  5 21:45 .pki
     
 ## 3.改变文件属性和权限命令
 - ##### chgrp 改变文件所属用户组
-改变的用户组必须存在于/etc/group，对于不存在的用户组改变会执行失败
+改变的用户组必须存在于`/etc/group`，对于不存在的用户组改变会执行失败
 ``` bash
 #示例 [-R] 递归 文件或者目录下所有的的文件
 chgrp [-R] [文件或目录]
@@ -57,7 +57,7 @@ chgrp [-R] [文件或目录]
 chgrp user install.log
 ```
 - ##### chown 改变文件所有者
-改变的用户必须存在于/etc/passwd，对于不存在的用户改变会执行失败
+改变的用户必须存在于`/etc/passwd`，对于不存在的用户改变会执行失败
 ``` bash
 #示例 [-R] 递归 文件或者目录下所有的的文件
 chown [-R] [文件或目录]
@@ -67,7 +67,7 @@ chown test install.log
 chown .groupTest install.log
 ```
 - ##### chmod 改变文件的权限
-改变rwx 读写执 3个权限，3个身份owner，group，others，组合9个权限。  
+改变rwx 读写执 3个权限，3个身份`owner`，`group`，`others`，组合9个权限。  
   - 数字类型改变权限:
   权限rwx按分数 `r : 4` ` w : 2`  `x : 1`，改变权限的组合方式按分数来决定权限rwxrwxrwx 对应777，rw--wx--- 对应610
 ``` bash

@@ -34,7 +34,7 @@ systemctl start docker
 #自动启动docker服务
 systemctl enable docker
 ```
-安装docker,默认是安装最高版本测试可以用，但是生产环境为了稳定尽量指定版本(stable稳定版)
+安装docker,默认是安装最高版本测试可以用，但是生产环境为了稳定尽量指定版本(`stable稳定版`)
 
 ## 3.Docker 镜像 容器
 #### 镜像查询拉取
@@ -53,7 +53,7 @@ docker run -itd -p  8081:8081 --name myTest  alpine
 - -t : 为容器重新分配一个伪输入终端，通常与 -i 同时使用
 - -p: 端口映射，格式为：主机(宿主)端口:容器端口 8080端口的访问转发到容器的8080端口上
 - --name: 为容器指定一个容器名
-- alpine：这是指用 alpine 镜像为基础来启动容器。
+- alpine：这是指用 `alpine` 镜像为基础来启动容器。
 
 启动完毕后 `docker ps` 查看正在运行的容器,  `docker ps -a` 查看容器。
 
@@ -74,8 +74,65 @@ docker stop myTest
 ```
 在容器中退出容器时需要注意的是通过`exit`返回宿主主机会导致容器直接停止并不是我们想要的结果，官方给出的退出容器并使其在后台继续运行使用 `ctrl+p+q` 安全退出不影响容器运行。 
 
-## 4.DockerFile编写
+## 4.DockerFile
+Dockerfile 是一个文本文件，其内包含了一条条的指令`(Instruction)`，每一条指令构建一层，因此每一条指令的内容，就是描述该层应当如何构建。我们可以根据实际的开发需求通过`dockerfile`来自定义镜像，JUST DO IT！
 
+##### FROM 指令
+FROM <image\>:<tag\> 相当于建造一个大楼地基的选择，选择不同的地基来搭建不一样的大楼。
+- 操作系统类基础搭建例如 `ubuntu`、`dabin`、`centos`
+- 开发语言作为基础搭建例如`java`、`nodejs`、`python` 
+- 服务类镜像作为基础 `oralce`、`mysql`、`nginx`、`tomcat`
+- 自定义混合类作为基础在其他自定义环境镜像基础上搭建
+
+所有的镜像地基都可以从docker库中拉取，选择合理的基础镜像可以让你更快的去构建你的镜像，省心省力。
+
+#### RUN 指令
+RUN 就像是执行shell指令，常常用于更新安装需要的生产软件服务等。RUN有2种执行方式
+- shell 格式： RUN <命令> ，就像直接在命令行中输入的命令一样：`RUN apt-get --update`
+- exec 格式： RUN ["可执行文件", "参数1", "参数2"]：`RUN ["apt-get","--update"]`
+
+
+__注意__：多行命令不要写多个`RUN`，原因是`Dockerfile`中每一个指令都会建立一层.多少个`RUN`就构建了多少层镜像，会造成镜像的臃肿多层，不仅仅增加了构件部署的时间，还容易出错。`RUN`书写时的换行符是`\`，记得下载压缩软件操作完毕后`rm`不必要的软件压缩包和缓存让镜像更精简。
+
+#### CMD 指令
+`CMD` 指令的格式和 `RUN` 相似也是两种格式，`CMD` 执行脚本在`dockerfile`只能存在一条，多条只执行最后一条，当有多个时只会执行最后一个，一般用于执行开启某些服务 `tomcat`、`oracle`、`nginx`等。
+
+#### ENTRYPOINT 指令
+`ENTRYPOINT` 执行脚本在`dockerfile`只能存在一条，多条只执行最后一条，容器启动后执行且不会被`docker run`提供的参数覆盖。
+
+### RUN  ENTRYPOINT  CMD 小结
+- `CMD` 和 `ENTRYPOINT` 推荐使用`Exec`格式，因为指令可读性更强，更容易理解。`RUN` 则两种格式都可以。
+- `RUN`用来执行脚本构建基础镜像，`CMD` `ENTRYPOINT` 用来构建完镜像容器启动后执行一些操作。
+- `CMD` 会被`docker run` 后的执行脚本覆盖不执行，`ENTRYPOINT` 则不会被覆盖始终会被执行，如果需要覆盖运行需要`–entrypoint`参数。
+- `ENTRYPOINT` 和 `CMD` 同时存在时谁在最后谁能执行，`CMD` 可作为 `ENTRYPOINT` 的执行参数灵活配合使用。
+
+#### COPY 指令
+用于从上下文路径复制文件到容器目标路径中，`copy package.json /usr/src/app/` 把`package.json`复制到容器 `/usr/src/app`路径下
+- COPY <源路径>... <目标路径>
+- COPY ["<源路径>"，......，"<目标路径>"]  `......`代表若干源路径
+
+#### ADD 指令
+`ADD` 指令和 `COPY` 的格式和性质基本一致，是在 `COPY` 基础上增加了一些功能。比如`<源路径>`可以是一个`URL`，这种情况下 Docker 引擎会试图去下载这个链接的文件放到`<目标路径>`去。如果`<源路径>`为一个` tar` 压缩文件的话，压缩格式为`gzip` , `bzip2` 以及 `xz` 的情况下，`ADD`指令将会自动解压缩这个压缩文件到`<目标路径>`去。`ADD` 指令会令镜像构建缓存失效，从而可能会令镜像构建变得比较缓慢，`ADD` 还包含了一些复杂的的功能其行为也不一定清晰，所以官方推荐使用`COPY`来进行文件的复制。
+
+#### ENV 指令
+`ENV` 用于设置环境变量在后续的指令可以直接引用
+- ENV <key\> <value\>
+- ENV <key1\>=<value1\> <key2\>=<value2\>...
+
+##### Docker build构建
+所有的脚本编写完毕使用`docker bulid` 对 Dockerfile 进行构建，详细的命令如下
+``` bash
+
+```
+
+``` bash
+#基于镜像 这里使用alpine 主要是体积小构建速度更快
+FROM alpine
+#构建维修者 
+MAINTAINER 285635652@qq.com
+RUN apt-get update /
+  && apt-get java
+```
 
 
 
