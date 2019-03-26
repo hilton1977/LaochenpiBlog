@@ -1,5 +1,5 @@
 ---
-title: Docker环境搭建
+title: Docker 环境搭建
 date: 2018-08-20 14:11:30
 tags:
     - 笔记
@@ -18,7 +18,7 @@ Docker 将应用程序与该程序的依赖，打包在一个文件里面。运�
 
 总体来说，Docker 的接口相当简单，用户可以方便地创建和使用容器，把自己的应用放入容器。容器还可以进行版本管理、复制、分享、修改，就像管理普通的代码一样。
 
-## 2.Docker安装
+## 2.Docker 安装
 我的VPS用的Centos 7 那就用本版本记录搭建过程，docker的版本用CE社区版
 ``` bash
 #下载yum-utils工具用于管理yum-config-manager可以配置源
@@ -30,9 +30,9 @@ yum list docker-ce --showduplicates | sort -r
 #指定安装18.06.0 版本
 yum install dock-ce-18.06.0.ce
 ```
-安装docker,默认是安装最高版本测试可以用，但是生产环境为了稳定尽量指定版本(stable稳定版)
+安装docker，默认是安装最高版本测试可以用，但是生产环境为了稳定尽量指定版本(stable稳定版)
 
-## 3.Docker常用命令
+## 3.Docker 常用命令
 
 ``` bash
 #启动docker服务

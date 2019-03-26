@@ -2,14 +2,14 @@
 title: Logstash同步数据库
 date: 2018-05-25 16:27:08
 tags:
-    - logstash,ELK
+    - logstash，ELK
     - 技术
 ---
 ![](/images/es.jpg)
 
 >由于业务需求需要同步某些数据库的表数据更新修改删除需同步ES保证同步性，
 在进行curd用AOP可实现同步，但是考虑到解耦分离后续系统水平拓展，
-查询资料可以用Logstash进行同步Es,Logstash 是开源的服务器端数据处理管道，
+查询资料可以用Logstash进行同步Es，Logstash 是开源的服务器端数据处理管道，
 能够同时 从多个来源采集数据、转换数据，然后将数据发送到Elasticsearch.
 
 

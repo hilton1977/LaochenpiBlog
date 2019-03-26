@@ -37,8 +37,8 @@ Tesseract-ocr [github地址](https://github.com/tesseract-ocr/tesseract) window 
     imageUrl = "http://112.112.9.205:88/ValiateNum.ashx"
     
     def getAuthCodeImage():
-        r = requests.get(imageUrl, stream=True)
-        with open(imagePath, 'wb') as fd:
+        r = requests.get(imageUrl， stream=True)
+        with open(imagePath， 'wb') as fd:
     	    for chunk in r.iter_content(1024):
             	fd.write(chunk)
     	        fd.close
@@ -52,9 +52,9 @@ Tesseract-ocr [github地址](https://github.com/tesseract-ocr/tesseract) window 
     	    else:    
     	        table.append(1)  
     	image = image.convert('L')
-    	image = image.resize((300,100),Image.BILINEAR)
-    	image = image.point(table,'1')  
-    	image.save("D:\\1.png","png")
+    	image = image.resize((300，100)，Image.BILINEAR)
+    	image = image.point(table，'1')  
+    	image.save("D:\\1.png"，"png")
     
     
     def discernCode():

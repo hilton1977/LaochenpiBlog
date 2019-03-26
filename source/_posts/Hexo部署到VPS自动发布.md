@@ -28,7 +28,7 @@ yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
 #安装编译工具
 yum install  gcc perl-ExtUtils-MakeMaker
 #下载最新版git
-wget https://github.com/git/git/archive/v2.18.0.tar.gz
+wget https://github.com/git/git/archive/v2.19.1.tar.gz
 #解压
 tar -zxvf v2.18.0.tar.gz
 #进入解压文件夹
@@ -46,8 +46,8 @@ source /etc/bashrc
 ```
 >/etc/profile，/etc/bashrc 是系统全局环境变量设定 ~/.profile，~/.bashrc用户家目录下的私有环境变量设定
 
-## 2.创建git仓库
-创建一个git库用来存放Hexo生成的html静态文件和相关资源，然后通过post-receive 钩子函数进行自动执行脚本讲生成的资源checkout发布到nginx达到自动发布更新的功能。
+## 2.创建 git 仓库
+创建一个git库用来存放Hexo生成的html静态文件和相关资源，然后通过 post-receive 钩子函数进行自动执行脚本讲生成的资源checkout发布到nginx达到自动发布更新的功能。
 ``` bash
 #创建git用户
 adduser git
@@ -62,14 +62,14 @@ mkdir blog.site && chown git:git blog.site
 #进入钩子函数目录
 cd hooks/
 #创建钩子函数文件
-touch post-service && chown git:git post-receive && chmod 755 post-service
+touch post-receive && chown git:git post-receive && chmod 755 post-receive
 ```
-为Hexo编写自动化脚本在仓库hooks创建脚本 `vi post-receive` ,脚本会在git有收发的时候就会调用执行
+为Hexo编写自动化脚本在仓库hooks创建脚本 `vi post-receive` ，脚本会在git有收发的时候就会调用执行
 ```
 git --work-tree=/var/laochenpiBlog/blog.site --git-dir=/var/laochenpiBlog/blog.git checkout -f
 ```
 
-## 3.Hexo配置发布测试
+## 3.Hexo 配置发布测试
 终于把Git环境弄好了，现在就需要修改配置文件`_config.yml` 中的发布项
 ``` xml
 #Deployment
@@ -111,7 +111,7 @@ touch /home/git/.ssh/authorized_keys
 #.ssh权限 700 authorize_keys 权限600
 chmod 700 /home/git/.ssh && chmod 600 /home/git/.ssh/authorize_keys
 ```
-这里要注意 `.ssh` 和 `authorize_keys` 的权限问题，可能在加密认证的时候由于权限导致失败,SSH登录日志可以用 `tail /var/log/secure` 查看，`sshd -t`进行查看配置是否正常 需要在~目录下执行，执行`systemctl restart sshd` 重启 `SSH`服务
+这里要注意 `.ssh` 和 `authorize_keys` 的权限问题，可能在加密认证的时候由于权限导致失败，SSH登录日志可以用 `tail /var/log/secure` 查看，`sshd -t`进行查看配置是否正常 需要在~目录下执行，执行`systemctl restart sshd` 重启 `SSH`服务
 
 - ##### 客户端 
 `ssh-keygen -t rsa -C userName`  生成秘钥文件，地址一般在 `~/.ssh` 中。
@@ -134,7 +134,7 @@ systemctl start nginx
 systemctl status nginx -l
 ```
 这里有可能出现的问题：
-1.无法从外网访问 检查下80端口是否开启,添加80端口`firewall-cmd --permanent --zone=public --add-port=80/tcp --permanent` 和 `firewall-cmd --reload` 重载配置
+1.无法从外网访问 检查下80端口是否开启，添加80端口`firewall-cmd --permanent --zone=public --add-port=80/tcp --permanent` 和 `firewall-cmd --reload` 重载配置
 2.服务可能没有启动成功，排查下配置问题
 
 修改80端口默认映射库地址，`nginx -t`查看nginx配置文件地址  

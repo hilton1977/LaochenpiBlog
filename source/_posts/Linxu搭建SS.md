@@ -1,5 +1,5 @@
 ---
-title: Linux搭建Shadowsocks
+title: Linux 搭建 Shadowsocks
 date: 2018-07-13 16:25:43
 tags:
     - 技术
@@ -8,8 +8,8 @@ tags:
 
 ![Shadowsocks](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531801271142&di=761db1c2eaadf98b71507ffb63bdde32&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Fsmccloud%2Frecom%2F2015%2F07%2F14%2F143686120068151458.JPEG)
 
->作为一个码农没有科学上网怎么能行,刚好Vultr新注册送钱买一个云主机玩玩,
-以CentOs7做一个教程,之前在网上找的搭建方法很多错误导致一直不成功现在自己整理并通过测试，踩了很多坑
+>作为一个码农没有科学上网怎么能行，刚好Vultr新注册送钱买一个云主机玩玩，
+以CentOs7做一个教程，之前在网上找的搭建方法很多错误导致一直不成功现在自己整理并通过测试，踩了很多坑
 
 
 ## 1.Shadowsocks 环境准备
@@ -34,27 +34,27 @@ pip install shadowsocks
 vi /etc/shadowsocks.json
 #单用户
  { 
-    "server":"server_ip", 
-    "server_port":25, 
-    "local_address": "127.0.0.1", 
-    "local_port":1080, 
-    "password":"password",
-    "timeout":300, 
-    "method":"aes-256-cfb", 
+    "server":"server_ip"， 
+    "server_port":25， 
+    "local_address": "127.0.0.1"， 
+    "local_port":1080， 
+    "password":"password"，
+    "timeout":300， 
+    "method":"aes-256-cfb"， 
     "fast_open": false 
  }
 
 #多用户
 {
-    "server":"server_ip",
+    "server":"server_ip"，
     "port_password":{
-        "port_1":"pwd1",
-        "port_2":"pwd2",
+        "port_1":"pwd1"，
+        "port_2":"pwd2"，
         "port_3":"pwd3"
-    },
-    "local_address":"127.0.0.1",
-    "local_port":1080,
-    "timeout":300,
+    }，
+    "local_address":"127.0.0.1"，
+    "local_port":1080，
+    "timeout":300，
     "method":"aes-256-cfb"
 }
 ```

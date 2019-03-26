@@ -9,7 +9,7 @@ tags:
 
 ![Linux](/images/linux-1.jpg)
 
->记录学习鸟哥的私房菜之开启重启shell笔记,主要有命令shutdown,reboot,halt,poweroff
+>记录学习鸟哥的私房菜之开启重启shell笔记，主要有命令shutdown，reboot，halt，poweroff
 
 ## 1.Shutdown 命令介绍
 - 可以自由的选择关机模式：关机、重启或者进入单用户操作模式即可
