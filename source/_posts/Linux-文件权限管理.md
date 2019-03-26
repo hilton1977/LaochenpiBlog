@@ -79,8 +79,8 @@ chown 763 install.log
   - 符号类型改变权限:
 权限rwx按符号 u(user)，g(group)，o(others)，a(all)，+(加入)，-(除去)，=(设置)组合。
 ``` bash
-#用户拥有读写，用户组读，其他执行 u=rw-,g=r--,o=--x
-chmod u=rw-,g=r--,o=--x install.log
+#用户拥有读写，用户组读，其他执行 u=rw-，g=r--，o=--x
+chmod u=rw-，g=r--，o=--x install.log
 #所有身份都去除写权限 
 chmod a-r install.log
 #所有身份都添加执行权限

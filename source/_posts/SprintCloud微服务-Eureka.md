@@ -1,10 +1,10 @@
 ---
-title: SpringCloud服务中心之Eureka
+title: SpringCloud 服务中心之 Eureka
 date: 2018-08-01 16:43:15
 tags:
     - Spring
 ---
-![Eureka](https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2025237148,485432478&fm=27&gp=0.jpg)
+![Eureka](/images/SpringCloud.jpg)
 
 >SpringCloud微服务架构基于SpringBoot进行开发组件，即插即用非常方便，用了Spring Boot根本停不下来。SpringCloud包含了服务和注册中心(Zookeeper Eureka Consul)、熔断器(Hystrix)、动态路由(Zuul)、配置中心(Spring cloud config)、负责均衡(Ribbon)、REST服务调用(Fegin)等集成组件。让我们一步步通过项目来学习SpringCloud！
 
@@ -80,7 +80,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @EnableWebSecurity
 public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(Application.class，args);
     }
 }
 ```
@@ -208,7 +208,7 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(Application.class，args);
     }
 }
 ```

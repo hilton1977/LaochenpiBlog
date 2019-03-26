@@ -2,124 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6ce402a-f5b3-4ad3-bd10-cd918c0c1c4a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/2018/05/24/hexo/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/2018/05/25/Logstah同步Es/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/2018/05/25/Python 第三方库 PIL/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/2018/07/13/Linxu搭建SS/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/2018/07/19/CentOs-Firewalld-脚本/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/2018/07/20/Log4j-学习笔记/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/2018/07/25/Linux-关机重启命令/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/2018/07/25/Linux-文件权限管理/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/2018/07/26/Hexo部署到VPS自动发布/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/2018/08/01/SprintCloud微服务-Eureka/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/2018/08/16/Winsw把java项目做成服务/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/2018/08/20/Docker环境搭建/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/CNAME" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/archives/2018/05/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/archives/2018/07/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/archives/2018/08/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/archives/2018/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/archives/2018/page/2/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/archives/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/archives/page/2/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/categories/Linux/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/categories/技术/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/content.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/images/back.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/images/logo-header.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/images/logo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/images/opacity-10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/images/s-left.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/images/thumb-default-small.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/images/thumb-default.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/images/timg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/consul.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/error.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/es.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/eureka.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/hexo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/linux-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/nginx.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/passwd.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/ssh-key.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/winsw.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/insight.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/font-awesome/css/font-awesome.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/font-awesome/css/font-awesome.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/font-awesome/fonts/FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/font-awesome/fonts/fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/font-awesome/fonts/fontawesome-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/font-awesome/fonts/fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/font-awesome/fonts/fontawesome-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/jquery/3.3.1/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/justified-gallery/jquery.justifiedGallery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/justified-gallery/justifiedGallery.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lg-fb-comment-box.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lg-fb-comment-box.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lg-fb-comment-box.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lg-transitions.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lg-transitions.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lg-transitions.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lightgallery.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lightgallery.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lightgallery.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/fonts/lg.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/fonts/lg.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/fonts/lg.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/fonts/lg.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/img/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/img/video-play.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/img/vimeo-play.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/img/youtube-play.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-autoplay.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-autoplay.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-fullscreen.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-fullscreen.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-hash.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-hash.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-pager.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-pager.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-share.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-share.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-thumbnail.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-thumbnail.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-video.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-video.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-zoom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-zoom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lightgallery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lightgallery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/source-code-pro/fonts/mrl8jkM18OlOQN8JLgasD9V_2ngZ8dMf8fLgjYEouxg.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/source-code-pro/fonts/mrl8jkM18OlOQN8JLgasDy2Q8seG17bfDXYR_jUsrzg.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/source-code-pro/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/titillium-web/fonts/7XUFZ5tgS-tD6QamInJTcSo_WB_cotcEMUw1LsIE8mM.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/titillium-web/fonts/7XUFZ5tgS-tD6QamInJTcZSnX671uNZIV63UdXh3Mg0.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/titillium-web/fonts/anMUvcNT0H1YN4FII8wpr4-67659ICLY8bMrYhtePPA.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/titillium-web/fonts/anMUvcNT0H1YN4FII8wpr46gJz9aNFrmnwBdd69aqzY.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/titillium-web/fonts/anMUvcNT0H1YN4FII8wpr9INifKjd1RJ3NxxEi9Cy2w.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/titillium-web/fonts/anMUvcNT0H1YN4FII8wpr_SNRT0fZ5CX-AqRkMYgJJo.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/titillium-web/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/page/2/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tags/Github/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tags/Java/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tags/Linux/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tags/Log4j/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tags/Node-js/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tags/Spring/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tags/docker/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tags/logstash-ELK/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tags/python/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tags/心得/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tags/技术/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tags/笔记/index.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/Docker环境搭建.md" afterPath="$PROJECT_DIR$/source/_posts/Docker环境搭建.md" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git" beforeDir="true" afterPath="$PROJECT_DIR$/.deploy_git" afterDir="true" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/05/24/hexo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2018/05/24/hexo/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/05/25/Logstah同步Es/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2018/05/25/Logstah同步Es/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/05/25/Python 第三方库 PIL/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2018/05/25/Python 第三方库 PIL/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/07/13/Linxu搭建SS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2018/07/13/Linxu搭建SS/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/07/19/CentOs-Firewalld-脚本/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2018/07/19/CentOs-Firewalld-脚本/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/07/20/Log4j-学习笔记/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2018/07/20/Log4j-学习笔记/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/07/25/Linux-关机重启命令/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2018/07/25/Linux-关机重启命令/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/07/25/Linux-文件权限管理/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2018/07/25/Linux-文件权限管理/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/07/26/Hexo部署到VPS自动发布/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2018/07/26/Hexo部署到VPS自动发布/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/08/01/SprintCloud微服务-Eureka/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2018/08/01/SprintCloud微服务-Eureka/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/08/16/Winsw把java项目做成服务/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2018/08/16/Winsw把java项目做成服务/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/08/20/Docker环境搭建/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2018/08/20/Docker环境搭建/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2018/05/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2018/05/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2018/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2018/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2018/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2018/page/2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/page/2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/content.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/content.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/page/2/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,38 +35,28 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Docker环境搭建.md" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/_posts/Docker环境搭建.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="375">
-                <caret line="58" column="12" lean-forward="false" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
-                <folding />
+              <first_editor relative-caret-position="1311">
+                <caret line="57" column="40" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_variables.styl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_variables.styl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="article.styl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/article.styl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="100" column="24" lean-forward="true" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
-              <folding />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/Hexo部署到VPS自动发布.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="184">
+                <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -188,15 +85,6 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
@@ -204,68 +92,36 @@
     <option name="height" value="744" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaochenpiBlog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaochenpiBlog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaochenpiBlog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaochenpiBlog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.zeroturnaround.javarebel.idea.plugin.settings.startup.StartupConfigurable" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="js.eslint.eslintPackage" value="" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -426,15 +282,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -502,14 +349,11 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
       <method />
     </configuration>
     <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
@@ -518,9 +362,18 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -529,7 +382,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1535009067317</updated>
-      <workItem from="1535009068797" duration="4871000" />
+      <workItem from="1535009068797" duration="8079000" />
     </task>
     <task id="LOCAL-00001" summary="提交">
       <created>1535014017371</created>
@@ -545,74 +398,77 @@
       <option name="project" value="LOCAL" />
       <updated>1535014077684</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="样式修改">
+      <created>1535073687898</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1535073687898</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4871000" />
+    <option name="totallyTimeSpent" value="8079000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="JRebel Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Smart" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25642964" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2559524" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="JRebel" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Designer" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Smart" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32843137" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32843137" />
+      <window_info anchor="bottom" id="JRebel Console" order="12" side_tool="true" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
     </layout>
     <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="JRebel Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Smart" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25642964" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
-      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="JRebel" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="4" visible="true" weight="0.25642964" />
+      <window_info id="Structure" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="JRebel Console" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="2" visible="true" weight="0.32843137" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32843137" />
+      <window_info anchor="bottom" id="Smart" order="4" />
+      <window_info anchor="bottom" id="Terminal" order="5" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="bottom" id="Find" order="7" />
+      <window_info anchor="bottom" id="Run" order="8" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Maven Projects" order="1" />
+      <window_info anchor="right" id="Database" order="2" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Commander" order="4" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="5" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
     </layout-to-restore>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -622,10 +478,6 @@
     <MESSAGE value="样式修改" />
     <option name="LAST_COMMIT_MESSAGE" value="样式修改" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
@@ -634,15 +486,6 @@
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1848">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/article.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="100" column="24" lean-forward="true" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -650,7 +493,24 @@
     <entry file="file://$PROJECT_DIR$/db.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4620">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/Python 第三方库 PIL.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-1092">
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/article.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="100" column="24" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -658,7 +518,7 @@
     <entry file="file://$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_variables.styl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
-          <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -666,9 +526,18 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/Docker环境搭建.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="375">
-            <caret line="58" column="12" lean-forward="false" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
-            <folding />
+          <first_editor relative-caret-position="1311">
+            <caret line="57" column="40" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/Hexo部署到VPS自动发布.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="184">
+            <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
           </first_editor>
           <second_editor />
         </state>

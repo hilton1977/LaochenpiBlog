@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hexo+GitHub第一次搭建笔记"
+title: "Hexo+GitHub 第一次搭建笔记"
 date: 2018-05-24 14:48
 categories: [技术]
 comments: true
@@ -12,13 +12,13 @@ tags:
 
 ![Hexo](/images/hexo.jpg)
 
-> Hexo+GitHub 搭建踩坑行动,平时有什么代码心得或者遇到一些奇葩BUG、都没有记下来,后来遇到类似的问题居然又忘记了,所以想自己搭建一个博客记录下一些平时遇到的问题和需要解决的一些技术问题记录下来以便以后回来还可以查阅,就用Hexo搭建一个静态的博客。
+> Hexo+GitHub 搭建踩坑行动，平时有什么代码心得或者遇到一些奇葩BUG、都没有记下来，后来遇到类似的问题居然又忘记了，所以想自己搭建一个博客记录下一些平时遇到的问题和需要解决的一些技术问题记录下来以便以后回来还可以查阅，就用Hexo搭建一个静态的博客。
 
 ## 1.Hexo 环境准备
  * [Node.js](http://nodejs.cn/) hexo依赖环境
  * [Git Bash](https://git-scm.com/) 根据OS下载安装包 用于发布和更新微博
  
-##### 安装Hexo
+##### 安装 Hexo
 ``` bash
 #1.安装hexo环境
 npm install hexo-cli -g  
@@ -46,13 +46,13 @@ $ hexo publish [layout] <filename>
 $ hexo s
 # 部署网站
 $ hexo deploy
-# -p, --port	重设端口
-# -s, --static	只使用静态文件
-# -l, --log	启动日记记录，使用覆盖记录格式
+# -p， --port	重设端口
+# -s， --static	只使用静态文件
+# -l， --log	启动日记记录，使用覆盖记录格式
  ```
  
- ## 2.GitHub Page准备
-* 登录Github创建一个reqo,名称为 `` [yourname].github.io `` (这里注意下yourname最好跟你库的用户名一样)
+ ## 2.GitHub Page 准备
+* 登录Github创建一个reqo，名称为 `` [yourname].github.io `` (这里注意下yourname最好跟你库的用户名一样)
 
 * 本地使用git设置username 和email 
         
@@ -71,7 +71,7 @@ git config --global user.email [email]
 
 在 **Git Bash** 中验证是否添加成功：``ssh -T git@github.com``
 
-* 配置_config.yml 发布静态文件到github,修改_config.yml进行github发布设置
+* 配置_config.yml 发布静态文件到github，修改_config.yml进行github发布设置
 
 ``` yml
 deploy:

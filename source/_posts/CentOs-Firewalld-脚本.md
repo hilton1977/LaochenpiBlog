@@ -7,10 +7,10 @@ tags:
 
 ![Firewalld](http://www.tecmint.com/wp-content/uploads/2016/01/Enable-Disable-Iptables-FirewallD.png)
 
->经过之前自己搭建了Shadowsocks接触Linux慢慢想深入学习下一些常用Shell,之前在配置Shadowsocks遇到启动服务但是PC客户端连接没有网络,通过查阅一些教程发现Centos7默认开启了防火墙Firewall导致如果没有开放Shadowsocks的相关端口是无法访问的，现在记录下Firewall的一些相关命令
+>经过之前自己搭建了Shadowsocks接触Linux慢慢想深入学习下一些常用Shell，之前在配置Shadowsocks遇到启动服务但是PC客户端连接没有网络，通过查阅一些教程发现Centos7默认开启了防火墙Firewall导致如果没有开放Shadowsocks的相关端口是无法访问的，现在记录下Firewall的一些相关命令
 
 ##  1.Firewalld 简介
-CentOs7的一大特性，最大的好处有两个：支持动态更新，不用重启服务；第二个就是加入了防火墙的“zone”概念,有图形界面和工具界面，由于我在服务器上使用，图形界面请参照官方文档，本文以字符界面做介绍,firewalld的字符界面管理工具是 firewall-cmd 默认配置文件有两个：/usr/lib/firewalld/ （用户配置地址） 和 /etc/firewalld/ （系统配置，尽量不要修改）
+CentOs7的一大特性，最大的好处有两个：支持动态更新，不用重启服务；第二个就是加入了防火墙的“zone”概念，有图形界面和工具界面，由于我在服务器上使用，图形界面请参照官方文档，本文以字符界面做介绍，firewalld的字符界面管理工具是 firewall-cmd 默认配置文件有两个：/usr/lib/firewalld/ （用户配置地址） 和 /etc/firewalld/ （系统配置，尽量不要修改）
 
 ## 2.Zone 概念
 Firewall 能将不同的网络连接归类到不同的信任级别，Zone 提供了以下几个级别
@@ -40,7 +40,7 @@ firewall-cmd [指令]
 --zone 作用域  
 --permanent  永久修改  
 --reload 重载生效 
---timeout=seconds 持续时间,一般用于调试            
+--timeout=seconds 持续时间，一般用于调试            
           
 __使用实例__:
 ``` bash
