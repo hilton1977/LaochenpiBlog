@@ -1,9 +1,9 @@
 ---
 title: Log4j 自定义多文件分离
 date: 2018-07-20 17:32:59
+categories: [Java]
 tags:
-    - Log4j
-    - 心得
+    - Java
 ---
 ![Log4j](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533619453&di=71e7053f6a5104d2ee0501827d562550&imgtype=jpg&er=1&src=http%3A%2F%2Fstatic.open-open.com%2Fnews%2FuploadImg%2F20160530%2F20160530232653_508.jpg)
 

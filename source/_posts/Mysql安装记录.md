@@ -2,9 +2,9 @@
 layout: post
 title: MySql 主从集群配置
 date: 2019-03-25 09:07:05
+categories: [数据库]
 tags:
 	- 数据库
-	- 技术
 ---
 
 ![](/images/MySQL.jpg)

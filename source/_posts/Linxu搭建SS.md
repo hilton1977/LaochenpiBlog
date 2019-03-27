@@ -1,8 +1,8 @@
 ---
 title: Linux 搭建 Shadowsocks
 date: 2018-07-13 16:25:43
+categories: [Linux]
 tags:
-    - 技术
     - Linux
 ---
 

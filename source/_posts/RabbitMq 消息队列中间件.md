@@ -1,8 +1,8 @@
 ---
 title: RabbitMQ 消息队列中间件
 date: 2019-03-20 14:35:19
+categories: [Java]
 tags:
-	 - 技术
 	 - 中间件
 ---
 ![](/images/RabbitMQ.jpg)

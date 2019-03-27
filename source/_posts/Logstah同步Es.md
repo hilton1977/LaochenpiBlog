@@ -1,8 +1,8 @@
 ---
 title: Logstash同步数据库
 date: 2018-05-25 16:27:08
+categories: [技术]
 tags:
-    - logstash，ELK
     - 技术
 ---
 ![](/images/es.jpg)

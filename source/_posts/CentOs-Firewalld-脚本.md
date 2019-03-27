@@ -1,6 +1,7 @@
 ---
 title: CentOs FireWall 脚本
 date: 2018-07-19 14:20:43
+categories: [Linux]
 tags:
     - Linux
 ---

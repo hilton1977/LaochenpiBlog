@@ -1,7 +1,7 @@
 ---
 title: Hexo部署到VPS自动发布
 date: 2018-07-26 15:02:30
-category : Linux
+categories: [技术]
 tag : 
     - Linux
 ---

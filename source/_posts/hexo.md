@@ -5,9 +5,7 @@ date: 2018-05-24 14:48
 categories: [技术]
 comments: true
 tags: 
-	- Github 
-	- Node.js
-	- 技术
+	- 心得 
 ---
 
 ![Hexo](/images/hexo.jpg)

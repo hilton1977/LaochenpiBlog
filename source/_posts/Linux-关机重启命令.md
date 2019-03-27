@@ -1,9 +1,8 @@
 ---
 title: Linux 关机重启命令
 date: 2018-07-25 13:50:04
-category : Linux
+categories: [Linux]
 tags:
-    - 技术
     - Linux
 ---
 

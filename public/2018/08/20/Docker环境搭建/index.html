@@ -10,10 +10,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="笔记,docker" />
+        <meta name="keywords" content="Java" />
     
     <meta name="description" content="开发-&amp;gt;部署测试-&amp;gt;发布正式 在整体流程中每个人的开发环境可能各不相同、编译环境、运行环境。单机服务调整控制环境版本等可以保证发布一致性，但是如果当业务越来越庞大集群处理时需要部署多台机器时，可能每台机器的大大小小差异都会导致发布失败，处理起来非常麻烦。docker虚拟化来处理能保证发布环境一致性，可移植。通过docker 镜像你可以在任何版本linux服务器上进行发布。每个镜像就相">
-<meta name="keywords" content="笔记,docker">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker 环境搭建">
 <meta property="og:url" content="http://laochenpi.top/2018/08/20/Docker环境搭建/index.html">
@@ -21,7 +21,7 @@
 <meta property="og:description" content="开发-&amp;gt;部署测试-&amp;gt;发布正式 在整体流程中每个人的开发环境可能各不相同、编译环境、运行环境。单机服务调整控制环境版本等可以保证发布一致性，但是如果当业务越来越庞大集群处理时需要部署多台机器时，可能每台机器的大大小小差异都会导致发布失败，处理起来非常麻烦。docker虚拟化来处理能保证发布环境一致性，可移植。通过docker 镜像你可以在任何版本linux服务器上进行发布。每个镜像就相">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018020901.png">
-<meta property="og:updated_time" content="2019-03-20T06:02:32.706Z">
+<meta property="og:updated_time" content="2019-03-27T02:16:16.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker 环境搭建">
 <meta name="twitter:description" content="开发-&amp;gt;部署测试-&amp;gt;发布正式 在整体流程中每个人的开发环境可能各不相同、编译环境、运行环境。单机服务调整控制环境版本等可以保证发布一致性，但是如果当业务越来越庞大集群处理时需要部署多台机器时，可能每台机器的大大小小差异都会导致发布失败，处理起来非常麻烦。docker虚拟化来处理能保证发布环境一致性，可移植。通过docker 镜像你可以在任何版本linux服务器上进行发布。每个镜像就相">
@@ -75,7 +75,7 @@
                                     <a class="main-nav-list-link" href="/">主页</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/NoSql/">NoSql</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/数据库/">数据库</a></li></ul>
                                     
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="/about/index.html">关于</a>
@@ -134,7 +134,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    未分类
+    <a class="page-title-link" href="/categories/技术/">技术</a>
     </h1>
 </div>
                         <div class="main-body-content">
@@ -163,7 +163,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/docker/">docker</a>, <a class="tag-link" href="/tags/笔记/">笔记</a>
+        <a class="tag-link" href="/tags/Java/">Java</a>
     </div>
 
             </div>
@@ -177,9 +177,59 @@
 <h2 id="1-Docker-介绍"><a href="#1-Docker-介绍" class="headerlink" title="1.Docker 介绍"></a>1.Docker 介绍</h2><p>Docker 属于 Linux 容器的一种封装，提供简单易用的容器使用接口。它是目前最流行的 Linux 容器解决方案。</p>
 <p>Docker 将应用程序与该程序的依赖，打包在一个文件里面。运行这个文件，就会生成一个虚拟容器。程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。有了 Docker，就不用担心环境问题。</p>
 <p>总体来说，Docker 的接口相当简单，用户可以方便地创建和使用容器，把自己的应用放入容器。容器还可以进行版本管理、复制、分享、修改，就像管理普通的代码一样。</p>
-<h2 id="2-Docker-安装"><a href="#2-Docker-安装" class="headerlink" title="2.Docker 安装"></a>2.Docker 安装</h2><p>我的VPS用的Centos 7 那就用本版本记录搭建过程，docker的版本用CE社区版<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#下载yum-utils工具用于管理yum-config-manager可以配置源</span></span><br><span class="line">yum install yum-utils</span><br><span class="line"><span class="comment">#添加docker-ce源</span></span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line"><span class="comment">#查询docker-ce版本</span></span><br><span class="line">yum list docker-ce --showduplicates | sort -r </span><br><span class="line"><span class="comment">#指定安装18.06.0 版本</span></span><br><span class="line">yum install dock-ce-18.06.0.ce</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-Docker-安装"><a href="#2-Docker-安装" class="headerlink" title="2.Docker 安装"></a>2.Docker 安装</h2><p>我的VPS用的Centos 7 那就用本版本记录搭建过程，docker的版本用CE社区版<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#下载yum-utils工具用于管理yum-config-manager可以配置源</span></span><br><span class="line">yum install yum-utils</span><br><span class="line"><span class="comment">#添加docker-ce源</span></span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line"><span class="comment">#查询docker-ce版本</span></span><br><span class="line">yum list docker-ce --showduplicates | sort -r </span><br><span class="line"><span class="comment">#指定安装18.06.0 版本</span></span><br><span class="line">yum install dock-ce-18.06.0.ce</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">=======</span><br></pre></td></tr></table></figure></p>
 <p>安装docker，默认是安装最高版本测试可以用，但是生产环境为了稳定尽量指定版本(stable稳定版)</p>
-<h2 id="3-Docker-常用命令"><a href="#3-Docker-常用命令" class="headerlink" title="3.Docker 常用命令"></a>3.Docker 常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动docker服务</span></span><br><span class="line">systemctl start docker</span><br><span class="line"><span class="comment">#自动启动docker服务</span></span><br><span class="line">systemctl <span class="built_in">enable</span> docker</span><br><span class="line"><span class="comment">#运行一个容器</span></span><br><span class="line">docker run hello-world</span><br><span class="line"><span class="comment">#查看所有运行中容器</span></span><br><span class="line">docker ps</span><br><span class="line"><span class="comment">#查看所有容器</span></span><br><span class="line">docker ps -a</span><br><span class="line"><span class="comment">#停止容器</span></span><br><span class="line">docker stop [name]</span><br><span class="line"><span class="comment">#查看镜像</span></span><br><span class="line">docker images</span><br><span class="line"><span class="comment">#删除镜像</span></span><br><span class="line">docker rmi [imageId]</span><br><span class="line"><span class="comment">#删除容器 </span></span><br><span class="line">docker rm [name or id]</span><br><span class="line"><span class="comment">#进入某容器</span></span><br><span class="line">docker attach [name or id]</span><br><span class="line"><span class="comment">#在运行中的容器中执行脚本 控制台交互  这里注意 有的镜像是 /bin/sh </span></span><br><span class="line">docker <span class="built_in">exec</span> -itd [id or name] /bin/bash</span><br></pre></td></tr></table></figure>
+<h2 id="3-Docker-常用命令"><a href="#3-Docker-常用命令" class="headerlink" title="3.Docker 常用命令"></a>3.Docker 常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 89e26ef27826ebc8a8b06014969c8ead3bb74a3e</span><br><span class="line"><span class="comment">#启动docker服务</span></span><br><span class="line">systemctl start docker</span><br><span class="line"><span class="comment">#自动启动docker服务</span></span><br><span class="line">systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
+<p>安装docker,默认是安装最高版本测试可以用，但是生产环境为了稳定尽量指定版本(<code>stable稳定版</code>)</p>
+<h2 id="3-Docker-镜像-容器"><a href="#3-Docker-镜像-容器" class="headerlink" title="3.Docker 镜像 容器"></a>3.Docker 镜像 容器</h2><h4 id="镜像查询拉取"><a href="#镜像查询拉取" class="headerlink" title="镜像查询拉取"></a>镜像查询拉取</h4><p>安装 docker 完毕，可以尝试安装一个镜像并运行，搜索镜像使用 <code>docker search [镜像名称]</code>,搜索的镜像 <code>OFFICAL</code> 标识的为官方镜像，其余的都是非官方人员自行构建的镜像并上传库共享。<br><img src="/images/docker-search.png" alt="docker-search-alpine"><br>使用 <code>docker pull alpine</code> 下载拉取alpine镜像,然后使用<code>docker images</code> 查看镜像已有镜像，这里以<code>alpine</code>为模板<br><img src="/images/docker-images.png" alt="docker-images"></p>
+<h4 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h4><p>基于alpine镜像启动一个容器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd -p  8081:8081 --name myTest  alpine</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>-i：以交互模式运行容器，通常与 -t 同时使用</li>
+<li>-d: 后台运行容器，并返回容器ID</li>
+<li>-t : 为容器重新分配一个伪输入终端，通常与 -i 同时使用</li>
+<li>-p: 端口映射，格式为：主机(宿主)端口:容器端口 8080端口的访问转发到容器的8080端口上</li>
+<li>–name: 为容器指定一个容器名</li>
+<li>alpine：这是指用 <code>alpine</code> 镜像为基础来启动容器。</li>
+</ul>
+<p>启动完毕后 <code>docker ps</code> 查看正在运行的容器,  <code>docker ps -a</code> 查看容器。</p>
+<h4 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##### myTest 为容器名称 ##### </span></span><br><span class="line"><span class="comment">#进行容器</span></span><br><span class="line">docker attach myTest</span><br><span class="line"><span class="comment">#容器中执行脚本返回结果 (由于是alpine所以执行的)</span></span><br><span class="line">docker <span class="built_in">exec</span> -it myTest /bin/sh</span><br><span class="line"><span class="comment">#删除容器</span></span><br><span class="line">docker rm myTest</span><br><span class="line"><span class="comment">#启动已有容器</span></span><br><span class="line">docker start myTest</span><br><span class="line"><span class="comment">#停止容器</span></span><br><span class="line">docker stop myTest</span><br></pre></td></tr></table></figure>
+<p>在容器中退出容器时需要注意的是通过<code>exit</code>返回宿主主机会导致容器直接停止并不是我们想要的结果，官方给出的退出容器并使其在后台继续运行使用 <code>ctrl+p+q</code> 安全退出不影响容器运行。 </p>
+<h2 id="4-DockerFile"><a href="#4-DockerFile" class="headerlink" title="4.DockerFile"></a>4.DockerFile</h2><p>Dockerfile 是一个文本文件，其内包含了一条条的指令<code>(Instruction)</code>，每一条指令构建一层，因此每一条指令的内容，就是描述该层应当如何构建。我们可以根据实际的开发需求通过<code>dockerfile</code>来自定义镜像，JUST DO IT！</p>
+<h5 id="FROM-指令"><a href="#FROM-指令" class="headerlink" title="FROM 指令"></a>FROM 指令</h5><p>FROM &lt;image>:&lt;tag> 相当于建造一个大楼地基的选择，选择不同的地基来搭建不一样的大楼。</p>
+<ul>
+<li>操作系统类基础搭建例如 <code>ubuntu</code>、<code>dabin</code>、<code>centos</code></li>
+<li>开发语言作为基础搭建例如<code>java</code>、<code>nodejs</code>、<code>python</code> </li>
+<li>服务类镜像作为基础 <code>oralce</code>、<code>mysql</code>、<code>nginx</code>、<code>tomcat</code></li>
+<li>自定义混合类作为基础在其他自定义环境镜像基础上搭建</li>
+</ul>
+<p>所有的镜像地基都可以从docker库中拉取，选择合理的基础镜像可以让你更快的去构建你的镜像，省心省力。</p>
+<h4 id="RUN-指令"><a href="#RUN-指令" class="headerlink" title="RUN 指令"></a>RUN 指令</h4><p>RUN 就像是执行shell指令，常常用于更新安装需要的生产软件服务等。RUN有2种执行方式</p>
+<ul>
+<li>shell 格式： RUN &lt;命令&gt; ，就像直接在命令行中输入的命令一样：<code>RUN apt-get --update</code></li>
+<li>exec 格式： RUN [“可执行文件”, “参数1”, “参数2”]：<code>RUN [&quot;apt-get&quot;,&quot;--update&quot;]</code></li>
+</ul>
+<p><strong>注意</strong>：多行命令不要写多个<code>RUN</code>，原因是<code>Dockerfile</code>中每一个指令都会建立一层.多少个<code>RUN</code>就构建了多少层镜像，会造成镜像的臃肿多层，不仅仅增加了构件部署的时间，还容易出错。<code>RUN</code>书写时的换行符是<code>\</code>，记得下载压缩软件操作完毕后<code>rm</code>不必要的软件压缩包和缓存让镜像更精简。</p>
+<h4 id="CMD-指令"><a href="#CMD-指令" class="headerlink" title="CMD 指令"></a>CMD 指令</h4><p><code>CMD</code> 指令的格式和 <code>RUN</code> 相似也是两种格式，<code>CMD</code> 执行脚本在<code>dockerfile</code>只能存在一条，多条只执行最后一条，当有多个时只会执行最后一个，一般用于执行开启某些服务 <code>tomcat</code>、<code>oracle</code>、<code>nginx</code>等。</p>
+<h4 id="ENTRYPOINT-指令"><a href="#ENTRYPOINT-指令" class="headerlink" title="ENTRYPOINT 指令"></a>ENTRYPOINT 指令</h4><p><code>ENTRYPOINT</code> 执行脚本在<code>dockerfile</code>只能存在一条，多条只执行最后一条，容器启动后执行且不会被<code>docker run</code>提供的参数覆盖。</p>
+<h3 id="RUN-ENTRYPOINT-CMD-小结"><a href="#RUN-ENTRYPOINT-CMD-小结" class="headerlink" title="RUN  ENTRYPOINT  CMD 小结"></a>RUN  ENTRYPOINT  CMD 小结</h3><ul>
+<li><code>CMD</code> 和 <code>ENTRYPOINT</code> 推荐使用<code>Exec</code>格式，因为指令可读性更强，更容易理解。<code>RUN</code> 则两种格式都可以。</li>
+<li><code>RUN</code>用来执行脚本构建基础镜像，<code>CMD</code> <code>ENTRYPOINT</code> 用来构建完镜像容器启动后执行一些操作。</li>
+<li><code>CMD</code> 会被<code>docker run</code> 后的执行脚本覆盖不执行，<code>ENTRYPOINT</code> 则不会被覆盖始终会被执行，如果需要覆盖运行需要<code>–entrypoint</code>参数。</li>
+<li><code>ENTRYPOINT</code> 和 <code>CMD</code> 同时存在时谁在最后谁能执行，<code>CMD</code> 可作为 <code>ENTRYPOINT</code> 的执行参数灵活配合使用。</li>
+</ul>
+<h4 id="COPY-指令"><a href="#COPY-指令" class="headerlink" title="COPY 指令"></a>COPY 指令</h4><p>用于从上下文路径复制文件到容器目标路径中，<code>copy package.json /usr/src/app/</code> 把<code>package.json</code>复制到容器 <code>/usr/src/app</code>路径下</p>
+<ul>
+<li>COPY &lt;源路径&gt;… &lt;目标路径&gt;</li>
+<li>COPY [“&lt;源路径&gt;”，……，”&lt;目标路径&gt;”]  <code>......</code>代表若干源路径</li>
+</ul>
+<h4 id="ADD-指令"><a href="#ADD-指令" class="headerlink" title="ADD 指令"></a>ADD 指令</h4><p><code>ADD</code> 指令和 <code>COPY</code> 的格式和性质基本一致，是在 <code>COPY</code> 基础上增加了一些功能。比如<code>&lt;源路径&gt;</code>可以是一个<code>URL</code>，这种情况下 Docker 引擎会试图去下载这个链接的文件放到<code>&lt;目标路径&gt;</code>去。如果<code>&lt;源路径&gt;</code>为一个<code>tar</code> 压缩文件的话，压缩格式为<code>gzip</code> , <code>bzip2</code> 以及 <code>xz</code> 的情况下，<code>ADD</code>指令将会自动解压缩这个压缩文件到<code>&lt;目标路径&gt;</code>去。<code>ADD</code> 指令会令镜像构建缓存失效，从而可能会令镜像构建变得比较缓慢，<code>ADD</code> 还包含了一些复杂的的功能其行为也不一定清晰，所以官方推荐使用<code>COPY</code>来进行文件的复制。</p>
+<h4 id="ENV-指令"><a href="#ENV-指令" class="headerlink" title="ENV 指令"></a>ENV 指令</h4><p><code>ENV</code> 用于设置环境变量在后续的指令可以直接引用</p>
+<ul>
+<li>ENV &lt;key> &lt;value></li>
+<li>ENV &lt;key1>=&lt;value1> &lt;key2>=&lt;value2>…</li>
+</ul>
+<h5 id="Docker-build构建"><a href="#Docker-build构建" class="headerlink" title="Docker build构建"></a>Docker build构建</h5><p>所有的脚本编写完毕使用<code>docker bulid</code> 对 Dockerfile 进行构建，详细的命令如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#基于镜像 这里使用alpine 主要是体积小构建速度更快</span></span><br><span class="line">FROM alpine</span><br><span class="line"><span class="comment">#构建维修者 </span></span><br><span class="line">MAINTAINER 285635652@qq.com</span><br><span class="line">RUN apt-get update /</span><br><span class="line">  &amp;&amp; apt-get java</span><br></pre></td></tr></table></figure>
 
         </div>
         <footer class="article-footer">
@@ -187,7 +237,7 @@
 
 
 
-    <a data-url="http://laochenpi.top/2018/08/20/Docker环境搭建/" data-id="cjtpgby0e000090qumgff4vsv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://laochenpi.top/2018/08/20/Docker环境搭建/" data-id="cjtqldtz80001ysquof3cys6h" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -286,14 +336,6 @@
             
                 
                 <li>
-                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
-                        <i class="icon fa fa-google-plus"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
                     <a class="social-tooltip" title="github" href="https://github.com/hilton1977/hilton1977.github.io" target="_blank" rel="noopener">
                         <i class="icon fa fa-github"></i>
                     </a>
@@ -322,11 +364,11 @@
         
 <nav id="article-nav">
     
-        <a href="/2019/02/22/Redis缓存场景/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2019/02/22/Redis持久化/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            Redis 缓存问题场景
+            Redis 持久化
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
@@ -368,9 +410,29 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/数据库/">数据库</a></p>
                             <p class="item-title"><a href="/2019/03/25/Mysql安装记录/" class="title">MySql 主从集群配置</a></p>
                             <p class="item-date"><time datetime="2019-03-25T01:07:05.000Z" itemprop="datePublished">2019-03-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/03/21/JVM基础概念/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JVM-1.8-before.png)" alt="JVM 基础概念" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a></p>
+                            <p class="item-title"><a href="/2019/03/21/JVM基础概念/" class="title">JVM 基础概念</a></p>
+                            <p class="item-date"><time datetime="2019-03-21T13:01:28.000Z" itemprop="datePublished">2019-03-21</time></p>
                         </div>
                     </li>
                 
@@ -388,7 +450,7 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
                             <p class="item-title"><a href="/2019/03/20/RabbitMq 消息队列中间件/" class="title">RabbitMQ 消息队列中间件</a></p>
                             <p class="item-date"><time datetime="2019-03-20T06:35:19.000Z" itemprop="datePublished">2019-03-20</time></p>
                         </div>
@@ -397,10 +459,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2019/02/22/Redis持久化/" class="thumbnail">
+                            <a href="/2019/03/18/ArrayList源码阅读/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/redis.jpg)" alt="Redis 持久化" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
     
 </a>
@@ -409,8 +471,8 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/02/22/Redis持久化/" class="title">Redis 持久化</a></p>
-                            <p class="item-date"><time datetime="2019-02-22T02:27:08.000Z" itemprop="datePublished">2019-02-22</time></p>
+                            <p class="item-title"><a href="/2019/03/18/ArrayList源码阅读/" class="title">ArrayList源码阅读</a></p>
+                            <p class="item-date"><time datetime="2019-03-18T13:01:48.000Z" itemprop="datePublished">2019-03-18</time></p>
                         </div>
                     </li>
                 
@@ -428,29 +490,9 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/NoSql/">NoSql</a></p>
                             <p class="item-title"><a href="/2019/02/22/Redis缓存场景/" class="title">Redis 缓存问题场景</a></p>
                             <p class="item-date"><time datetime="2019-02-22T02:27:08.000Z" itemprop="datePublished">2019-02-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/08/20/Docker环境搭建/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.ruanyifeng.com/blogimg/asset/2018/bg2018020901.png)" alt="Docker 环境搭建" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/08/20/Docker环境搭建/" class="title">Docker 环境搭建</a></p>
-                            <p class="item-date"><time datetime="2018-08-20T06:11:30.000Z" itemprop="datePublished">2018-08-20</time></p>
                         </div>
                     </li>
                 
@@ -463,7 +505,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NoSql/">NoSql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -473,7 +515,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -483,7 +525,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log4j/">Log4j</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logstash，ELK/">logstash，ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中间件/">中间件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java基础-源码/">-- Java基础 -- 源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中间件/">中间件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -493,7 +535,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Log4j/" style="font-size: 10px;">Log4j</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/logstash，ELK/" style="font-size: 10px;">logstash，ELK</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/心得/" style="font-size: 13.33px;">心得</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a>
+            <a href="/tags/Java基础-源码/" style="font-size: 10px;">-- Java基础 -- 源码</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/心得/" style="font-size: 10px;">心得</a> <a href="/tags/技术/" style="font-size: 13.33px;">技术</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
         </div>
     </div>
 

@@ -1,9 +1,9 @@
 ---
 title: Winsw 把 java 项目做成服务
 date: 2018-08-16 20:04:17
+categories: [技术]
 tags: 
 	- Java
-	- 心得
 ---
 
 >jar项目需要通过命令行jar -jar 执行脚本启动显示控制台，由于强迫症可以使用javaw -jar来执行可以在后台执行，但通过java编译启动在window环境下进程名都为java.exe一旦项目多了当你要更新部署更新关闭项目时候就懵逼了有可能就会误操作，通过Google发现有个开源的软件

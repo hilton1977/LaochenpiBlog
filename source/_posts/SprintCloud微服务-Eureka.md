@@ -1,8 +1,10 @@
 ---
 title: SpringCloud 服务中心之 Eureka
 date: 2018-08-01 16:43:15
+categories: [Spring]
 tags:
     - Spring
+    - Java
 ---
 ![Eureka](/images/SpringCloud.jpg)
 

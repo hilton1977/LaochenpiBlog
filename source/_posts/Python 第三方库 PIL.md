@@ -1,9 +1,9 @@
 ---
 title: Python验证码识别
 date: 2018-05-25 16:27:08
+categories: [Python]
 tags:
-    - python
-    - 技术
+    - Python
 ---
 
 >Python 第三方库 PIL Pytesseract tesseract-ocr  进行爬虫验证码识别

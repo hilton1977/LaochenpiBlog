@@ -1,9 +1,10 @@
 ---
 title: Redis 缓存问题场景
 date: 2019-02-22 10:27:08
+categories: [NoSql]
 tags:
     - Redis
-    - 技术
+    - Java
 ---
 
 ![](/images/redis.jpg)
