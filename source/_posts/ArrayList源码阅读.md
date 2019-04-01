@@ -5,13 +5,14 @@ categories: [Java]
 tags:
     - Java
 ---
+![Java](/images/java.jpg)
 
 > 记录学习回顾Java基础学习源码思想ArrayList，平时光顾着写业务代码基础细节都没有进行积累导致出去面试被人家一顿虐，只注重外功不注重内功是不行的。
 
-### ArrayList
+## ArrayList
 平时最常用的集合，特点有序查找效率高`线程不安全`底层是数组实现了动态数组的功能，实现了`RandomAccess`(快速随机访问)、`Cloneable`(克隆接口)、`Serializabele`(序列化)等接口。
 
-#### 源码解析
+### 源码解析
 ``` java
 
 public class ArrayList<E> extends AbstractList<E>

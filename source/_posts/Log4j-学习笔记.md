@@ -1,7 +1,7 @@
 ---
 title: Log4j 自定义多文件分离
 date: 2018-07-20 17:32:59
-categories: [Java]
+categories: [Spring]
 tags:
     - Java
 ---

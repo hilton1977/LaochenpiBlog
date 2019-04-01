@@ -1,5 +1,5 @@
 ---
-title: Linux-文件权限管理
+title: Linux 文件权限管理
 date: 2018-07-25 15:07:09
 categories: [Linux]
 tags:

@@ -16,7 +16,7 @@ tags:
  * [Node.js](http://nodejs.cn/) hexo依赖环境
  * [Git Bash](https://git-scm.com/) 根据OS下载安装包 用于发布和更新微博
  
-##### 安装 Hexo
+#### 安装 Hexo
 ``` bash
 #1.安装hexo环境
 npm install hexo-cli -g  
@@ -29,7 +29,7 @@ npm install
  ```
  
 
-##### 常用指令
+#### 常用指令
 ```bash
 #新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。
 $ hexo init [folder]

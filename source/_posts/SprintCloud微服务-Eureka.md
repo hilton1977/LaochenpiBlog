@@ -16,7 +16,7 @@ Eureka 是 Netflix 旗下微服务开发组件，用于服务发现和注册中�
 
 ## 2. EurekaServer 注册中心搭建
 首先建立项目使用maven来构建项目，pom.xml依赖关系如下本项目用最新的版本进行教程，相关的官方教程可查看[Spring Cloud Eureka](http://projects.spring.io/spring-cloud/#quick-start)
-##### pom.xml maven依赖配置
+#### pom.xml maven依赖配置
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -86,7 +86,7 @@ public class Application {
     }
 }
 ```
-##### WebSecurityConfig 安全认证配置
+#### WebSecurityConfig 安全认证配置
 ``` java
 package com.config;
 
@@ -104,7 +104,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 }
 ```
-##### application.yml 基本配置项
+#### application.yml 基本配置项
 ``` yml
 #Eureka 服务中心设置 
 eureka:
@@ -127,7 +127,7 @@ server:
 ![Eureka Server Center](/images/eureka.png)
 
 ## 3.  EurekaClient 服务搭建
-##### pom.xml maven依赖配置
+#### pom.xml maven依赖配置
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -185,7 +185,7 @@ server:
     </build>
 </project>
 ```
-##### SpringBoot 启动配置项
+#### SpringBoot 启动配置项
 ``` java
 package com;
 import org.springframework.boot.SpringApplication;
@@ -214,7 +214,7 @@ public class Application {
     }
 }
 ```
-##### application.yml配置
+#### application.yml配置
 ``` yml
 #  设置服务名
 spring:

@@ -1,7 +1,7 @@
 ---
 title: Redis 持久化
 date: 2019-02-22 10:27:08
-categories: [NoSql]
+categories: [数据库]
 tags:
     - Redis
 ---
