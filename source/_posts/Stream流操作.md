@@ -37,7 +37,7 @@ strings.stream()
 # skip 忽略前N个元素
 strings.stream()
 	   .skip(2)
-	   .collect(Collectors.toList())
+	   .collect(Collectors.toList());
 
 # distinct 去重 非基本类型需要重写 hashcode equals 方法
 strings.stream()
@@ -46,6 +46,6 @@ strings.stream()
 
 # sorted 排序 非基本类型需要重写 hashcode equals 方法
 strings.stream()
-       .sorted(Comparator.comparing(s -> s))
+       .sorted(Comparator.comparing(s -> s))    
 	   .forEach(System.out::println);
 ```
