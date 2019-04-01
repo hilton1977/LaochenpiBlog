@@ -26,8 +26,8 @@ int count = strings.stream()
 
 # limit 数量限制
 strings.stream()
-	   .limit(5)
-	   .forEach(System.out::println);
+       .limit(5)
+       .forEach(System.out::println);
 
 # map 将每个元素映射为其他
 strings.stream()
@@ -36,16 +36,16 @@ strings.stream()
 
 # skip 忽略前N个元素
 strings.stream()
-	   .skip(2)
-	   .collect(Collectors.toList());
+       .skip(2)
+       .collect(Collectors.toList());
 
 # distinct 去重 非基本类型需要重写 hashcode equals 方法
 strings.stream()
-	   .distinct()
-	   .forEach(System.out::println);
+       .distinct()
+       .forEach(System.out::println);
 
 # sorted 排序 非基本类型需要重写 hashcode equals 方法
 strings.stream()
        .sorted(Comparator.comparing(s -> s))    
-	   .forEach(System.out::println);
+       .forEach(System.out::println);
 ```
