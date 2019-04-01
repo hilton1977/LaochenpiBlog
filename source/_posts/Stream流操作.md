@@ -21,8 +21,8 @@ List<String> strings = Arrays.asList("3","1","2", "4");
 
 # filter 筛选操作
 int count = strings.stream()
-		.filter(string -> string.isEmpty())
-		.count();
+		   .filter(string -> string.isEmpty())
+		   .count();
 
 # limit 数量限制
 strings.stream()
