@@ -67,4 +67,4 @@ Java 堆是 垃圾回收器管理的主要区域 GC 堆（`Garbage Collector Hea
 
 JDK 1.4中新加入的`NIO`(`New Input/OutPut`)类，引入基于通道(`Channel`)与缓冲区（`Buffer`）的`I/O`方式，它可以直接通过`Native`函数直接分配堆外内存，然后通过 Java 中 DirectByBuffer 对象来操作这些内存。这样避免 `Java 堆`和 `Native 堆`之间来回复制数据浪费性能。
 
-__直接内存分配不收 Java 堆的限制，但是受限于机器的物理内存大小和逻辑器寻址空间限制。__
+__直接内存分配不受 Java 堆的限制，但是受限于机器的物理内存大小和逻辑器寻址空间限制。__
