@@ -1,9 +1,7 @@
 ---
-layout: post
 title: JVM 基础概念
-categories: [Java]
-comments: true
 date: 2019-03-21 21:01:28
+categories: [Java]
 tags:
 	- Java
 	- 技术
