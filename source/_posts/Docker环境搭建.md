@@ -37,7 +37,6 @@ yum install dock-ce-18.06.0.ce
 ## 3.Docker 常用命令
 
 ``` bash
->>>>>>> 89e26ef27826ebc8a8b06014969c8ead3bb74a3e
 #启动docker服务
 systemctl start docker
 #自动启动docker服务
@@ -139,8 +138,7 @@ __注意__：多行命令不要写多个`RUN`，原因是`Dockerfile`中每一�
 FROM alpine
 #构建维修者 
 MAINTAINER 285635652@qq.com
-RUN apt-get update /
-  && apt-get java
+RUN apt-get update / && apt-get java
 ```
 
 
