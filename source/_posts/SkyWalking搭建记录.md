@@ -58,7 +58,7 @@ storage:
 ![Skywalking-WebApp](/images/skywalking-ui.png)
 
 ## 注意事项
-- `Skywalking` __6.0__ 相对 __5.0__简化了配置项，数据落地添加了`MySql`方式，需要注意`Elasticsearch`要求的版本也不一样，从`5.X`到`6.X`
+- `Skywalking` __6.0__ 相对 __5.0__简化了配置项，数据落地添加了`MySql`方式，需要注意`Elasticsearch`要求的版本也不一样，从_5.X__到__6.X__
 - `Skywalking UI`默认的登录密码为`admin`，可以在`webapp.yml`中自行配置
 - `Skywalking-WebApp`和`Skywalking-Collector`如果跟探针不在同一机器上，修改`Collector`的配置文件`application.yml`的`host`，以便于探针收集的数据能准确的发送到`Collector`，同时修改探针`agent.config`配置项`collector.servers`地址。
 ``` yml
