@@ -30,8 +30,12 @@ static {
         }
     }
 ```
-读取`DispatcherServlet.properties`初始化需要的加载各类组件配置
+读取`DispatcherServlet.properties`初始化使用的策略
 ``` java
+protected void onRefresh(ApplicationContext context) {
+    this.initStrategies(context);
+}
+
 protected void initStrategies(ApplicationContext context) {
     this.initMultipartResolver(context);
     this.initLocaleResolver(context);
@@ -44,19 +48,8 @@ protected void initStrategies(ApplicationContext context) {
     this.initFlashMapManager(context);
 }
 ```
-根据上下文`ApplicationContext`对象执行`initStrategies`初始化各类组件
-``` java
-private MultipartResolver multipartResolver;
-private LocaleResolver localeResolver;
-private ThemeResolver themeResolver;
-private List<HandlerMapping> handlerMappings;
-private List<HandlerAdapter> handlerAdapters;
-private List<HandlerExceptionResolver> handlerExceptionResolvers;
-private RequestToViewNameTranslator viewNameTranslator;
-private List<ViewResolver> viewResolvers;
-private FlashMapManager flashMapManager;
-```
-
+通过继承`FrameworkServlet`抽象类复写`onRefresh`方法，根据上下文`ApplicationContext`对象执行`initStrategies`初始化策略，
 
 ### HandlerMapping
-
+根据请求的`Url`找到对应的`Handler`，即我们项目中平时所谓的`Controller`，我们可以通过配置文件、注解方式、实现接口方式。
+![HandlerMapping 类图](/images/HandlerMapping.png)
