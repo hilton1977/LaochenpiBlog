@@ -28,7 +28,7 @@ tags:
 
 ##### 集成方式
 常用的`Java`项目运行方式`Jar`方式或者`War`通过容器启动，例如`Tomcat`
-- __Jar__ 配置JVM运行添加探针 `-javaagent:[skywalking-agent.jar绝对路径]`
+- __Jar__ 配置JVM运行添加探针 `-javaagent:[skywalking-agent.jar绝对路径] -Dskywalking.agent.application_code=[应用名]` 多应用使用同一个`Agent`通过系统变量设置应用名称
 - __Tomcat__ `tomcat`目录`bin`下的`catalina`脚本
 ``` shell
 Window
