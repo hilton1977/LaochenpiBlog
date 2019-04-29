@@ -49,7 +49,7 @@ SpringBoot 微服务项目集成 RabbitMQ 特别方便，`Maven`项目依赖添�
 </dependency>
 ```
 #### yml 配置
-``` properties
+``` yml
 spring:
   rabbitmq:
   host: ip地址
