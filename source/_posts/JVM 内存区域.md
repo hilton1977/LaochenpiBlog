@@ -74,4 +74,4 @@ JDK 1.4中新加入的`NIO`(`New Input/OutPut`)类，引入基于通道(`Channel
 __直接内存分配不受 Java 堆的限制，但是受限于机器的物理内存大小和逻辑器寻址空间限制。__
 
 
-> 所有内容摘自 《深入理解 Java 虚拟机》 一书中 和 https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/%E5%8F%AF%E8%83%BD%E6%98%AF%E6%8A%8AJava%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AE%B2%E7%9A%84%E6%9C%80%E6%B8%85%E6%A5%9A%E7%9A%84%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0.md
+> 所有内容摘自 《深入理解 Java 虚拟机》  和 https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.md
