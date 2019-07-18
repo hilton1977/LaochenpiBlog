@@ -82,3 +82,14 @@ firewall-cmd --zone=public --add-port=10067/tcp --permanent
 ![](/images/vmess-windows-client.jpg)
 
 填写完毕启用`Http`代理修改代理模式为`PAC`模式，然后就可以愉快的在上google
+
+## BBR 加速
+搭建好了`V2Ray`你感觉速度不够快连接效果不够好，我们可以通过脚本开启`BBR`
+``` bash
+#安装wget，digitalocean默认没有安装wget，安装一下
+yum -y install wget
+
+#执行BBR PLUS修正版一键脚本
+wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
+```
+根据自身情况安装内核重启系统后安装`BBR加速`
