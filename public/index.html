@@ -66,7 +66,7 @@
                                     <a class="main-nav-list-link" href="/">主页</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/NoSql/">NoSql</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/数据库/">数据库</a></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/数据库/">数据库</a></li></ul>
                                     
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="/about/index.html">关于</a>
@@ -148,67 +148,17 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2019/03/25/Mysql安装记录/" class="thumbnail">
+        <a href="/2019/07/18/Maven 属性/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/MySQL.jpg)" alt="MySql 主从集群配置" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span><a href="http://laochenpi.top/2019/03/25/Mysql安装记录/#isso-thread"></a></span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/数据库/">数据库</a>
-            </div>
-            <div class="date"><time datetime="2019-03-25T01:07:05.000Z" itemprop="datePublished">2019-03-25</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/03/25/Mysql安装记录/">MySql 主从集群配置</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-
-记录安装MySql 过程，并搭建主从模式集群。主从模式在项目中的运用例如读写分离，提高吞吐量在大量需要读操作时可以把压力分散到各个从库不影响主库写操作，如发生主库异常宕机也可以通过从库的数据进行恢复或者顶替主库。
-
-MySQL 安装官方网站下载最靠谱，不要在奇奇怪怪的网站下可能会有乱七八糟的插件之类的，唯一指定网站 https://www.mysql.com/ ，本人下载的ZIP包解压，进入文
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/03/21/JVM基础概念/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/JVM-1.8-before.png)" alt="JVM 基础概念" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/maven.jpg)" alt="Maven 属性" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span><a href="http://laochenpi.top/2019/03/21/JVM基础概念/#isso-thread"></a></span>
+        <span><a href="http://laochenpi.top/2019/07/18/Maven 属性/#isso-thread"></a></span>
     
 </span>
 
@@ -221,20 +171,76 @@ MySQL 安装官方网站下载最靠谱，不要在奇奇怪怪的网站下可�
             <div class="category">
             <a class="article-category-link" href="/categories/技术/">技术</a>
             </div>
-            <div class="date"><time datetime="2019-03-21T13:01:28.000Z" itemprop="datePublished">2019-03-21</time></div>
+            <div class="date"><time datetime="2019-07-18T02:00:03.000Z" itemprop="datePublished">2019-07-18</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/03/21/JVM基础概念/">JVM 基础概念</a>
+        <a href="/2019/07/18/Maven 属性/">Maven 属性</a>
         </h1>
     
 
         <p class="article-excerpt">
             
-JVM 复习基本概念学习和记录
+Maven 内置属性Maven 内置属性(Maven预定义,用户可以直接使用)
 
-概述对于 Java 程序员来说，在虚拟机自动内存管理机制下，不再需要像C/C++程序开发程序员这样为内一个 new 操作去写对应的 delete/free 操作，不容易出现内存泄漏和内存溢出问题。正是因为 Java 程序员把内存控制权利交给 Java 虚拟机，一旦出现内存泄漏和溢出方面的问题，如果不了解虚拟机是怎样使用内存的，那么排查错误将会是一个非常艰巨的任务
+${basedir} 表示项目根目录，即包含pom.xml文件目录
+${version} 表示项目版本
+${project.basedir}同${basedir} 
+${project.baseUri}表示项目文件地址
+${maven.build.timestamp}表示项目构件开始时间
+
+Maven POM属性
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2019/07/17/V2Ray搭建记录/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/vmess-windows-client.jpg)" alt="V2Ray 搭建记录" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span><a href="http://laochenpi.top/2019/07/17/V2Ray搭建记录/#isso-thread"></a></span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/技术/">技术</a>
+            </div>
+            <div class="date"><time datetime="2019-07-17T03:24:48.000Z" itemprop="datePublished">2019-07-17</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/07/17/V2Ray搭建记录/">V2Ray 搭建记录</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+Vultr 上次的一次特殊事件被封了，后来无意间看到了新的云梯 V2Ray 搭建起来更方便简单，搜了下教程重新搭建并记录
+
+V2Ray 服务安装执行官网的一键脚本，执行完毕会自动安装好unzip与deamon软件，应用程序默认安装在/usr/bin/v2ray/v2ray，当有新版本发布只需再执行该脚本即可
+1bash &lt;(curl -L -s https://install.direct
         </p>
     </div>
 </article>
@@ -251,17 +257,17 @@ JVM 复习基本概念学习和记录
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2019/03/20/RabbitMq 消息队列中间件/" class="thumbnail">
+        <a href="/2019/07/17/Vue复杂的table表单代码块/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/RabbitMQ.jpg)" alt="RabbitMQ 消息队列中间件" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/vue.jpg)" alt="Vue 复杂的 table 表单代码块" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span><a href="http://laochenpi.top/2019/03/20/RabbitMq 消息队列中间件/#isso-thread"></a></span>
+        <span><a href="http://laochenpi.top/2019/07/17/Vue复杂的table表单代码块/#isso-thread"></a></span>
     
 </span>
 
@@ -274,21 +280,21 @@ JVM 复习基本概念学习和记录
             <div class="category">
             <a class="article-category-link" href="/categories/Java/">Java</a>
             </div>
-            <div class="date"><time datetime="2019-03-20T06:35:19.000Z" itemprop="datePublished">2019-03-20</time></div>
+            <div class="date"><time datetime="2019-07-17T02:51:26.000Z" itemprop="datePublished">2019-07-17</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/03/20/RabbitMq 消息队列中间件/">RabbitMQ 消息队列中间件</a>
+        <a href="/2019/07/17/Vue复杂的table表单代码块/">Vue 复杂的 table 表单代码块</a>
         </h1>
     
 
         <p class="article-excerpt">
             
 
-RabbitMq消息队列中间件记录一些基本的概念和实际项目运用，消息队列常常会作为解决项目之间解耦的方案之一，特点异步消息可持久化不丢失高可用。实际项目中有各类场景可使用消息队列，例如发送邮件模块、业务消息通知、异步回调结果、日志信息的收集聚合等。
+记录项目中遇到的Element UI 中遇到的各种情况 代码块
 
-RabbitMQRabbitMq 是一款由erlang开发实现 AMQP（Advanced Message Queueing Protocal）
+Vue Form Table 双向绑定 form 和 table配合使用其中refundPsgList循环出来的元素在数据双向绑定上prop的值需要特殊改造，使用scope.$index来进行绑定，一般情况下prop和对应的v-model保持一致123456789101112131415161718192021222324252
         </p>
     </div>
 </article>
@@ -301,17 +307,17 @@ RabbitMQRabbitMq 是一款由erlang开发实现 AMQP（Advanced Message Queueing
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2019/03/18/ArrayList源码阅读/" class="thumbnail">
+        <a href="/2019/04/28/阿里巴巴诊断器/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/images/arthas.png)" alt="阿里巴巴诊断器" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span><a href="http://laochenpi.top/2019/03/18/ArrayList源码阅读/#isso-thread"></a></span>
+        <span><a href="http://laochenpi.top/2019/04/28/阿里巴巴诊断器/#isso-thread"></a></span>
     
 </span>
 
@@ -322,242 +328,23 @@ RabbitMQRabbitMq 是一款由erlang开发实现 AMQP（Advanced Message Queueing
         
         <div class="article-meta">
             <div class="category">
-            
+            <a class="article-category-link" href="/categories/Java/">Java</a>
             </div>
-            <div class="date"><time datetime="2019-03-18T13:01:48.000Z" itemprop="datePublished">2019-03-18</time></div>
+            <div class="date"><time datetime="2019-04-28T01:41:02.000Z" itemprop="datePublished">2019-04-28</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/03/18/ArrayList源码阅读/">ArrayList源码阅读</a>
+        <a href="/2019/04/28/阿里巴巴诊断器/">阿里巴巴诊断器</a>
         </h1>
     
 
         <p class="article-excerpt">
             
 
-记录学习回顾Java基础学习源码思想ArrayList，平时光顾着写业务代码基础细节都没有进行积累导致出去面试被人家一顿虐，只注重外功不注重内功是不行的。
+Arthas 是阿里巴巴开源的一款 Java 诊断器，可查看Jvm运行状态、堆栈异常、Class运行加载情况反编译等
 
-
-ArrayList平时最常用的集合，特点有序查找效率高线程不安全底层是数组实现了动态数组的功能，实现了RandomAccess(快速随机访问)、Cloneable(克隆接口)、Serializabele(序列化)等接口。
-源码解析 ja
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/02/22/Redis缓存场景/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/redis.jpg)" alt="Redis 缓存问题场景" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span><a href="http://laochenpi.top/2019/02/22/Redis缓存场景/#isso-thread"></a></span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/NoSql/">NoSql</a>
-            </div>
-            <div class="date"><time datetime="2019-02-22T02:27:08.000Z" itemprop="datePublished">2019-02-22</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/02/22/Redis缓存场景/">Redis 缓存问题场景</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-
-记录下学习Redis缓存实际项目中会出现的一些场景和解决方案，缓存穿透、缓存击穿、缓存雪崩
-
-Redis 缓存穿透缓存穿透是指缓存和数据库都查询到不到，例如查询UserId=-1的用户，当大量类似访问请求发送到服务端，由于数据库一直无法查找到数据则缓存无法更新和插入，后续大量的请求全部落到了DB上。导致DB数据库压力增大发生崩溃、变慢。
-解决方案
-在接口层面或者通过过滤器拦截器过滤掉一些恶意查
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/02/22/Redis持久化/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/redis.jpg)" alt="Redis 持久化" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span><a href="http://laochenpi.top/2019/02/22/Redis持久化/#isso-thread"></a></span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/NoSql/">NoSql</a>
-            </div>
-            <div class="date"><time datetime="2019-02-22T02:27:08.000Z" itemprop="datePublished">2019-02-22</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/02/22/Redis持久化/">Redis 持久化</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-
-记录学习Redis持久化，Redis为内存数据库当服务器异常关闭或重启会导致内存里的Redis数据丢失，Redis提供持久化方案来保证数据不丢失.
-
-Redis 持久化Redis持久化有多种不同级别的方式
-
-RDB 持久化可以在指定时间范围内服务器生成数据集的Snapshot 时间点快照point-in-time(数据库中所有键值对数据)
-AOF 持久化记录服务器执行过的写操作命令，在服务启动
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-        
-            </div></section>
-        
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2018" class="archive-year"><i class="icon fa fa-calendar-o"></i>2018</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/08/20/Docker环境搭建/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.ruanyifeng.com/blogimg/asset/2018/bg2018020901.png)" alt="Docker 环境搭建" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span><a href="http://laochenpi.top/2018/08/20/Docker环境搭建/#isso-thread"></a></span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/技术/">技术</a>
-            </div>
-            <div class="date"><time datetime="2018-08-20T06:11:30.000Z" itemprop="datePublished">2018-08-20</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/08/20/Docker环境搭建/">Docker 环境搭建</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-开发-&gt;部署测试-&gt;发布正式 在整体流程中每个人的开发环境可能各不相同、编译环境、运行环境。单机服务调整控制环境版本等可以保证发布一致性，但是如果当业务越来越庞大集群处理时需要部署多台机器时，可能每台机器的大大小小差异都会导致发布失败，处理起来非常麻烦。docker虚拟化来处理能保证发布环境一致性，可移植。通过docker 镜像你可以在任何版本linux服务器上进行发布。每个镜像就相
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/08/16/Winsw把java项目做成服务/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/winsw.png)" alt="Winsw 把 java 项目做成服务" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span><a href="http://laochenpi.top/2018/08/16/Winsw把java项目做成服务/#isso-thread"></a></span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/技术/">技术</a>
-            </div>
-            <div class="date"><time datetime="2018-08-16T12:04:17.000Z" itemprop="datePublished">2018-08-16</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/08/16/Winsw把java项目做成服务/">Winsw 把 java 项目做成服务</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-jar项目需要通过命令行jar -jar 执行脚本启动显示控制台，由于强迫症可以使用javaw -jar来执行可以在后台执行，但通过java编译启动在window环境下进程名都为java.exe一旦项目多了当你要更新部署更新关闭项目时候就懵逼了有可能就会误操作，通过Google发现有个开源的软件winsw 可以把任何软件做为window 的服务来管理，这样在services.msc 服务管理里可
+Arthas 安装Artas 建议安装使用arthas-boot.jar，安装地址 https://alibaba.github.io/arthas/arthas-boot.jar1234# Linux 下载wget https://alibaba.github.io/art
         </p>
     </div>
 </article>
@@ -574,17 +361,17 @@ jar项目需要通过命令行jar -jar 执行脚本启动显示控制台，由�
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2018/08/01/SprintCloud微服务-Eureka/" class="thumbnail">
+        <a href="/2019/04/24/Http 知识/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/SpringCloud.jpg)" alt="SpringCloud 服务中心之 Eureka" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/http.jpg)" alt="Http 知识" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span><a href="http://laochenpi.top/2018/08/01/SprintCloud微服务-Eureka/#isso-thread"></a></span>
+        <span><a href="http://laochenpi.top/2019/04/24/Http 知识/#isso-thread"></a></span>
     
 </span>
 
@@ -595,21 +382,25 @@ jar项目需要通过命令行jar -jar 执行脚本启动显示控制台，由�
         
         <div class="article-meta">
             <div class="category">
-            <a class="article-category-link" href="/categories/Spring/">Spring</a>
+            <a class="article-category-link" href="/categories/Java/">Java</a>
             </div>
-            <div class="date"><time datetime="2018-08-01T08:43:15.000Z" itemprop="datePublished">2018-08-01</time></div>
+            <div class="date"><time datetime="2019-04-24T07:23:55.000Z" itemprop="datePublished">2019-04-24</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2018/08/01/SprintCloud微服务-Eureka/">SpringCloud 服务中心之 Eureka</a>
+        <a href="/2019/04/24/Http 知识/">Http 知识</a>
         </h1>
     
 
         <p class="article-excerpt">
             
 
-SpringCloud微服务架构基于SpringBoot进行开发组件，即插即用非常方便，用了Spring Boot根本停不下来。SpringCloud包含了服务和注册中心(Zookeeper Eureka Consul)、熔断器(Hystrix)、动态路由(Zuul)、配置中心(Spring cloud config)、负责均衡(Ribbon)、REST服务调用(Fegin)等集成组件。让我们
+记录一些常用的 Http 知识用于以后回来查询复习了解
+
+Http 状态码当你请求服务器后会返回各种Http状态码用于表示请求状态，最常见的有404、500、200、304
+
+2XX 成功处理请求200   （成功）  服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。201   （已创建）  请求成功并且服务器创建了新的资源。202   （已接受）  服务器已接受请求，但尚未处理
         </p>
     </div>
 </article>
@@ -622,17 +413,17 @@ SpringCloud微服务架构基于SpringBoot进行开发组件，即插即用非�
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2018/07/26/Hexo部署到VPS自动发布/" class="thumbnail">
+        <a href="/2019/04/22/SpringMVC 工作原理/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/linux-1.jpg)" alt="Hexo部署到VPS自动发布" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/spring.jpg)" alt="SpringMVC 运行原理" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span><a href="http://laochenpi.top/2018/07/26/Hexo部署到VPS自动发布/#isso-thread"></a></span>
+        <span><a href="http://laochenpi.top/2019/04/22/SpringMVC 工作原理/#isso-thread"></a></span>
     
 </span>
 
@@ -643,24 +434,270 @@ SpringCloud微服务架构基于SpringBoot进行开发组件，即插即用非�
         
         <div class="article-meta">
             <div class="category">
-            <a class="article-category-link" href="/categories/技术/">技术</a>
+            <a class="article-category-link" href="/categories/Java/">Java</a>
             </div>
-            <div class="date"><time datetime="2018-07-26T07:02:30.000Z" itemprop="datePublished">2018-07-26</time></div>
+            <div class="date"><time datetime="2019-04-22T06:56:12.000Z" itemprop="datePublished">2019-04-22</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2018/07/26/Hexo部署到VPS自动发布/">Hexo部署到VPS自动发布</a>
+        <a href="/2019/04/22/SpringMVC 工作原理/">SpringMVC 运行原理</a>
         </h1>
     
 
         <p class="article-excerpt">
             
 
-Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己VPS上去，部署一套git环境以后方便自动发布更新
+面试经常会问到 SpringMVC 运行原理真是一脸懵逼，太细节的都不记得了就知道撸代码，现在记录并复习下。
 
-1.Git 安装1234#通常使用的方法下载gityum -y install git#查看版本 这种下载一般不是最新的版本yum --version
-发现并不是最新版本逼死强迫症啊，只能通过下载最新git源码自行编译安装。Git 的工作需要调用 curl，zlib，o
+SpringMVC 工作原理
+
+用户通过浏览器访问项目，请求会发送到DispatcherServlet前端控制器
+通过HandlerMapping找到对应的Controller对应注解@RequestMapping的值
+根据Controller方法通过HandlerAdapter处理
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2019/04/17/JVM 对象创建/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/java.jpg)" alt="JVM 对象创建过程" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span><a href="http://laochenpi.top/2019/04/17/JVM 对象创建/#isso-thread"></a></span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            <div class="date"><time datetime="2019-04-17T13:01:28.000Z" itemprop="datePublished">2019-04-17</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/04/17/JVM 对象创建/">JVM 对象创建过程</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+
+JVM 复习基本概念学习和记录
+
+对象创建过程
+
+类加载检查：遇到new指令时，先会检查下常量池是否存在该类的符号引用，并检查是否加载过、解析、和初始化过，如果没有则进行类加载过程。
+
+分配内存：类加载检查通过，虚拟机会在Java 堆中为对象划分一块区域， 内存大小在类加载完成后确定，
+
+
+
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2019/04/10/Redis数据类型及应用场景/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/redis.jpg)" alt="Redis 数据类型及应用场景" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span><a href="http://laochenpi.top/2019/04/10/Redis数据类型及应用场景/#isso-thread"></a></span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            <div class="date"><time datetime="2019-04-10T08:19:30.000Z" itemprop="datePublished">2019-04-10</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/04/10/Redis数据类型及应用场景/">Redis 数据类型及应用场景</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+
+记录学习 Redis 的数据类型以及实际项目中的运用场景
+
+Redis 存储类型Redis 面试经常会闻到支持那些存储类型，常用的类型有String、Hash、List、Set、Sorted Set等。
+StringStrings 数据类结构是最简单的 Key-value类型，Value 的值根据执行的命令可为数值或字符串。
+
+常用命令: set,get,decr,incr,mget 等。
+
+
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2019/04/02/SkyWalking搭建记录/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/SkyWalking.jpg)" alt="SkyWalking 搭建记录" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span><a href="http://laochenpi.top/2019/04/02/SkyWalking搭建记录/#isso-thread"></a></span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            <div class="date"><time datetime="2019-04-02T03:08:24.000Z" itemprop="datePublished">2019-04-02</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/04/02/SkyWalking搭建记录/">SkyWalking 搭建记录</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+
+记录搭建Skywalking 6.0过程和详细遇到的问题
+
+SkyWalkingSkyWalking 是观察性分析平台和应用性能管理系统，提供分布式追踪、服务网格遥测分析、度量聚合和可视化一体化解决方案。它是一款国产开源软件源码在github上，官方网站为 http://skywalking.apache.org/zh/ Github https://github.com/apache/inc
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2019/04/01/MySQL千行命令/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/MySQL.jpg)" alt="MySQL 千行命令" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span><a href="http://laochenpi.top/2019/04/01/MySQL千行命令/#isso-thread"></a></span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            <div class="date"><time datetime="2019-04-01T06:31:10.000Z" itemprop="datePublished">2019-04-01</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/04/01/MySQL千行命令/">MySQL 千行命令</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+
+转载 https://github.com/Snailclimb/JavaGuide 项目中收集的各类 MySQL 指令
+
+
+
+基本操作
+数据库操作
+表的操作
+字符集编码
+数据类型(列类型)
+列属性(列约束)
+建表规范
+UNION
+子查询
+连接查询(join)
+TRUNCATE
+备份与还原
+视图
+事务(transaction)
+锁表
+触发器
+SQL编程
+存储过程
+用户和权限管理
+表维护
+杂项
+
         </p>
     </div>
 </article>
@@ -673,8 +710,8 @@ Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己
 
 
     <nav id="page-nav">
-        <span class="pages">第 1 页，共 2 页</span>
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+        <span class="pages">第 1 页，共 4 页</span>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
     </nav>
 
 
@@ -744,30 +781,10 @@ Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2019/03/25/Mysql安装记录/" class="thumbnail">
+                            <a href="/2019/07/18/Maven 属性/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/MySQL.jpg)" alt="MySql 主从集群配置" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/数据库/">数据库</a></p>
-                            <p class="item-title"><a href="/2019/03/25/Mysql安装记录/" class="title">MySql 主从集群配置</a></p>
-                            <p class="item-date"><time datetime="2019-03-25T01:07:05.000Z" itemprop="datePublished">2019-03-25</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/03/21/JVM基础概念/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/JVM-1.8-before.png)" alt="JVM 基础概念" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/maven.jpg)" alt="Maven 属性" class="thumbnail-image"></span>
     
     
 </a>
@@ -776,18 +793,38 @@ Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a></p>
-                            <p class="item-title"><a href="/2019/03/21/JVM基础概念/" class="title">JVM 基础概念</a></p>
-                            <p class="item-date"><time datetime="2019-03-21T13:01:28.000Z" itemprop="datePublished">2019-03-21</time></p>
+                            <p class="item-title"><a href="/2019/07/18/Maven 属性/" class="title">Maven 属性</a></p>
+                            <p class="item-date"><time datetime="2019-07-18T02:00:03.000Z" itemprop="datePublished">2019-07-18</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2019/03/20/RabbitMq 消息队列中间件/" class="thumbnail">
+                            <a href="/2019/07/17/V2Ray搭建记录/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/RabbitMQ.jpg)" alt="RabbitMQ 消息队列中间件" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/vmess-windows-client.jpg)" alt="V2Ray 搭建记录" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a></p>
+                            <p class="item-title"><a href="/2019/07/17/V2Ray搭建记录/" class="title">V2Ray 搭建记录</a></p>
+                            <p class="item-date"><time datetime="2019-07-17T03:24:48.000Z" itemprop="datePublished">2019-07-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/07/17/Vue复杂的table表单代码块/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/vue.jpg)" alt="Vue 复杂的 table 表单代码块" class="thumbnail-image"></span>
     
     
 </a>
@@ -796,18 +833,18 @@ Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
-                            <p class="item-title"><a href="/2019/03/20/RabbitMq 消息队列中间件/" class="title">RabbitMQ 消息队列中间件</a></p>
-                            <p class="item-date"><time datetime="2019-03-20T06:35:19.000Z" itemprop="datePublished">2019-03-20</time></p>
+                            <p class="item-title"><a href="/2019/07/17/Vue复杂的table表单代码块/" class="title">Vue 复杂的 table 表单代码块</a></p>
+                            <p class="item-date"><time datetime="2019-07-17T02:51:26.000Z" itemprop="datePublished">2019-07-17</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2019/03/18/ArrayList源码阅读/" class="thumbnail">
+                            <a href="/2019/04/28/阿里巴巴诊断器/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/images/arthas.png)" alt="阿里巴巴诊断器" class="thumbnail-image"></span>
     
     
 </a>
@@ -815,19 +852,19 @@ Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/03/18/ArrayList源码阅读/" class="title">ArrayList源码阅读</a></p>
-                            <p class="item-date"><time datetime="2019-03-18T13:01:48.000Z" itemprop="datePublished">2019-03-18</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/04/28/阿里巴巴诊断器/" class="title">阿里巴巴诊断器</a></p>
+                            <p class="item-date"><time datetime="2019-04-28T01:41:02.000Z" itemprop="datePublished">2019-04-28</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2019/02/22/Redis缓存场景/" class="thumbnail">
+                            <a href="/2019/04/24/Http 知识/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/redis.jpg)" alt="Redis 缓存问题场景" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/http.jpg)" alt="Http 知识" class="thumbnail-image"></span>
     
     
 </a>
@@ -835,9 +872,9 @@ Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/NoSql/">NoSql</a></p>
-                            <p class="item-title"><a href="/2019/02/22/Redis缓存场景/" class="title">Redis 缓存问题场景</a></p>
-                            <p class="item-date"><time datetime="2019-02-22T02:27:08.000Z" itemprop="datePublished">2019-02-22</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/04/24/Http 知识/" class="title">Http 知识</a></p>
+                            <p class="item-date"><time datetime="2019-04-24T07:23:55.000Z" itemprop="datePublished">2019-04-24</time></p>
                         </div>
                     </li>
                 
@@ -850,7 +887,7 @@ Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NoSql/">NoSql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -860,7 +897,7 @@ Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -870,7 +907,7 @@ Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java基础-源码/">-- Java基础 -- 源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中间件/">中间件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jvm/">Jvm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中间件/">中间件</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档/">文档</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -880,7 +917,7 @@ Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Java基础-源码/" style="font-size: 10px;">-- Java基础 -- 源码</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/心得/" style="font-size: 10px;">心得</a> <a href="/tags/技术/" style="font-size: 13.33px;">技术</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+            <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Jvm/" style="font-size: 15px;">Jvm</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 12.5px;">Redis</a> <a href="/tags/Spring/" style="font-size: 12.5px;">Spring</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/中间件/" style="font-size: 12.5px;">中间件</a> <a href="/tags/心得/" style="font-size: 10px;">心得</a> <a href="/tags/技术/" style="font-size: 17.5px;">技术</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/文档/" style="font-size: 10px;">文档</a>
         </div>
     </div>
 
