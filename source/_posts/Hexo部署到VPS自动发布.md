@@ -1,9 +1,12 @@
 ---
 title: Hexo部署到VPS自动发布
+tags:
+  - Linux
+categories:
+  - 技术
+toc: false
+tag: Linux
 date: 2018-07-26 15:02:30
-categories: [技术]
-tag : 
-    - Linux
 ---
 
 ![Linux](/images/linux-1.jpg)
@@ -100,7 +103,6 @@ deploy:
 开启公钥认证 `PubkeyAuthentication yes`   
 认证Keys文件目录 用户/.ssh/文件名 `AuthorizedKeysFile      .ssh/authorized_keys`  
 RSA加密认证 `RSAAuthentication yes` 
-``
 
 这里要提示一点 Centos 7 和 Centos 6 遇到的问题，Centos 7 由于OpenSSH版本原因 RSAAuthentication 已经弃用，无需添加修改.
 ```
