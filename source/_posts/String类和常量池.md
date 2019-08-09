@@ -1,13 +1,13 @@
 ---
-layout: post
 title: String 类和常量池
-date: 2019-03-28 16:09:24
-categories: [Java]
-comments: true
 tags:
-	- Java
-	- 技术
+  - 技术
+categories:
+  - Java
+toc: false
+date: 2019-03-28 16:09:24
 ---
+
 ![Java](/images/java.jpg)
 
 > 面试经常会问到""创建的String和通过new String创建有什么不同。

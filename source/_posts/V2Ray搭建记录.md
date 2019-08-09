@@ -1,9 +1,11 @@
 ---
 title: V2Ray 搭建记录
-date: 2019-07-17 11:24:48
-categories: [技术]
 tags:
-    - 技术
+  - 心得
+categories:
+  - 技术
+toc: false
+date: 2019-07-17 11:24:48
 ---
 
 > Vultr 上次的一次特殊事件被封了，后来无意间看到了新的云梯 V2Ray 搭建起来更方便简单，搜了下教程重新搭建并记录
@@ -60,10 +62,8 @@ bash <(curl -L -s https://install.direct/go.sh)
 ``` bash
 ## 启动
 systemctl start v2ray
-
 ## 停止
 systemctl stop v2ray
-
 ## 状态
 systemctl status v2ray
 ```
@@ -75,13 +75,14 @@ firewall-cmd --zone=public --list-ports
 ## 加入新端口 100067 80 端口
 firewall-cmd --zone=public --add-port=80/tcp --permanent
 firewall-cmd --zone=public --add-port=10067/tcp --permanent
+firewall-cmd --reload
 ```
 
 ## V2RayN 客户端
 下载 [V2Ray-Core](https://github.com/v2ray/v2ray-core/releases) 解压点击`v2rayN.exe`应用添加`Vmess`服务器
 ![](/images/vmess-windows-client.jpg)
 
-填写完毕启用`Http`代理修改代理模式为`PAC`模式，然后就可以愉快的在上google
+填写完毕启用`Http`代理修改代理模式为`PAC`模式，然后就可以愉快的在上google，手机端可以使用[v2rayNG](https://github.com/2dust/v2rayNG/releases)
 
 ## BBR 加速
 搭建好了`V2Ray`你感觉速度不够快连接效果不够好，我们可以通过脚本开启`BBR`

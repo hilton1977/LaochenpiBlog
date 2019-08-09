@@ -1,10 +1,13 @@
 ---
 title: Maven 属性
-date: 2019-07-18 10:00:03
-categories: [技术]
 tags:
-    - Maven
+  - Maven
+categories:
+  - 技术
+toc: true
+date: 2019-07-18 10:00:03
 ---
+
 ![](/images/maven.jpg)
 
 

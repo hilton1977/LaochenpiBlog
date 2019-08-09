@@ -1,11 +1,13 @@
 ---
 title: JVM 对象创建过程
-date: 2019-04-17 21:01:28
-categories: [Java]
 tags:
-	- Java
-	- Jvm
+  - Jvm
+categories:
+  - Java
+toc: false
+date: 2019-04-17 21:01:28
 ---
+
 ![Java](/images/java.jpg)
 
 

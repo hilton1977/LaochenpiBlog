@@ -1,9 +1,11 @@
 ---
 title: Http 知识
-date: 2019-04-24 15:23:55
-categories: [Java]
 tags:
-	 - Java
+  - 前端
+categories:
+  - Java
+toc: false
+date: 2019-04-24 15:23:55
 ---
 
 ![](/images/http.jpg)
