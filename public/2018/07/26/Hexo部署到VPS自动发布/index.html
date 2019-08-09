@@ -21,7 +21,7 @@
 <meta property="og:description" content="Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己VPS上去，部署一套git环境以后方便自动发布更新  1.Git 安装1234#通常使用的方法下载gityum -y install git#查看版本 这种下载一般不是最新的版本yum --version 发现并不是最新版本逼死强迫症啊，只能通过下载最新git源码自行编译安装。Git 的工作需要调用 curl，zlib，o">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://laochenpi.top/images/linux-1.jpg">
-<meta property="og:updated_time" content="2019-08-09T03:23:35.527Z">
+<meta property="og:updated_time" content="2019-08-09T07:27:50.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo部署到VPS自动发布">
 <meta name="twitter:description" content="Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己VPS上去，部署一套git环境以后方便自动发布更新  1.Git 安装1234#通常使用的方法下载gityum -y install git#查看版本 这种下载一般不是最新的版本yum --version 发现并不是最新版本逼死强迫症啊，只能通过下载最新git源码自行编译安装。Git 的工作需要调用 curl，zlib，o">
@@ -191,7 +191,7 @@
 <ul>
 <li><h5 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h5>修改 OpenSSH 认证 <code>vi /etc/ssh/sshd_config</code><br>开启公钥认证 <code>PubkeyAuthentication yes</code><br>认证Keys文件目录 用户/.ssh/文件名 <code>AuthorizedKeysFile      .ssh/authorized_keys</code><br>RSA加密认证 <code>RSAAuthentication yes</code> </li>
 </ul>
-<p>这里要提示一点 Centos 7 和 Centos 6 遇到的问题，Centos 7 由于OpenSSH版本原因 RSAAuthentication 已经弃用，无需添加修改.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#用户提交的git用户的秘钥文件夹创建和权限分配#</span><br><span class="line">——————————————————————————————————————</span><br><span class="line">#创建认证文件authorized_keys</span><br><span class="line">touch /home/git/.ssh/authorized_keys</span><br><span class="line">#.ssh权限 700 authorize_keys 权限600</span><br><span class="line">chmod 700 /home/git/.ssh &amp;&amp; chmod 600 /home/git/.ssh/authorize_keys</span><br></pre></td></tr></table></figure></p>
+<p>这里要提示一点 Centos 7 和 Centos 6 遇到的问题，Centos 7 由于OpenSSH版本原因 RSAAuthentication 已经弃用，无需添加修改.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#用户提交的git用户的秘钥文件夹创建和权限分配#</span><br><span class="line">——————————————————————————————————————</span><br><span class="line">#创建认证文件authorized_keys</span><br><span class="line">touch /home/git/.ssh/authorized_keys</span><br><span class="line">#.ssh权限 700 authorized_keys 权限600</span><br><span class="line">chmod 700 /home/git/.ssh &amp;&amp; chmod 600 /home/git/.ssh/authorize_keys</span><br></pre></td></tr></table></figure></p>
 <p>这里要注意 <code>.ssh</code> 和 <code>authorize_keys</code> 的权限问题，可能在加密认证的时候由于权限导致失败，SSH登录日志可以用 <code>tail /var/log/secure</code> 查看，<code>sshd -t</code>进行查看配置是否正常 需要在~目录下执行，执行<code>systemctl restart sshd</code> 重启 <code>SSH</code>服务</p>
 <ul>
 <li><h5 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h5><code>ssh-keygen -t rsa -C userName</code>  生成秘钥文件，地址一般在 <code>~/.ssh</code> 中。<br><code>id_rsa</code> 加密公钥 <code>id_rsa.pub</code> 加密公钥  多用户用<code>cat</code> 追加秘钥到认证文件中</li>
@@ -217,7 +217,7 @@
 
 
 
-    <a data-url="http://laochenpi.top/2018/07/26/Hexo部署到VPS自动发布/" data-id="cjz3pui3u0004bsqu56p1e0yx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://laochenpi.top/2018/07/26/Hexo部署到VPS自动发布/" data-id="cjz3stkxo0000acqudfb2czji" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -382,7 +382,7 @@
                             <a href="/2019/08/08/Linux-字体背景颜色设置/" class="thumbnail">
     
     
-        <span style="background-image:url(images/linux-1.jpg)" alt="Linux 字体背景颜色设置" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/linux-1.jpg)" alt="Linux 字体背景颜色设置" class="thumbnail-image"></span>
     
     
 </a>
@@ -402,7 +402,7 @@
                             <a href="/2019/08/08/Linux-中判断条件/" class="thumbnail">
     
     
-        <span style="background-image:url(images/linux-1.jpg)" alt="Linux 中判断条件" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/linux-1.jpg)" alt="Linux 中判断条件" class="thumbnail-image"></span>
     
     
 </a>

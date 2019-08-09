@@ -110,7 +110,7 @@ RSA加密认证 `RSAAuthentication yes`
 ——————————————————————————————————————
 #创建认证文件authorized_keys
 touch /home/git/.ssh/authorized_keys
-#.ssh权限 700 authorize_keys 权限600
+#.ssh权限 700 authorized_keys 权限600
 chmod 700 /home/git/.ssh && chmod 600 /home/git/.ssh/authorize_keys
 ```
 这里要注意 `.ssh` 和 `authorize_keys` 的权限问题，可能在加密认证的时候由于权限导致失败，SSH登录日志可以用 `tail /var/log/secure` 查看，`sshd -t`进行查看配置是否正常 需要在~目录下执行，执行`systemctl restart sshd` 重启 `SSH`服务

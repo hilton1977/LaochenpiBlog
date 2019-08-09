@@ -8,7 +8,7 @@ toc: false
 date: 2019-08-08 10:38:34
 ---
 
-![](images/linux-1.jpg)
+![](/images/linux-1.jpg)
 
 > 学习记录下 Linux下判断条件 便于回来翻查
 
@@ -49,4 +49,4 @@ fi
 ### 逻辑连接符
 -a 且 &&
 -o 或者 ||
-! 非
+! 非![](/images/linux-1.jpg)

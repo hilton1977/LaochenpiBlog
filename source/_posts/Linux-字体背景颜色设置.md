@@ -8,7 +8,7 @@ toc: false
 date: 2019-08-08 15:18:38
 ---
 
-![](images/linux-1.jpg)
+![](/images/linux-1.jpg)
 
 ### 颜色范围
 ![](/images/color-scope.png)
