@@ -14,9 +14,9 @@ date: 2019-08-08 10:38:34
 
 ### if 基本语法
 ``` bash
-if [comand];then 
+if [comand]; then 
    执行语句
-elif[comand];then
+elif [comand]; then
    执行语句
 else
    执行语句
@@ -49,4 +49,4 @@ fi
 ### 逻辑连接符
 -a 且 &&
 -o 或者 ||
-! 非![](/images/linux-1.jpg)
+! 非

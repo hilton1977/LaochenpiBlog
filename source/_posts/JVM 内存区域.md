@@ -1,11 +1,14 @@
 ---
 title: JVM 内存区域
-date: 2019-03-21 21:01:28
-categories: [Java]
 tags:
-	- Java
-	- Jvm
+  - Java
+  - Jvm
+categories:
+  - Java
+toc: false
+date: 2019-03-21 21:01:28
 ---
+
 ![Java](/images/java.jpg)
 
 
@@ -61,7 +64,7 @@ __JDK 1.8 的时候，方法区（HotSpot的永久代）被彻底移除了（JDK
 
 
 ### 运行时常量池
-运行时常量（`Running Constant Pool`）是方法区的一部分。`Class`文件除了有类的版本、字段、方法、接口等描述信息外，还有常量池（`Constant Pool Table`）,用于存放编译期生成的各种`字面量`和`符号引用`，这部分内容将在类加载后进入方法区的运行时常量池中存放。
+运行时常量（`Running Constant Pool`）是方法区的一部分。`Class`文件除了有类的版本、字段、方法、接口等描述信息外，还有常量池（`Constant Pool Table`），用于存放编译期生成的各种`字面量`和`符号引用`，这部分内容将在类加载后进入方法区的运行时常量池中存放。
 ![常量池](/images/ConstantPoolTable.jpg)
 
 __JDK1.7 及之后版本的 JVM 已经将运行时常量池从方法区中移了出来，在 Java 堆（Heap）中开辟了一块区域存放运行时常量池。__

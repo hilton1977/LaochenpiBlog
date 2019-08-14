@@ -112,8 +112,9 @@ RSA加密认证 `RSAAuthentication yes`
 touch /home/git/.ssh/authorized_keys
 #.ssh权限 700 authorized_keys 权限600
 chmod 700 /home/git/.ssh && chmod 600 /home/git/.ssh/authorize_keys
+chown -R  git:git /home/git
 ```
-这里要注意 `.ssh` 和 `authorize_keys` 的权限问题，可能在加密认证的时候由于权限导致失败，SSH登录日志可以用 `tail /var/log/secure` 查看，`sshd -t`进行查看配置是否正常 需要在~目录下执行，执行`systemctl restart sshd` 重启 `SSH`服务
+这里要注意 `.ssh` 和 `authorize_keys` 的权限问题和所属用户，可能在加密认证的时候由于权限导致失败，SSH登录日志可以用 `tail /var/log/secure` 查看，`sshd -t`进行查看配置是否正常 需要在~目录下执行，执行`systemctl restart sshd` 重启 `SSH`服务
 
 - ##### 客户端 
 `ssh-keygen -t rsa -C userName`  生成秘钥文件，地址一般在 `~/.ssh` 中。
