@@ -21,7 +21,7 @@
 <meta property="og:description" content="Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己VPS上去，部署一套git环境以后方便自动发布更新  1.Git 安装1234#通常使用的方法下载gityum -y install git#查看版本 这种下载一般不是最新的版本yum --version 发现并不是最新版本逼死强迫症啊，只能通过下载最新git源码自行编译安装。Git 的工作需要调用 curl，zlib，o">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://laochenpi.top/images/linux-1.jpg">
-<meta property="og:updated_time" content="2019-08-09T07:27:50.318Z">
+<meta property="og:updated_time" content="2019-08-09T07:42:41.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo部署到VPS自动发布">
 <meta name="twitter:description" content="Hexo部署到github访问的速度较慢，所以想着把Hexo直接丢在自己VPS上去，部署一套git环境以后方便自动发布更新  1.Git 安装1234#通常使用的方法下载gityum -y install git#查看版本 这种下载一般不是最新的版本yum --version 发现并不是最新版本逼死强迫症啊，只能通过下载最新git源码自行编译安装。Git 的工作需要调用 curl，zlib，o">
@@ -191,8 +191,8 @@
 <ul>
 <li><h5 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h5>修改 OpenSSH 认证 <code>vi /etc/ssh/sshd_config</code><br>开启公钥认证 <code>PubkeyAuthentication yes</code><br>认证Keys文件目录 用户/.ssh/文件名 <code>AuthorizedKeysFile      .ssh/authorized_keys</code><br>RSA加密认证 <code>RSAAuthentication yes</code> </li>
 </ul>
-<p>这里要提示一点 Centos 7 和 Centos 6 遇到的问题，Centos 7 由于OpenSSH版本原因 RSAAuthentication 已经弃用，无需添加修改.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#用户提交的git用户的秘钥文件夹创建和权限分配#</span><br><span class="line">——————————————————————————————————————</span><br><span class="line">#创建认证文件authorized_keys</span><br><span class="line">touch /home/git/.ssh/authorized_keys</span><br><span class="line">#.ssh权限 700 authorized_keys 权限600</span><br><span class="line">chmod 700 /home/git/.ssh &amp;&amp; chmod 600 /home/git/.ssh/authorize_keys</span><br></pre></td></tr></table></figure></p>
-<p>这里要注意 <code>.ssh</code> 和 <code>authorize_keys</code> 的权限问题，可能在加密认证的时候由于权限导致失败，SSH登录日志可以用 <code>tail /var/log/secure</code> 查看，<code>sshd -t</code>进行查看配置是否正常 需要在~目录下执行，执行<code>systemctl restart sshd</code> 重启 <code>SSH</code>服务</p>
+<p>这里要提示一点 Centos 7 和 Centos 6 遇到的问题，Centos 7 由于OpenSSH版本原因 RSAAuthentication 已经弃用，无需添加修改.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#用户提交的git用户的秘钥文件夹创建和权限分配#</span><br><span class="line">——————————————————————————————————————</span><br><span class="line">#创建认证文件authorized_keys</span><br><span class="line">touch /home/git/.ssh/authorized_keys</span><br><span class="line">#.ssh权限 700 authorized_keys 权限600</span><br><span class="line">chmod 700 /home/git/.ssh &amp;&amp; chmod 600 /home/git/.ssh/authorize_keys</span><br><span class="line">chown -R  git:git /home/git</span><br></pre></td></tr></table></figure></p>
+<p>这里要注意 <code>.ssh</code> 和 <code>authorize_keys</code> 的权限问题和所属用户，可能在加密认证的时候由于权限导致失败，SSH登录日志可以用 <code>tail /var/log/secure</code> 查看，<code>sshd -t</code>进行查看配置是否正常 需要在~目录下执行，执行<code>systemctl restart sshd</code> 重启 <code>SSH</code>服务</p>
 <ul>
 <li><h5 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h5><code>ssh-keygen -t rsa -C userName</code>  生成秘钥文件，地址一般在 <code>~/.ssh</code> 中。<br><code>id_rsa</code> 加密公钥 <code>id_rsa.pub</code> 加密公钥  多用户用<code>cat</code> 追加秘钥到认证文件中</li>
 </ul>
@@ -217,7 +217,7 @@
 
 
 
-    <a data-url="http://laochenpi.top/2018/07/26/Hexo部署到VPS自动发布/" data-id="cjz3stkxo0000acqudfb2czji" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://laochenpi.top/2018/07/26/Hexo部署到VPS自动发布/" data-id="cjz3rsv8h0001rcqubf6tzd28" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -379,6 +379,46 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2019/08/14/IDEA-快捷键备份/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/java.jpg)" alt="IDEA 快捷键备份" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a></p>
+                            <p class="item-title"><a href="/2019/08/14/IDEA-快捷键备份/" class="title">IDEA 快捷键备份</a></p>
+                            <p class="item-date"><time datetime="2019-08-14T02:26:12.000Z" itemprop="datePublished">2019-08-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/08/09/Nginx-配置详解/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nginxconf.png)" alt="Nginx 配置详解" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a></p>
+                            <p class="item-title"><a href="/2019/08/09/Nginx-配置详解/" class="title">Nginx 配置详解</a></p>
+                            <p class="item-date"><time datetime="2019-08-09T08:33:35.000Z" itemprop="datePublished">2019-08-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2019/08/08/Linux-字体背景颜色设置/" class="thumbnail">
     
     
@@ -436,46 +476,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/07/25/Java-排序方法总结/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/sort-algorithms.png)" alt="Java 排序方法总结" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/07/25/Java-排序方法总结/" class="title">Java 排序方法总结</a></p>
-                            <p class="item-date"><time datetime="2019-07-25T08:42:11.000Z" itemprop="datePublished">2019-07-25</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/07/25/学习红黑树/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/red-black-tree.png)" alt="学习红黑树" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
-                            <p class="item-title"><a href="/2019/07/25/学习红黑树/" class="title">学习红黑树</a></p>
-                            <p class="item-date"><time datetime="2019-07-25T01:55:02.000Z" itemprop="datePublished">2019-07-25</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -485,7 +485,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -495,7 +495,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -505,7 +505,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jvm/">Jvm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中间件/">中间件</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复习/">复习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档/">文档</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jvm/">Jvm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中间件/">中间件</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复习/">复习</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档/">文档</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -515,7 +515,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Jvm/" style="font-size: 14px;">Jvm</a> <a href="/tags/Linux/" style="font-size: 18px;">Linux</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 12px;">Redis</a> <a href="/tags/Spring/" style="font-size: 12px;">Spring</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/中间件/" style="font-size: 12px;">中间件</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/复习/" style="font-size: 12px;">复习</a> <a href="/tags/心得/" style="font-size: 14px;">心得</a> <a href="/tags/技术/" style="font-size: 16px;">技术</a> <a href="/tags/数据库/" style="font-size: 12px;">数据库</a> <a href="/tags/文档/" style="font-size: 10px;">文档</a>
+            <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Jvm/" style="font-size: 14px;">Jvm</a> <a href="/tags/Linux/" style="font-size: 18px;">Linux</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 12px;">Redis</a> <a href="/tags/Spring/" style="font-size: 12px;">Spring</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/中间件/" style="font-size: 12px;">中间件</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/复习/" style="font-size: 14px;">复习</a> <a href="/tags/心得/" style="font-size: 14px;">心得</a> <a href="/tags/技术/" style="font-size: 16px;">技术</a> <a href="/tags/数据库/" style="font-size: 12px;">数据库</a> <a href="/tags/文档/" style="font-size: 10px;">文档</a>
         </div>
     </div>
 
