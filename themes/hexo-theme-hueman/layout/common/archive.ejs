@@ -13,11 +13,11 @@
             <div class="archives">
     <% } %>
     <% postCount++; %>
-    <% if (postCount % 2 == 1) { %>
+    <% if (postCount % 4 == 1) { %>
         <div class="article-row">
     <% } %>
         <%- partial('summary', { post: post }) %>
-    <% if (postCount == page.posts.length || postCount % 2 == 0) { %>
+    <% if (postCount == page.posts.length || postCount % 4 == 0) { %>
         </div>
     <% } %>
 <% }) %>

@@ -17,11 +17,9 @@ customize:
     thumbnail: true # enable posts thumbnail, options: true, false
     favicon: # path to favicon
     social_links: # for more icons, please see http://fontawesome.io/icons/#brand
-        twitter: /
-        facebook: /
+        steam: https://steamcommunity.com/profiles/76561198005699654/home/
+        qq: http://sighttp.qq.com/msgrd?v=1&uin=285635652
         github: https://github.com/hilton1977/hilton1977.github.io
-        weibo: /
-        rss: /
 
 # Widgets
 widgets:
