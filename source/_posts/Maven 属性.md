@@ -25,7 +25,7 @@ Maven 预定义,用户可以直接使用
 - ${project.build.sourceEncoding} 表示主源码的编码格式
 - ${project.build.sourceDirectory} 表示主源码路径
 - ${project.build.finalName} 表示输出文件名称
-- ${project.version} 表示项目版本,与${version}相同
+- ${project.version} 表示项目版本,与 ${version} 相同
 
 ##### Maven 自定义属性
 通过在`pom.xml`定义属性可以在其他地方引用通常在项目中用于定义引入`jar`的版本等

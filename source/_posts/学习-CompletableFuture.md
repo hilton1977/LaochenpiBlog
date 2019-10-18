@@ -111,6 +111,18 @@ CompletableFuture allTwo = CompletableFuture.runAsync(() -> {
 
 CompletableFuture allOf = CompletableFuture.allOf(allOne,allTwo);
 
-``` 
+```
 
 #### 完成结束
+获取异步调用结果使用一下函数
+- __get()__ 阻塞方法等待直到线程执行完毕，会抛出checked异常需要`catch`或者`throws`
+- __get(lont timeOut,TimeUnit unit)__  带有超时时间的阻塞方法
+- __getNow(T valueIfAbsent)__ 立刻获取结果如果没有则返回 `valueIfAbsent`值
+- __join()__ 阻塞方法与get()不同的是会抛出`unchecked`异常
+- __complete(String value)__ 线程直接完成并返回`value`值
+
+#### 异常补偿
+在线程链式调用中如果某一步发生异常后续的所有调用都将不会执行，为了更好的处理可以引入异常补偿，根据实际的业务需求处理异常
+
+-__whenComplete()__ 当完成调用可对有异常情况进行处理
+-__handle()__ 相当于whenComplete()+结果转化

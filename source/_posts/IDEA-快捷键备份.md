@@ -56,6 +56,7 @@ Ctrl+Shift+Space 自动补全代码
 Ctrl+Shift+F9 编译项目
 Ctrl+Shift+F10 启动项目
 
+Ctrl+Shift+Alt+C 复制代码引用
 Ctrl+Shift+Alt+N 查找类中的方法或变量
 Ctrl+Shift+Alt+L 格式化当前类
 Ctrl+Shift+Alt+T 重构代码
@@ -73,7 +74,7 @@ Alt+1 快速打开或隐藏工程面板
 Alt+2 收藏面板
 Alt+6 TODO面板
 Alt+7 代码结构面板
-Alt+Insert 生成代码(如get,set方法,构造函数等	)
+Alt+Insert 生成代码(如get,set方法,构造函数等)
 Alt+Shift+C 对比最近修改的代码
 Alt+Shift+F9 选择 Debug
 Alt+Shift+F10 选择 Run
