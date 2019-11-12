@@ -15,7 +15,7 @@ customize:
     highlight: androidstudio
     sidebar: left # sidebar position, options: left, right
     thumbnail: true # enable posts thumbnail, options: true, false
-    favicon: # path to favicon
+    favicon: /css/images/favicon.ico
     social_links: # for more icons, please see http://fontawesome.io/icons/#brand
         steam: https://steamcommunity.com/profiles/76561198005699654/home/
         qq: http://sighttp.qq.com/msgrd?v=1&uin=285635652
