@@ -184,3 +184,5 @@ location /mytest/{
 
 #访问 http://127.0.0.1/mytest/test1 代理转发 http://127.0.0.1:8080/abc/test1
 ```
+
+> 推荐使用 https://nginxconfig.io/ 可自定义配置

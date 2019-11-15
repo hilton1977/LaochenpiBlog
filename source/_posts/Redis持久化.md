@@ -1,9 +1,11 @@
 ---
 title: Redis 持久化
-date: 2019-02-22 10:27:08
-categories: [数据库]
 tags:
-    - Redis
+  - Redis
+categories:
+  - 数据库
+toc: false
+date: 2019-02-22 10:27:08
 ---
 
 ![](/images/redis.jpg)

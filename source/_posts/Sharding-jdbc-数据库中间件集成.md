@@ -22,43 +22,37 @@ date: 2019-10-17 16:42:30
 maven 项目通过引入`sharding-jdbc-spring-boot-starter`进行配置
 ``` xml
 <dependency>
-   <groupId>io.shardingsphere</groupId>
-   <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
-   <version>3.1.0</version>
+  <groupId>org.apache.shardingsphere</groupId>
+  <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+  <version>4.0.0-RC1</version>
 </dependency>
 ```
 
 Sharding-JDBC 的配置有3种根据项目情况自行选择，这里采用 `yml`方式集成开发，需要修改原有的`datasource`替换成`sharding.datasource`，配置如下
 
 ``` yml
-sharding:
-  jdbc:
-    datasource:
-      names: ticket
-      ticket:
+spring:
+  profiles: dev
+  shardingsphere:
+    datasource: # 数据库相关设置
+      names: ds
+      ds:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: oracle.jdbc.OracleDriver
         url: jdbc:oracle:thin:@192.168.105.16:1523:TKPO
         username: ticket_policy
         password: ticket_policy
-    defaultTableStrategy:
-      none:
-    config:
-      # 打印sql解析过程
-      props:
-        sql.show: true
-      sharding:
-        # 配置表策略
-        tables:
-          filter_control_setting:
-            dynamic: ture
-            actual-data-nodes: ticket.filter_control_setting_$->{1..12}
-            table-strategy:
-              complex:
-                # 设置分片键，相同分片键的连表查询不会出现笛卡儿积
-                sharding-columns: yearMonth,departDate
-                # 设置分表规则
-                algorithm-class-name: com.zkxy.data.config.FilterControlComplexShardingAlgorithm
+    sharding: # 分片设置
+      tables:
+        filter_control_setting: # 逻辑表
+          actual-data-nodes: ds.filter_control_setting_$->{1..12} # 实际物理表集合
+          table-strategy:
+            standard:
+              sharding-column: departdate # 分片字段
+              range-algorithm-class-name: com.zkxy.data.config.FilterControlRangeShardingAlgorithm
+              precise-algorithm-class-name: com.zkxy.data.config.FilterControlPreciseShardingAlgorithm
+    props:
+      sql.show: true
 ```
 
 ##### 配置解释
@@ -69,14 +63,13 @@ sharding:
 - `sharding-cloumns` 分片列，对应数据库字段多个用逗号隔开
 - `algorithm-class-name` 分片逻辑实现类路径
 - `table-strategy` 分表算法逻辑，官方提供了4种分片算法:
-	1. 精确分片算法 `PreciseShardingAlgorithm` 使用单一键作为分片键的=与IN进行分片的场景，需实现`StandardShardingStrategy`接口
+	1. 精确分片算法 `PreciseShardingAlgorithm` 使用单一键作为分片键的=与IN进行分片的场景
 	
-	2. 范围分片算法 `RangeShardingAlgorithm` 使用单一键作为分片键的BETWEEN AND进行分片的场景，需实现`StandardShardingStrategy`接口
+	2. 范围分片算法 `RangeShardingAlgorithm` 使用单一键作为分片键的BETWEEN AND进行分片的场景
 	
-	3. 复合分片算法 `ComplexKeysShardingAlgorithm` 使用多键作为分片键进行分片的场景，包含多个分片键的逻辑较复杂，需要应用开发者自行处理其中的复杂度，需实现`ComplexShardingStrategy`接口
+	3. 复合分片算法 `ComplexKeysShardingAlgorithm` 使用多键作为分片键进行分片的场景，包含多个分片键的逻辑较复杂，需要应用开发者自行处理其中的复杂度
 	
-	4. Hint分片算法 `HintShardingAlgorithm` 用于处理使用Hint行分片的场景，需实现`HintShardingStrategy`接口
-
+	4. Hint分片算法 `HintShardingAlgorithm` 用于处理使用Hint行分片的场景
 
 ### 自定义算法
 这里我们使用`Complex`复合分片算法，可以通过多个字段进行分片处理
@@ -182,3 +175,7 @@ select * from filter_control_setting where yearMonth = '2019-10-10';
 # 无分片列 则会查询 filter_control_setting_1 .... filter_control_setting_12 一共12张表信息归并返回结果
 select * from filter_control_setting;
 ```
+
+### 遇到的问题
+1. 最新版本 __4.0.0-RC1__ 使用 `ComplexKeysShardingAlgorithm`多字段复杂分片当遇到`between and`会报异常`BetweenRouteValue cannot be cast to ListRouteValue`，查看源码发现直接强转`ListRouteValue`导致报错，上`github`查看官方的`issues`也有同样的问题只有等待版本更新。
+2. 数据库驱动版本过低也会导致集成失败，最好根据当前数据库版本更新较新的驱动`jar`包

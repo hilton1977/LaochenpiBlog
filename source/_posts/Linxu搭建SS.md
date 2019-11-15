@@ -1,15 +1,16 @@
 ---
 title: Linux 搭建 Shadowsocks
-date: 2018-07-13 16:25:43
-categories: [Linux]
 tags:
-    - Linux
+  - Linux
+categories:
+  - Linux
+toc: false
+date: 2018-07-13 16:25:43
 ---
 
 ![Shadowsocks](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531801271142&di=761db1c2eaadf98b71507ffb63bdde32&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Fsmccloud%2Frecom%2F2015%2F07%2F14%2F143686120068151458.JPEG)
 
->作为一个码农没有科学上网怎么能行，刚好Vultr新注册送钱买一个云主机玩玩，
-以CentOs7做一个教程，之前在网上找的搭建方法很多错误导致一直不成功现在自己整理并通过测试，踩了很多坑
+>作为一个码农没有科学上网怎么能行，刚好Vultr新注册送钱买一个云主机玩玩，以CentOs7做一个教程，之前在网上找的搭建方法很多错误导致一直不成功现在自己整理并通过测试，踩了很多坑
 
 
 ## 1.Shadowsocks 环境准备

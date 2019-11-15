@@ -1,10 +1,13 @@
 ---
 title: RabbitMQ 消息队列中间件
-date: 2019-03-20 14:35:19
-categories: [Java]
 tags:
-	 - 中间件
+  - 中间件
+categories:
+  - Java
+toc: false
+date: 2019-03-20 14:35:19
 ---
+
 ![](/images/RabbitMQ.jpg)
 
 > RabbitMq消息队列中间件记录一些基本的概念和实际项目运用，消息队列常常会作为解决项目之间解耦的方案之一，特点异步消息可持久化不丢失高可用。实际项目中有各类场景可使用消息队列，例如发送邮件模块、业务消息通知、异步回调结果、日志信息的收集聚合等。
@@ -115,4 +118,8 @@ public void consumer(String msg, Channel channel, Message message) {
     }
 }
 ```
-上述代码使用了`Channel`进行`Ack`确认，队列中有无数条信息为了确认唯一性，调用`basicAck`方法进行确认，`message.getMessageProperties().getDeliveryTag()`获取消息的唯一`tag`值。
+上述代码使用了`Channel`进行`Ack`确认，队列中有无数条信息为了确认唯一性，调用`basicAck`方法进行确认，`message.getMessageProperties().getDeliveryTag()`获取消息的唯一`tag`值。   
+
+@RabbitListener(queues = ) 当队列不存在时候需要配合 @Bean 注册 Queue 进行创建队列或通过管理平台创建，@RabbitListener(queuesToDeclare = @Queue())这种方式会自动创建队列
+
+
