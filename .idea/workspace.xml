@@ -6,10 +6,115 @@
   <component name="ChangeListManager">
     <list default="true" id="a6ce402a-f5b3-4ad3-bd10-cd918c0c1c4a" name="Default" comment="新增文章">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/String类和常量池.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/String类和常量池.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/V2Ray搭建记录.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/V2Ray搭建记录.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/05/24/hexo/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/05/25/Logstah同步Es/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/05/25/Python 第三方库 PIL/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/07/13/Linxu搭建SS/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/07/19/CentOs-Firewalld-脚本/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/07/20/Log4j-学习笔记/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/07/25/Linux-关机重启命令/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/07/25/Linux-文件权限管理/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/07/26/Hexo部署到VPS自动发布/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/08/01/SprintCloud微服务-Eureka/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/08/16/Winsw把java项目做成服务/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2018/08/20/Docker环境搭建/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/CNAME" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2018/05/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2018/07/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2018/08/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2018/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2018/page/2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/page/2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/Linux/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/技术/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/content.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/images/logo-header.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/images/logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/images/opacity-10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/images/s-left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/images/thumb-default-small.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/images/thumb-default.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/images/timg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/consul.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/error.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/es.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/eureka.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/hexo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/linux-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/nginx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/passwd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/ssh-key.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/winsw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/insight.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/font-awesome/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/font-awesome/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/font-awesome/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/font-awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/jquery/3.3.1/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/justified-gallery/jquery.justifiedGallery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/justified-gallery/justifiedGallery.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lg-fb-comment-box.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lg-fb-comment-box.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lg-fb-comment-box.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lg-transitions.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lg-transitions.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lg-transitions.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lightgallery.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lightgallery.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/css/lightgallery.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/fonts/lg.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/fonts/lg.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/fonts/lg.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/fonts/lg.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/img/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/img/video-play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/img/vimeo-play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/img/youtube-play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-autoplay.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-autoplay.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-fullscreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-fullscreen.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-hash.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-hash.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-pager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-pager.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-share.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-share.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-thumbnail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-thumbnail.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-video.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-video.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-zoom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lg-zoom.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lightgallery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/lightgallery/js/lightgallery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/source-code-pro/fonts/mrl8jkM18OlOQN8JLgasD9V_2ngZ8dMf8fLgjYEouxg.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/source-code-pro/fonts/mrl8jkM18OlOQN8JLgasDy2Q8seG17bfDXYR_jUsrzg.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/source-code-pro/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/titillium-web/fonts/7XUFZ5tgS-tD6QamInJTcSo_WB_cotcEMUw1LsIE8mM.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/titillium-web/fonts/7XUFZ5tgS-tD6QamInJTcZSnX671uNZIV63UdXh3Mg0.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/titillium-web/fonts/anMUvcNT0H1YN4FII8wpr4-67659ICLY8bMrYhtePPA.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/titillium-web/fonts/anMUvcNT0H1YN4FII8wpr46gJz9aNFrmnwBdd69aqzY.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/titillium-web/fonts/anMUvcNT0H1YN4FII8wpr9INifKjd1RJ3NxxEi9Cy2w.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/titillium-web/fonts/anMUvcNT0H1YN4FII8wpr_SNRT0fZ5CX-AqRkMYgJJo.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/titillium-web/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/page/2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Java/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Linux/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Spring/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/python/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/心得/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/技术/index.html" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,82 +122,6 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/Docker环境搭建.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="57">
-                <caret line="3" column="16" selection-start-line="3" selection-end-line="4" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/_posts/Fiddler抓包笔记.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="171">
-                <caret line="9" selection-start-line="9" selection-end-line="9" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/Logstah同步Es.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="418">
-                <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/String类和常量池.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor>
-                <caret selection-end-line="9" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/V2Ray搭建记录.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="513">
-                <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/Vue复杂的table表单代码块.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="76">
-                <caret line="4" column="18" selection-start-line="4" selection-end-line="5" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -119,79 +148,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/article.styl" />
-        <option value="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_variables.styl" />
-        <option value="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/index.styl" />
-        <option value="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/header.styl" />
-        <option value="$PROJECT_DIR$/source/_posts/MySQL千行命令.md" />
-        <option value="$PROJECT_DIR$/source/_posts/Stream流操作.md" />
-        <option value="$PROJECT_DIR$/source/_posts/Redis数据类型及应用场景.md" />
-        <option value="$PROJECT_DIR$/source/_posts/Docker环境搭建.md" />
-        <option value="$PROJECT_DIR$/source/_posts/JVM基础概念.md" />
-        <option value="$PROJECT_DIR$/source/_posts/Servlet的声明周期.md" />
-        <option value="$PROJECT_DIR$/source/_posts/SkyWalking搭建记录.md" />
-        <option value="$PROJECT_DIR$/source/_posts/SpringMVC 工作原理.md" />
-        <option value="$PROJECT_DIR$/source/_posts/Http常见状态码.md" />
-        <option value="$PROJECT_DIR$/source/_posts/Http 知识.md" />
-        <option value="$PROJECT_DIR$/source/_posts/RabbitMq 消息队列中间件.md" />
-        <option value="$PROJECT_DIR$/source/_posts/阿里巴巴诊断器.md" />
-        <option value="$PROJECT_DIR$/source/_posts/JVM 内存区域.md" />
-        <option value="$PROJECT_DIR$/source/_posts/Vue复杂的table表单代码块.md" />
-        <option value="$PROJECT_DIR$/source/_posts/搭建记录.md" />
-        <option value="$PROJECT_DIR$/source/_posts/V2Ray搭建记录.md" />
-        <option value="$PROJECT_DIR$/source/_posts/Maven内置属性.md" />
-        <option value="$PROJECT_DIR$/source/_posts/Maven 属性.md" />
-        <option value="$PROJECT_DIR$/source/_posts/Fidder抓包笔记.md" />
-        <option value="$PROJECT_DIR$/source/_posts/Fiddler抓包笔记.md" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="336" />
-    <option name="y" value="130" />
-    <option name="width" value="1386" />
-    <option name="height" value="788" />
-  </component>
+  <component name="ProjectId" id="1aQt8HeqAbDdzGDQqYfADDN2uXU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="LaochenpiBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LaochenpiBlog" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LaochenpiBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LaochenpiBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LaochenpiBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LaochenpiBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="_posts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LaochenpiBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LaochenpiBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ChangesTree.GroupingKeys" value="" />
@@ -200,29 +162,11 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -235,6 +179,12 @@
       <setting name="launchBrowserUrl" value="" />
       <setting name="depsClasspath" value="false" />
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
@@ -278,6 +228,7 @@
       </method>
     </configuration>
     <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <properties />
       <listeners />
@@ -331,6 +282,7 @@
       <workItem from="1563331707761" duration="19435000" />
       <workItem from="1563758148097" duration="2067000" />
       <workItem from="1563776000005" duration="1196000" />
+      <workItem from="1586679487520" duration="2834000" />
     </task>
     <task id="LOCAL-00001" summary="提交">
       <created>1535014017371</created>
@@ -622,9 +574,6 @@
     <option name="localTasksCounter" value="42" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155557000" />
-  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -633,73 +582,6 @@
       <are-packages-shown value="true" />
       <is-autoscroll-to-source value="true" />
     </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17377399" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="JRebel" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Designer" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32925472" />
-      <window_info anchor="bottom" id="Smart" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49946696" weight="0.32814237" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4989339" visible="true" weight="0.16240267" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.23248054" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32843137" />
-      <window_info anchor="bottom" id="JRebel Console" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="13" />
-      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="15" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Maven" order="7" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22014925" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="JRebel" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Designer" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Smart" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32827735" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.23293608" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32843137" />
-      <window_info anchor="bottom" id="JRebel Console" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="13" />
-      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="15" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Maven" order="7" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -724,305 +606,30 @@
     <MESSAGE value="新增文章" />
     <option name="LAST_COMMIT_MESSAGE" value="新增文章" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="699" y="293" key="CommitChangelistDialog2" timestamp="1586682277141">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="699" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1586682277141" />
+    <state x="844" y="410" key="RollbackChangesDialog" timestamp="1586682309475">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="844" y="410" key="RollbackChangesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1586682309475" />
+    <state x="781" y="342" key="SettingsEditor" timestamp="1586679537689">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="781" y="342" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1586679537689" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1586682500737">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1586682500737" />
+    <state x="967" y="491" key="git4idea.merge.GitPullDialog" timestamp="1586682291919">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="967" y="491" key="git4idea.merge.GitPullDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1586682291919" />
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1848" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Python 第三方库 PIL.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-1092">
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_variables.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Hexo部署到VPS自动发布.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="152">
-            <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/style.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/hexo-theme-hueman/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="65" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/header.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/index.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/article.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="245" column="4" selection-start-line="245" selection-start-column="4" selection-end-line="245" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Stream流操作.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="475">
-            <caret line="25" selection-start-line="25" selection-end-line="25" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Redis数据类型及应用场景.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="542">
-            <caret line="40" selection-start-line="40" selection-end-line="40" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/MySQL千行命令.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="4028">
-            <caret line="212" column="18" selection-start-line="212" selection-start-column="18" selection-end-line="212" selection-end-column="18" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Mysql 主从配置.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="494">
-            <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Linux-关机重启命令.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Redis持久化.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="133">
-            <caret line="7" selection-start-line="7" selection-end-line="8" selection-end-column="22" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/JVM基础概念.md" />
-    <entry file="file://$PROJECT_DIR$/db.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="53" selection-start-column="53" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/JVM 类加载.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/JVM 对象创建.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="323">
-            <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/images/java-stream.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/images/header.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/SkyWalking搭建记录.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="359">
-            <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Http 知识.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="57">
-            <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/RabbitMq 消息队列中间件.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="111">
-            <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/SpringMVC 工作原理.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="57">
-            <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="13" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Winsw把java项目做成服务.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/阿里巴巴诊断器.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-521">
-            <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/JVM 内存区域.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="133">
-            <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Maven 属性.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="506">
-            <caret line="48" selection-start-line="48" selection-end-line="48" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Docker环境搭建.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="57">
-            <caret line="3" column="16" selection-start-line="3" selection-end-line="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Logstah同步Es.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="418">
-            <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/String类和常量池.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret selection-end-line="9" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/V2Ray搭建记录.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="513">
-            <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Vue复杂的table表单代码块.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="76">
-            <caret line="4" column="18" selection-start-line="4" selection-end-line="5" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Fiddler抓包笔记.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="171">
-            <caret line="9" selection-start-line="9" selection-end-line="9" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
