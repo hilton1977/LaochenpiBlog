@@ -64,7 +64,7 @@ public ConfigurableApplicationContext run(String... args) {
 }
 ```
 
-#### SpringApplicationRunListeners 事件监听器推送
+#### SpringApplicationRunListeners 事件监听器
 SpringApplicationRunListeners 实例化就是`EventPublishingRunListener`将所有已有监听器加入`SimpleApplicationEventMulticaster`的`defaultRetriever`(默认检索器中)
 ``` java
 public EventPublishingRunListener(SpringApplication application, String[] args) {
@@ -92,9 +92,14 @@ public void addApplicationListener(ApplicationListener<?> listener) {
     }
 }
 ```
-##### SimpleApplicationEventMulticaster 事件广播器
+
+#### ApplicationEvent 事件
+ApplicationEvent 事件分为以下几种
+
+
+#### SimpleApplicationEventMulticaster 事件广播器
 ![simpleApplicationEventMulticaster](/images/simpleApplicationEventMulticaster.png)
-`SimpleApplicationEventMulticaster` 每次事件发生内部调用`multicastEvent`方循环调用监听器`onApplicationEvent`，如果有线程池则异步调用否则同步调用，这类调用方式运用了经典的__观察者模式__
+`SimpleApplicationEventMulticaster` 每次事件发生内部调用`multicastEvent`方循环调用监听器`onApplicationEvent`，如果有线程池则异步调用否则同步调用，事件监听推送就是经典的__观察者模式__
 ``` java
 public void multicastEvent(ApplicationEvent event, @Nullable ResolvableType eventType) {
     // 可解决类型
@@ -149,13 +154,13 @@ protected Collection<ApplicationListener<?>> getApplicationListeners(Application
     } else {
         return this.retrieveApplicationListeners(eventType, sourceType, (AbstractApplicationEventMulticaster.ListenerRetriever)null);
     }
-    
-    // 判读是否支持该事件类型以及来源
-    protected boolean supportsEvent(ApplicationListener<?> listener, ResolvableType eventType, @Nullable Class<?> sourceType) {
-            GenericApplicationListener smartListener = listener instanceof GenericApplicationListener ? (GenericApplicationListener)listener : new GenericApplicationListenerAdapter(listener);
-            return ((GenericApplicationListener)smartListener).supportsEventType(eventType) && ((GenericApplicationListener)smartListener).supportsSourceType(sourceType);
-    }
+}
+
+// 判读是否支持该事件类型以及来源
+protected boolean supportsEvent(ApplicationListener<?> listener, ResolvableType eventType, @Nullable Class<?> sourceType) {
+    GenericApplicationListener smartListener = listener instanceof GenericApplicationListener ? (GenericApplicationListener)listener : new GenericApplicationListenerAdapter(listener);
+    return ((GenericApplicationListener)smartListener).supportsEventType(eventType) && ((GenericApplicationListener)smartListener).supportsSourceType(sourceType);
 }
 ```
 
->>  在 SimpleApplicationEventMulticaster 实例化时会将默认的 defaultRetriever 引用赋值给 retrievalMutex 检索互斥体，在内部很多方法都使用了 synchronized(this.retrievalMutex) 同步锁来保证线程安全
+>>  在 SimpleApplicationEventMulticaster 实例化时会将默认的 defaultRetriever 引用赋值给 `retrievalMutex` 检索互斥体，在内部很多方法都使用了 synchronized(this.retrievalMutex) 同步锁来保证线程安全

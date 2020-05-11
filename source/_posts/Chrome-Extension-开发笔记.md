@@ -93,11 +93,11 @@ date: 2020-01-17 15:22:32
 
 > 注意：`content_scripts` 可以访问到页面所有的`DOM`对象，但是无法访问页面`js`对象和函数，它的运行环境与页面运行不在同一环境位面，当我们需要访问页面的函数或者对象时可在`content_scripts`通过使用`DOM`操作像源页面注入脚本。
 ``` javascript
- function injectJs(path) {
-        let temp = document.createElement('script');
-        temp.setAttribute('type', 'text/javascript');
-        temp.src = chrome.extension.getURL(path);
-        document.head.appendChild(temp);
+function injectJs(path) {
+    let temp = document.createElement('script');
+    temp.setAttribute('type', 'text/javascript');
+    temp.src = chrome.extension.getURL(path);
+    document.head.appendChild(temp);
 }
 ```
 可以通过`F12`查看页面元素找到我们注入的脚本与原始页面属于同一运行环境即访问调用同一环境下的所有函数和对象。
