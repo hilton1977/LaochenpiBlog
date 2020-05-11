@@ -7,28 +7,18 @@ categories:
 toc: false
 date: 2020-04-14 14:14:36
 ---
-
+![](/images/spring.jpg)
 > SpringBoot 启动源码解析（一） 看看 SpringApplication 实例化过程中就干了啥
 
 ## SpringBoot 实例化
 SpringBoot 以`main`方法来启动项目构造方法，调用静态方法`run`内部在实例化 SpringApplication 从参数来看，我们可以启动多个 SpringApplication
 ``` java
-package com;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class Application {
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-}
 
 public static ConfigurableApplicationContext run(Class<?> primarySource, String... args) {
         return run(new Class[]{primarySource}, args);
 }
 
-    public static ConfigurableApplicationContext run(Class<?>[] primarySources, String[] args) {
+public static ConfigurableApplicationContext run(Class<?>[] primarySources, String[] args) {
         return (new SpringApplication(primarySources)).run(args);
 }
 
