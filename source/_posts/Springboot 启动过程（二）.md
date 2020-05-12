@@ -1,5 +1,5 @@
 ---
-title: SpringBoot 启动源码解析（二）
+title: SpringBoot 启动源码解析（二）之监听器
 tags:
   - Spring
 categories:
@@ -9,63 +9,18 @@ date: 2020-05-11 14:14:36
 ---
 
 ![](/images/spring.jpg)
-> SpringBoot 启动源码解析（二） 看看 SpringApplication run 方法干了啥
-
-## SpringBoot run
-SpringApplication `run` 方法就是正式开始环境配置刷新容器等操作
-
-``` java
-public ConfigurableApplicationContext run(String... args) {
-    // 监控器实例化
-    StopWatch stopWatch = new StopWatch();
-    // 启动监控器
-    stopWatch.start();
-    ConfigurableApplicationContext context = null;
-    Collection<SpringBootExceptionReporter> exceptionReporters = new ArrayList();
-    // 无头配置初始化
-    this.configureHeadlessProperty();
-    // 初始化 SpringApplicationRunListeners 并开启
-    SpringApplicationRunListeners listeners = this.getRunListeners(args);
-    listeners.starting();
-    Collection exceptionReporters;
-    try {
-        // 初始化应用参数
-        ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);	
-        // 初始化配置环境 （property）
-        ConfigurableEnvironment environment = this.prepareEnvironment(listeners, applicationArguments);
-        this.configureIgnoreBeanInfo(environment);
-        Banner printedBanner = this.printBanner(environment);
-        context = this.createApplicationContext();
-        // 初始化异常上报
-        exceptionReporters = this.getSpringFactoriesInstances(SpringBootExceptionReporter.class, new Class[]{ConfigurableApplicationContext.class}, context);
-        // 准备 刷新 容器
-        this.prepareContext(context, environment, listeners, applicationArguments, printedBanner);
-        this.refreshContext(context);
-        this.afterRefresh(context, applicationArguments);
-        stopWatch.stop();
-        if (this.logStartupInfo) {
-            (new StartupInfoLogger(this.mainApplicationClass)).logStarted(this.getApplicationLog(), stopWatch);
-        }
-        
-        listeners.started(context);
-        this.callRunners(context, applicationArguments);
-    } catch (Throwable var10) {
-        this.handleRunFailure(context, var10, exceptionReporters, listeners);
-        throw new IllegalStateException(var10);
-    }
-
-    try {
-        listeners.running(context);
-        return context;
-    } catch (Throwable var9) {
-        this.handleRunFailure(context, var9, exceptionReporters, (SpringApplicationRunListeners)null);
-        throw new IllegalStateException(var9);
-    }
-}
-```
+> 监听器在 Spring 中特别重要可以自定义监听器获取各类事件做一些特殊操作
 
 #### SpringApplicationRunListeners 事件监听器
-SpringApplicationRunListeners 实例化就是`EventPublishingRunListener`将所有已有监听器加入`SimpleApplicationEventMulticaster`的`defaultRetriever`(默认检索器中)
+将存于`MATE/spring.factories`中的`SpringApplicationRunListener`类型全部实例化，传入`SpringApplication`对象作为参数
+``` java
+ private SpringApplicationRunListeners getRunListeners(String[] args) {
+        Class<?>[] types = new Class[]{SpringApplication.class, String[].class};
+        return new SpringApplicationRunListeners(logger, this.getSpringFactoriesInstances(SpringApplicationRunListener.class, types, this, args));
+}
+```
+以`EventPublishingRunListener`（事件推送监听器）为例，将之前已实例化`ApplicationListener`加入`SimpleApplicationEventMulticaster`（事件多广播器）的`defaultRetriever`(检索器) 中待事件发生遍历推送
+
 ``` java
 public EventPublishingRunListener(SpringApplication application, String[] args) {
     this.application = application;
@@ -94,12 +49,18 @@ public void addApplicationListener(ApplicationListener<?> listener) {
 ```
 
 #### ApplicationEvent 事件
-ApplicationEvent 事件分为以下几种
+在 Spring 的启动的个个阶段会推送不同的 ApplicationEvent 事件至监听器完成相应阶段的逻辑操作
 
+- **ApplicationStartingEvent**  ：`ApplicationRunListeners` 初始化完毕后时推送，可获取到`SpringApplication`和`args`对象得到当前应用的默认配置信息和命令行参数`args`
+- **ApplicationEnvironmentPreparedEvent** ：配置环境完毕时推送，获取到当前配`ConfigurableEnvironment`可自定义修改配置或新增额外配置
+- **ApplicationContextInitializedEvent** ：容器初始化时推送
+- **ApplicationPreparedEvent** ：
+- **ApplicationStartedEvent** ：容器开始启动时推送
+- **ApplicationReadyEvent** ：容器已经运行时推送
 
 #### SimpleApplicationEventMulticaster 事件广播器
 ![simpleApplicationEventMulticaster](/images/simpleApplicationEventMulticaster.png)
-`SimpleApplicationEventMulticaster` 每次事件发生内部调用`multicastEvent`方循环调用监听器`onApplicationEvent`，如果有线程池则异步调用否则同步调用，事件监听推送就是经典的__观察者模式__
+每次事件发生内部调用`multicastEvent`方循环调用监听器`onApplicationEvent`，如果有线程池则异步调用否则同步调用，事件监听推送就是经典的__观察者设计模式__
 ``` java
 public void multicastEvent(ApplicationEvent event, @Nullable ResolvableType eventType) {
     // 可解决类型
@@ -122,7 +83,7 @@ public void multicastEvent(ApplicationEvent event, @Nullable ResolvableType even
 }
 ```
 
-通过父类`AbstractApplicationEventMulticaster`中`getApplicationListeners`方法过滤需推送`ApplicationListener`集合并以`AbstractApplicationEventMulticaster.ListenerCacheKey`作为 key `AbstractApplicationEventMulticaster.ListenerRetriever` 作为 value 的`ConcurrentHashMap`检索器缓存用于各种事件检索，`supportsEvent`代码中先判断当前监听器类型如果为`GenericApplicationListener`则调用`supportsEventType`和`supportsSourceType`方法判断是否都为`true`否则通过`GenericApplicationListenerAdapter`适配器进行包装转化后判断
+当事件发生并不是所有的监听器都需要推送，通过父类`AbstractApplicationEventMulticaster`中`getApplicationListeners`方法过滤集合并以`AbstractApplicationEventMulticaster.ListenerCacheKey`作为 key `AbstractApplicationEventMulticaster.ListenerRetriever` 作为 value 的`ConcurrentHashMap`检索器缓存用于各种事件检索，`supportsEvent`代码中先判断当前监听器类型如果为`GenericApplicationListener`则调用`supportsEventType`和`supportsSourceType`方法判断是否都为`true`否则通过`GenericApplicationListenerAdapter`适配器进行包装转化后判断
 
 ``` java
 protected Collection<ApplicationListener<?>> getApplicationListeners(ApplicationEvent event, ResolvableType eventType) {

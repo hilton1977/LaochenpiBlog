@@ -1,5 +1,5 @@
 ---
-title: SpringBoot 启动源码解析（一）
+title: SpringBoot 启动源码解析（一）之初见
 tags:
   - Spring
 categories:
@@ -8,9 +8,9 @@ toc: false
 date: 2020-04-14 14:14:36
 ---
 ![](/images/spring.jpg)
-> SpringBoot 启动源码解析（一） 看看 SpringApplication 实例化过程中就干了啥
+> Springboot 启动流程一直面试都会问到，所以看看源码学习它是如何启动并完成利用了那些技术
 
-## SpringBoot 实例化
+### SpringBoot 实例化
 SpringBoot 以`main`方法来启动项目构造方法，调用静态方法`run`内部在实例化 SpringApplication 从参数来看，我们可以启动多个 SpringApplication
 ``` java
 
@@ -160,7 +160,7 @@ private <T> List<T> createSpringFactoriesInstances(Class<T> type, Class<?>[] par
     }
 ```
 
-### deduceMainApplicationClass 判断 main Class
+#### deduceMainApplicationClass 判断 main Class
 获取当前线程堆栈跟踪元素然后遍历调用链判断每个方法名称是否为`main`获取入口类
 ``` java
 private Class<?> deduceMainApplicationClass() {
@@ -180,4 +180,57 @@ private Class<?> deduceMainApplicationClass() {
 
     return null;
 }   
+```
+
+### SpringBoot run 方法
+SpringApplication `run` 方法就是正式开始环境配置刷新容器等操作，下一节会仔细讲解每一步代码流程
+
+``` java
+public ConfigurableApplicationContext run(String... args) {
+    // 监控器实例化
+    StopWatch stopWatch = new StopWatch();
+    // 启动监控器
+    stopWatch.start();
+    ConfigurableApplicationContext context = null;
+    Collection<SpringBootExceptionReporter> exceptionReporters = new ArrayList();
+    // 无头配置初始化
+    this.configureHeadlessProperty();
+    // 初始化 SpringApplicationRunListeners 并开启
+    SpringApplicationRunListeners listeners = this.getRunListeners(args);
+    listeners.starting();
+    Collection exceptionReporters;
+    try {
+        // 初始化应用参数
+        ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);	
+        // 初始化配置环境 （property）
+        ConfigurableEnvironment environment = this.prepareEnvironment(listeners, applicationArguments);
+        this.configureIgnoreBeanInfo(environment);
+        Banner printedBanner = this.printBanner(environment);
+        context = this.createApplicationContext();
+        // 初始化异常上报
+        exceptionReporters = this.getSpringFactoriesInstances(SpringBootExceptionReporter.class, new Class[]{ConfigurableApplicationContext.class}, context);
+        // 准备 刷新 容器
+        this.prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+        this.refreshContext(context);
+        this.afterRefresh(context, applicationArguments);
+        stopWatch.stop();
+        if (this.logStartupInfo) {
+            (new StartupInfoLogger(this.mainApplicationClass)).logStarted(this.getApplicationLog(), stopWatch);
+        }
+        
+        listeners.started(context);
+        this.callRunners(context, applicationArguments);
+    } catch (Throwable var10) {
+        this.handleRunFailure(context, var10, exceptionReporters, listeners);
+        throw new IllegalStateException(var10);
+    }
+
+    try {
+        listeners.running(context);
+        return context;
+    } catch (Throwable var9) {
+        this.handleRunFailure(context, var9, exceptionReporters, (SpringApplicationRunListeners)null);
+        throw new IllegalStateException(var9);
+    }
+}
 ```
