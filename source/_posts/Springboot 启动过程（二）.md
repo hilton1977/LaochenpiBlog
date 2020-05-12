@@ -50,13 +50,13 @@ public void addApplicationListener(ApplicationListener<?> listener) {
 
 #### ApplicationEvent 事件
 在 Spring 的启动的个个阶段会推送不同的 ApplicationEvent 事件至监听器完成相应阶段的逻辑操作
-
-- **ApplicationStartingEvent**  ：`ApplicationRunListeners` 初始化完毕后时推送，可获取到`SpringApplication`和`args`对象得到当前应用的默认配置信息和命令行参数`args`
+- **ApplicationStartingEvent**：在 Environment 和 ApplicationContext 可用之前 & 在 ApplicationListener 注册之后发布。
 - **ApplicationEnvironmentPreparedEvent** ：配置环境完毕时推送，获取到当前配`ConfigurableEnvironment`可自定义修改配置或新增额外配置
-- **ApplicationContextInitializedEvent** ：容器初始化时推送
-- **ApplicationPreparedEvent** ：
-- **ApplicationStartedEvent** ：容器开始启动时推送
-- **ApplicationReadyEvent** ：容器已经运行时推送
+- **ApplicationContextInitializedEvent**：在 bean 定义加载之前 & ApplicationContextInitializers 被调用之后 & ApplicationContext 开始准备之后发布
+- **ApplicationPreparedEvent**：在 ApplicationContext 完全准备好并且没有刷新之前发布，此时 bean 定义即将加载， 
+ Environment 已经准备好被使用。
+- **ApplicationStartedEvent**：在 ApplicationContext 刷新之后，调用 ApplicationRunner 和 CommandLineRunner 之前发布
+- **ApplicationReadyEvent**：应用已经准备好接受请求时发布。
 
 #### SimpleApplicationEventMulticaster 事件广播器
 ![simpleApplicationEventMulticaster](/images/simpleApplicationEventMulticaster.png)
