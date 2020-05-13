@@ -37,16 +37,16 @@ Redis持久化有多种不同级别的方式
 - RDB在大数据快照生成上会消耗大量CPU性能，如CPU性能不足或紧张时会影响Redis对外服务。
 
 ## AOF 持久化
-__AOF__（`append-only file`）持久化:将Redis执行的每一条写请求都记录在一个日志文件里，在Redis启动后会执行所有的写操作达来恢复数据。AOF 默认是关闭状态，AOF 提供3种fsync配置
+__AOF__（`append-only file`）持久化:将 Redis 执行的每一条写请求都记录在一个日志文件里，在 Redis 启动后会执行所有的写操作达来恢复数据。AOF 默认是关闭状态，AOF 提供3种fsync配置
 - __appendfsync no__ 不进行fsync，由OS来决定什么时候进行同步，速度最快
 - __appendfsync always__ 每一次操作都进行fsync，速度较慢
 - __appendfsync everysec__ 折中的做法，交由后台线程每秒fsync一次
 
-#### AOF优点
+#### AOF 优点
 数据更安全，在配置 appendfsync always或 appendfsync everysec会及时把每条执行的写操作都记录都追加到AOF文件末尾即使是服务出现故障至多损失1s之内的数据。
 
+#### AOF 缺点
 
-
-查考地址
+##### 参考地址
 http://doc.redisfans.com/topic/persistence.html
 https://baijiahao.baidu.com/s?id=1611955931705092609&wfr=spider&for=pc
