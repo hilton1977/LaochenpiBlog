@@ -166,20 +166,19 @@ public class TestControllerTest {
         //20-80 分数 降序 values
         Set<String> reverseScores=zSetOperations.reverseRangeByScore(sortedType,20,80);
         System.out.println(reverseScores);
-
     }
 
 }
 ```
 
 ## 过期策略
-- 定时删除 对于带有`TTL`标示的`ke`， Redis 会定时随机抽取检查是否过期并删除
+- 定时删除 对于带有`TTL`标示的`key`， Redis 会定时随机抽取检查是否过期并删除
 - 惰性删除 当你去获取一个`key`时如果超时则会直接删除该key且没有返回
 对于以上2种删除并不能覆盖到所有的`key`，当这些数据后续不再使用会浪费大量内存空间属于无效缓存，如果内存不足时想继续存入新数据则会产生与预期不符的结果，`Redis`对于内存不足情况下提供了内存淘汰机制
 
 #### 内存淘汰机制
 - __noeviction__ 内存不足写入操作直接报错返回错信息
-- __allkey-lru__ 所有key通用，优先删除最近最少使用(less recently used ,LRU) 的 key
-- __allkey-random__ 所有key通用，随机删除一部分 key
+- __allkey-lru__ 所有 key 通用，优先删除最近最少使用(less recently used ,LRU) 的 key
+- __allkey-random__ 所有 key 通用，随机删除一部分 key
 - __volatile-lru__ 只限于设置了 expire 的部分，随机删除一部分 key
 - __volatile-random__ 只限于设置了 expire 的部分，优先删除剩余时间(time to live TTL) 短的key

@@ -38,7 +38,5 @@ tags:
 - 数据的缓存`TTL`设置永久
 - 使用互斥锁等待第一次请求缓存构建完成后释放锁，让其余所有请求直接通过缓存拿取数据。单机环境`Lock`类型，集群使用`Setnx`(set if not exits)
 
-
-
 #### 查考资料 
 https://github.com/doocs/advanced-java/blob/master/docs/high-concurrency/redis-caching-avalanche-and-caching-penetration.md
