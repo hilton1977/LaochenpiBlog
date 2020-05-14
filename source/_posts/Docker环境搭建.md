@@ -19,7 +19,7 @@ Docker 将应用程序与该程序的依赖，打包在一个文件里面。运�
 总体来说，Docker 的接口相当简单，用户可以方便地创建和使用容器，把自己的应用放入容器。容器还可以进行版本管理、复制、分享、修改，就像管理普通的代码一样。
 
 ## 2.Docker 安装
-我的VPS用的Centos 7 那就用本版本记录搭建过程，docker的版本用CE社区版
+我的VPS用的 Centos 7 那就用本版本记录搭建过程，docker的版本用CE社区版
 ``` bash
 #下载yum-utils工具用于管理yum-config-manager可以配置源
 yum install yum-utils

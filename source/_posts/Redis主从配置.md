@@ -15,26 +15,19 @@ date: 2019-11-12 14:54:18
 Redis 当项目规模越来越大承载需求越来越大单机不足以支撑当前业务，则需要`master-slave`主从架构来分担其压力承载更多`QPS`(__我一人无力承受，我需要更多的人来帮我承担，扛不住就摇人__)， 主写从读把压力分散给下面的小弟，更容易水平扩容支持更高并发。
 ![master-slave 架构](/images/redis-master-slave.png)
 
-### redis replication 核心机制
+####  Replication 核心机制
 - redis 采用异步方式复制数据，当从库进行复制时不会堵塞查询也不会影响主库，会使用旧数据提供服务，当数据复制完毕需删除旧数据加载最新数时无法提供服务。
 - slave node 可以有其他 slave node 形成级联模式
 - master node 可以有个多个 slave node
+- slave 有且仅能有一个 master 节点
 
 #### 主从复制流程
 ![主从复制流程](/images/redis-master-slave-replication.png)
 
-1. slave 向 master 发送 psync 请求，初次连接 master 会触发全量复制`full resynchronization`，并把 master 的 `runid` 和 `offset` 发送给 slave 以便下一次增量复制
+1. slave 向 master 发送`psync`请求，初次连接 master 会触发全量复制`full resynchronization`，并把 master 的 `runid` 和 `offset` 发送给 slave 以便下一次增量复制
 2. master 会 fork 子进程生成 RDB 快照并将后续执行的写命令写入 buffer（复制缓冲区）
 3. master 把 RDB 快照和复制缓冲区发送给 slave，slave 会将 RDB 快照先存入本地磁盘然后再加载到内存中
 4. 当网络波动导致复制失败重新连接会根据 slave 的`offset`与 master 的 `offset`对比看是否在复制缓冲区范围内判断是全量或增量复制
-
-##### 注意事项
-- 合理设置 `repl-backlog-size` 复制缓冲区大小避免触发循环全量复制，当 master 接受新写入新请求速度大于 slave 同步的速度时，buffer 复制缓冲区内容还未被 slave 同步就被新写入数据所覆盖导致丢失部分指令数据，每一次增量复制 offset 偏移量不在缓冲区范围而触发循环全量复制
-- 设置缓冲区超时 `client-output-buffer-limit slave 256mb 64mb 60` 大于256mb或者超过64mb 的状态且超过60s，根据实际情况配合 repl-timeout 同步超时进行调整使用
-- slave 不会处理过期 key，通过 master 同步删除
-- 从节点 `slave-read-only` 设置为 yes 只读状态
-- 重启 master node 会 导致 runid 重新生成，当 slave node 请求同步会发现 runid 发生改变会进行全量复制 
-- 启无磁盘复制：repl-diskless-sync yes  快照将不落地磁盘直接通过网络复制避免IO性能差
 
 ### Redis 主从配置
 ``` conf
@@ -83,6 +76,7 @@ slave-priority 100
 # 延迟小于min-slaves-max-lag秒的slave才认为是健康的slave。
 # min-slaves-max-lag 10
 ```
+
 通过命令`slaveof no one`可去除主从关系，通过命令行`info replication`可以查询当前节点的复制信息
  ![复制信息](/images/info_replication.png)
 <escape>
@@ -107,7 +101,7 @@ slave-priority 100
      <tr>
            <td>repl_backlog_size</td>
            <td>10465325</td>
-           <td>复制缓冲区大小（字节）</td>
+           <td>复制缓冲区大小</td>
      </tr>
      <tr>
            <td>repl_backlog_first_byte_offset</td>
@@ -188,12 +182,59 @@ slave-priority 100
      </tr>
  </table>
  </escape>
+ 
+##### 注意事项
+- 合理设置 `repl-backlog-size` 复制缓冲区大小避免触发循环全量复制，当 master 接受新写入新请求速度大于 slave 同步的速度时，buffer 复制缓冲区内容还未被 slave 同步就被新写入数据所覆盖导致丢失部分指令数据，每一次增量复制 offset 偏移量不在缓冲区范围而触发循环全量复制
+- 设置缓冲区超时 `client-output-buffer-limit slave 256mb 64mb 60` 大于256mb或者超过64mb 的状态且超过60s，根据实际情况配合 repl-timeout 同步超时进行调整使用
+- slave 不会处理过期 key，通过 master 同步删除
+- 从节点 `slave-read-only` 设置为 yes 只读状态
+- 启无磁盘复制：`repl-diskless-sync` yes  快照将不落地磁盘直接通过网络复制避免IO性能差
 
-#### Sentinel 哨兵模式 
+
+### Sentinel 哨兵模式 
 ![哨兵模式架构](/images/redis-sentinel.png)
 对于主从架构如果主节点宕机挂掉子节点将无法获取最新数据，对于这样的情况推出了哨兵模式当`master`挂掉后会从子节点重新选举一个新的`master`节点来保证高可用，旧`master`则会转化成新的`slave`节点
 - **监控** ：sentinel 会不断检查`master`、`slave`服务器是否正常工作 
 - **通知** ：当被监控服务出现问题会通过 Api 向管理人员发送通知
 - **自动故障转移** ：当`master`失效无法提供服务时，将从`slaves`子节点群中选举一个新的`master`节点并将其他`slave`指向它
 
+#### 哨兵配置
+``` conf 
+# 端口
+port 26379
 
+# 是否后台启动
+daemonize yes
+
+# pid文件路径
+pidfile /var/run/redis-sentinel.pid
+
+# 日志文件路径
+logfile "/var/log/sentinel.log"
+
+# 定义工作目录
+dir /tmp
+
+# 定义Redis主的别名, IP, 端口，2指的是需要至少2个Sentinel 认为主节点主观下线（subjectivly）才标记为客观下线（objectivly）并准备自动故障转移
+sentinel monitor mymaster 127.0.0.1 6379 2
+
+# 判断主观下线（subjectivly）最大超时时间
+sentinel down-after-milliseconds mymaster 30000
+
+# 并发同步新 master 节点数据的 slave 数量，数字越小当节点过多时需要完成 failover 的事件就越长，数字越大由于 replication 机制会有更多的 slave 无法提供服务
+sentinel parallel-syncs mymaster 1
+
+# 故障转移超时时间
+sentinel failover-timeout mymaster 180000
+
+# 不允许使用SENTINEL SET设置notification-script和client-reconfig-script。
+sentinel deny-scripts-reconfig yes
+
+# 故障通知执行相应的脚本，允许执行的最大事件为60秒超时kill，失败重试次数为10
+sentinel notification-script <master-name> <script-path> 
+```
+
+启动哨兵后会__自动感知__到主节点下的所有从节点，通过`info`指令可知监控主节点的状况、地址、子节点数、监控哨兵数量
+![哨兵情况](/images/sentinel-info.png)
+
+> 每次故障转移会__重写__节点的配置文件，当之前__客观下线__的节点重新上线后会自动同步新主节点数据
