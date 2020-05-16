@@ -79,6 +79,7 @@ slave-priority 100
 
 通过命令`slaveof no one`可去除主从关系，通过命令行`info replication`可以查询当前节点的复制信息
  ![复制信息](/images/info_replication.png)
+ #### 参数讲解
 <escape>
 <table>
      <tr>
@@ -237,4 +238,31 @@ sentinel notification-script <master-name> <script-path>
 启动哨兵后会__自动感知__到主节点下的所有从节点，通过`info`指令可知监控主节点的状况、地址、子节点数、监控哨兵数量
 ![哨兵情况](/images/sentinel-info.png)
 
-> 每次故障转移会__重写__节点的配置文件，当之前__客观下线__的节点重新上线后会自动同步新主节点数据
+> 每次故障转移会__重写节点的配置文件__添加或者删除`slaveof`指向新的主节点，重新上线后会从新主节点同步数据 
+
+### Redis Cluster
+当数据量越来越大时生成的快照也越来越大主从之间复制也更加复杂很难去实现快速水平扩展，把鸡蛋放在一个篮子里不如把鸡蛋分开放在不同的篮子里，通过鸡蛋信息根据算法放到相应的篮子里，当数据量越来越大时我只需增加篮子的数量即可完成水平扩展
+
+Redis Cluster 采用数据分片（sharding）而非一致性哈希（consistency hashing）来实现，Redis 集群默认包含**16384**个哈希槽`hash slot`当存入一个新`key`时会根据 __CRC16(key)__ 计算出结果对 **16384** 取余得出的值对应相应的哈希槽`hash slot`，通过**路由算法**得知负责该哈希槽的节点并存入，集群的搭建至少由3个节点组成为了高可用至少每个节点一个从节点搭建主从关系
+
+![image.png](/images/2020/05/15/ca01fa20-9687-11ea-baff-f5d93153beb4.png)
+
+#### Cluster 配置
+``` conf
+# 开启集群模式
+cluster-enabled yes
+
+# 集群内部配置文件 会在启动后自动创建
+cluster-config-file nodes.conf
+
+#集群节点超时时间
+cluster-node-timeout 5000
+```
+
+#### Cluster 机制
+- 集群中所有的节点之间会不断的相互通信（**gossip 协议**）保持整个集群数据完整健康
+- 每个节点需要2个端口：自身端口和（自身端口+10000）用于通信
+- 节点之间会交换包含故障信息、节点变化信息、`hash slot`哈希槽信息等
+- 集群已实现高可用，通过节点之间通信发现有节点超时则认为`pfail`，当半数以上的节点都认为`pfail`则标记为`fail`，类似哨兵的`subjectivly`和`objectivly`
+
+> 在配置文件中 cluster-config-file nodes.conf 就是用来保存节点交换的信息
