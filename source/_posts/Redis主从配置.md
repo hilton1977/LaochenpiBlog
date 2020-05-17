@@ -243,9 +243,9 @@ sentinel notification-script <master-name> <script-path>
 ### Redis Cluster
 当数据量越来越大时生成的快照也越来越大主从之间复制也更加复杂很难去实现快速水平扩展，把鸡蛋放在一个篮子里不如把鸡蛋分开放在不同的篮子里，通过鸡蛋信息根据算法放到相应的篮子里，当数据量越来越大时我只需增加篮子的数量即可完成水平扩展
 
-Redis Cluster 采用数据分片（sharding）而非一致性哈希（consistency hashing）来实现，Redis 集群默认包含**16384**个哈希槽`hash slot`当存入一个新`key`时会根据 __CRC16(key)__ 计算出结果对 **16384** 取余得出的值对应相应的哈希槽`hash slot`，通过**路由算法**得知负责该哈希槽的节点并存入，集群的搭建至少由3个节点组成为了高可用至少每个节点一个从节点搭建主从关系
+Redis Cluster 采用数据分片（sharding）而非一致性哈希（consistency hashing）来实现，Redis 集群默认包含**16384**个哈希槽`hash slot`当存入一个新`key`时会根据 __CRC16(key)__ 计算出结果对 **16384** 取余得出的值对应相应的哈希槽`hash slot`，通过**路由算法**得知负责该哈希槽的节点并存入，集群的搭建至少由3个节点组成为了高可用每个节点至少有一个从节点搭用于故障恢复
 
-![image.png](/images/2020/05/15/ca01fa20-9687-11ea-baff-f5d93153beb4.png)
+![image.png](/images/2020/05/15/c490d980-9687-11ea-baff-f5d93153beb4.png)
 
 #### Cluster 配置
 ``` conf
@@ -255,8 +255,11 @@ cluster-enabled yes
 # 集群内部配置文件 会在启动后自动创建
 cluster-config-file nodes.conf
 
-#集群节点超时时间
+# 集群节点超时时间
 cluster-node-timeout 5000
+
+# 当集群中有节点fail是否认为集群可用，yes 集群某个哈希槽节点无法提供服务且没有从节点故障恢复时认为整个集群失效不再提供服务，no 当某个哈希槽节点失效时认为集群可用且继续提供服务
+cluster-require-full-coverage yes
 ```
 
 #### Cluster 机制
@@ -264,5 +267,17 @@ cluster-node-timeout 5000
 - 每个节点需要2个端口：自身端口和（自身端口+10000）用于通信
 - 节点之间会交换包含故障信息、节点变化信息、`hash slot`哈希槽信息等
 - 集群已实现高可用，通过节点之间通信发现有节点超时则认为`pfail`，当半数以上的节点都认为`pfail`则标记为`fail`，类似哨兵的`subjectivly`和`objectivly`
+- 集群采用 **P2P** 模式，完全去中心化节点
 
-> 在配置文件中 cluster-config-file nodes.conf 就是用来保存节点交换的信息
+
+#### Cluster 高可用 扩容
+当某负责哈希槽节点失效导致无法提供服务为保证整个集群高可用，我们需要给每个负责分片节点配置至少一个从节点用于故障转移，当数据量越来越大时我们可以通过新增分片节点并将其余哈希槽部分转移到新分片之中完成动态扩容而不影响整个集群提供服务
+
+#### 注意事项
+- 集群建立完成后新增的`master`节点是没有分配哈希槽需要自行根据情况从其他节点转移
+- 新增的节点必须为空否则失败，需要删除对应快照 rdb 和 node.conf 集群节点信息
+    ``` bash
+    [ERR] Node 127.0.0.1:6383 is not empty. Either the node already knows other nodes (check with CLUSTER NODES) or contains some key in database 0.
+    ```
+- cluster-require-full-coverage 集群失效条件仅针对有哈希槽的分片节点对于其他从节点和无哈希槽节点忽略
+- 通过`reids-trib.rb`脚本删除集群节点会自动去关闭该节点
