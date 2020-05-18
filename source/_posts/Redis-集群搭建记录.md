@@ -140,7 +140,7 @@ ruby redis-trib.rb add-node --slave --master-id [主节点 node-id] [新增节�
 ```
 
 #### 删除节点
-==从节点可直接删除，主节点如果有哈希槽则需要将拥有的哈希槽迁移到其他节点才能删除==，删除节点会自动关闭
+从节点可直接删除，主节点如果有哈希槽则需要将拥有的哈希槽迁移到其他节点才能删除，删除节点会自动关闭
 ``` bash
 # 删除节点
 ruby redis-trib.rb del-node [删除节点 host:port] [删除节点 node-id]
