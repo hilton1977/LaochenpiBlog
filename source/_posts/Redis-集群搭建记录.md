@@ -21,7 +21,7 @@ date: 2020-05-17 14:06:04
 	Parsing documentation for redis-4.1.4
 	Done installing documentation for redis after 1 seconds
 	1 gem installed
-	``` 
+	```
 
 - 由于`window`版本`reids`无脚本，需要下载相应版本的`redis`提取出 [**redis-trib.rb**](https://github.com/antirez/redis/releases)
 

@@ -29,7 +29,7 @@ input {
     #数据库地址
         jdbc_connection_string => "jdbc:oracle:thin:@192.168.105.16:1523:gnnt"
     #数据库用户名密码
-        jdbc_user => "plane_tick"
+        jdbc_user => "plane_tick"   
         jdbc_password => "ora123"
     #数据库驱动类
         jdbc_driver_class => "Java::oracle.jdbc.driver.OracleDriver"
@@ -62,6 +62,8 @@ output {
 ## 3.启动同步脚本
 进入Logstash目录bin文件夹下执行脚本
 ``` bash 
-    #config为执行配置文件绝对路径或相对路径
-    logstash -f [config]
+#config为执行配置文件绝对路径或相对路径
+logstash -f [config]
 ```
+
+> 注意conf 配置文件编码格式必须为ANSI否则无法正常读取配置文件

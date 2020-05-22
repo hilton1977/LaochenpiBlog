@@ -11,7 +11,7 @@ date: 2020-05-11 14:14:36
 ![](/images/spring.jpg)
 > 监听器在 Spring 中特别重要可以自定义监听器获取各类事件做一些特殊操作
 
-#### SpringApplicationRunListeners 事件监听器
+### SpringApplicationRunListeners 事件监听器
 将存于`MATE/spring.factories`中的`SpringApplicationRunListener`类型全部实例化，传入`SpringApplication`对象作为参数
 ``` java
  private SpringApplicationRunListeners getRunListeners(String[] args) {
