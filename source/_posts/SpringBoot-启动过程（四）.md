@@ -40,10 +40,9 @@ protected ConfigurableApplicationContext createApplicationContext() {
 ![ConfigurableApplicationContext 可配置上下文结构](/images/2020/05/19/beb83e10-99b4-11ea-bc19-85fa9aca2a18.png)
 
 ### SpringApplicationContext 准备
-加载之前的配置环境，配置上下文的 bean 生成器及 ResourceLoader 资源加载器，`ConfigurableListableBeanFactory`单例注册特殊`Bean`，创建 BeanDefinitionLoader 加载资源这里有我们熟知的各种加载方法，然后根据已有 Sources 进行判断用那种读取器
-
+加载之前的配置环境，配置上下文的 bean 生成器及 ResourceLoader 资源加载器，`ConfigurableListableBeanFactory`单例注册特殊`Bean`，创建 BeanDefinitionLoader 加载资源这里有我们熟知的各种加载方法，然后根据已有 Sources 进行判断用那种读取
 - XmlBeanDefinitionReader xml 配置文件读取加载 bean
-- AnnotatedBeanDefinitionReader Springboot 最常用方法使用注解方法 @Service @Controller 等
+- AnnotatedBeanDefinitionReader Springboot 注解方法
 - ClassPathBeanDefinitionScanner 类路径扫描器
 - GroovyBeanDefinitionReader groovy 方法加载 bean
 ``` java
