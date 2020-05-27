@@ -12,9 +12,12 @@ date: 2020-05-20 10:14:36
 > 当配置环境初始化完毕后下一步容器创建、准备、刷新、刷新后处理
 
 ### SpringApplicationContext 容器创建
-于之前一样创建容器也需要根据应用类型去实例化相应的容器对象，SpringBoot 可使用`AnnotationConfigServletWebServerApplicationContext`注解方式装配 Bean，SpringMVC 可使用`XmlServletWebServerApplicationContext`通过XML配置文件来装配 Bean 
+根据应用类型去实例化相应的容器对象，SpringBoot 使用`AnnotationConfigServletWebServerApplicationContext`，实例化会初始化`AnnotatedBeanDefinitionReader`和`ClassPathBeanDefinitionScanner` 
+- AnnotatedBeanDefinitionReader 用于管理`BeanDefinition`，包含 `BeanDefinitionRegistry`注册管理、`BeanNameGenerator` beanName生成规则、`scopeMetadataResolver` Scope注解解析器
+- ClassPathBeanDefinitionScanner 用与类扫描包含了匹配规则`**/*.class/`和过滤条件`@Component`（所以我们项目中常常使用的@Service、@Controller会被注册）、`scopeMetadataResolver` Scope注解解析器、`resourcePatternResolver`资源加载器等
 
 ``` java
+// 根据类型对应Class利用反射创建实例 
 protected ConfigurableApplicationContext createApplicationContext() {
     Class<?> contextClass = this.applicationContextClass;
     if (contextClass == null) {
@@ -36,30 +39,44 @@ protected ConfigurableApplicationContext createApplicationContext() {
 
     return (ConfigurableApplicationContext)BeanUtils.instantiateClass(contextClass);
 }
+
+// AnnotationConfigSelvetWebServerApplicationContext 构造方法 
+public AnnotationConfigServletWebServerApplicationContext() {
+    this.annotatedClasses = new LinkedHashSet();
+    this.reader = new AnnotatedBeanDefinitionReader(this);
+    this.scanner = new ClassPathBeanDefinitionScanner(this);
+}
+
 ```
+
 ![ConfigurableApplicationContext 可配置上下文结构](/images/2020/05/19/beb83e10-99b4-11ea-bc19-85fa9aca2a18.png)
 
 ### SpringApplicationContext 准备
-加载之前的配置环境，配置上下文的 bean 生成器及 ResourceLoader 资源加载器，`ConfigurableListableBeanFactory`单例注册特殊`Bean`，创建 BeanDefinitionLoader 加载资源这里有我们熟知的各种加载方法，然后根据已有 Sources 进行判断用那种读取
+1. 上下文加载装配环境包含`AnnotatedBeanDefinitionReader`和`ClassPathBeanDefinitionScanner`
+2. 配置上下文的 bean 生成器及 ResourceLoader 资源加载器，广播上下文准备事件并开启日志
+3. 获取`DefaultListableBeanFactory`并单例注册`springApplicationArguments`、`springBootBanner`
+4. 加载所有资源创建 `BeanDefinitionReader`读取资源根据资源类型分类解析
+5. 广播上下文加载完毕事件
+
 - XmlBeanDefinitionReader xml 配置文件读取加载 bean
-- AnnotatedBeanDefinitionReader Springboot 注解方法
+- AnnotatedBeanDefinitionReader 注解方法读取
 - ClassPathBeanDefinitionScanner 类路径扫描器
 - GroovyBeanDefinitionReader groovy 方法加载 bean
 ``` java
 private void prepareContext(ConfigurableApplicationContext context, ConfigurableEnvironment environment, SpringApplicationRunListeners listeners, ApplicationArguments applicationArguments, Banner printedBanner) {
-    // 装载可配置环境 
+    // 装载可配置环境
     context.setEnvironment(environment);
     // 配置上下文的 bean 生成器及资源加载器
     this.postProcessApplicationContext(context);
     // 循环遍历所有初始化器
     this.applyInitializers(context);
-    // 监听器广播上下文准备事件
+    // 广播上下文准备事件
     listeners.contextPrepared(context);
     if (this.logStartupInfo) {
         this.logStartupInfo(context.getParent() == null);
         this.logStartupProfileInfo(context);
     }
-    // 可配置Bean 工厂 注册对象
+    // 可配置Bean 工厂 单例注册特殊bean
     ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
     beanFactory.registerSingleton("springApplicationArguments", applicationArguments);
     if (printedBanner != null) {
@@ -73,11 +90,11 @@ private void prepareContext(ConfigurableApplicationContext context, Configurable
     if (this.lazyInitialization) {
         context.addBeanFactoryPostProcessor(new LazyInitializationBeanFactoryPostProcessor());
     }
-
+    // 加载所有资源
     Set<Object> sources = this.getAllSources();
     Assert.notEmpty(sources, "Sources must not be empty");
     this.load(context, sources.toArray(new Object[0]));
-    // 监听器广播上下文加载事件
+    // 广播上下文加载事件
     listeners.contextLoaded(context);
 }
 ```
@@ -86,8 +103,9 @@ private void prepareContext(ConfigurableApplicationContext context, Configurable
 ``` java
 public void refresh() throws BeansException, IllegalStateException {
     synchronized(this.startupShutdownMonitor) {
+        # 准备刷新 更新状态、校验必要属性、设置监听器列表
         this.prepareRefresh();
-        // 创建 DefalutListableBeanFactory 
+        // 设置SerializationId 
         ConfigurableListableBeanFactory beanFactory = this.obtainFreshBeanFactory();
         // 后置处理器设置注册各类环境配置Bean
         this.prepareBeanFactory(beanFactory);
@@ -118,8 +136,38 @@ public void refresh() throws BeansException, IllegalStateException {
 }
 ```
 
-#### prepareBeanFactory
-1. 加载 `ClassLoader`、新增 `StandardBeanExpressionResolver` Bean 表达式解析器、`ResourceEditorRegistrar` 属性编辑注册器
+#### prepareRefresh 准备刷新上下文
+1. 设置上下文状态记录跟踪日志
+2. 初始化配置资源并校验环境必要属性
+3. 新增监听器列表 `earlyApplicationListeners`
+``` java 
+protected void prepareRefresh() {
+    this.startupDate = System.currentTimeMillis();
+    this.closed.set(false);
+    this.active.set(true);
+    if (this.logger.isDebugEnabled()) {
+    if (this.logger.isTraceEnabled()) {
+        this.logger.trace("Refreshing " + this);
+    } else {
+        this.logger.debug("Refreshing " + this.getDisplayName());
+    }
+    }
+
+    this.initPropertySources();
+    this.getEnvironment().validateRequiredProperties();
+    if (this.earlyApplicationListeners == null) {
+    this.earlyApplicationListeners = new LinkedHashSet(this.applicationListeners);
+    } else {
+    this.applicationListeners.clear();
+    this.applicationListeners.addAll(this.earlyApplicationListeners);
+    }
+
+    this.earlyApplicationEvents = new LinkedHashSet();
+}
+```
+
+#### prepareBeanFactory 准备 BeanFactory
+1. 加载 `ClassLoader`、新增 `StandardBeanExpressionResolver` 标准的`Bean`表达式解析器、`ResourceEditorRegistrar` 属性编辑注册器
 2. 添加 `ApplicationContextAwareProcessor` 后置处理器用于处理 Bean 初始化前后操作，忽略依赖接口列表新增`EnvironmentAware`、`ApplicationEventPushlisherAware`、`ResouceLoaderAware`、`EmbedderValueResolverAware`、`MessageSourceAware`、`ApplicationContextAware`接口，由于`ApplicationContextAwareProcesser`已实现以上功能
 3. 新增`ApplicationListenerDetector` 监听器检测器用于内置 Bean 发布事件
 4. 注册单例 Bean `environment`、`systemProperties`、`systemEnvironment`
@@ -165,7 +213,30 @@ protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) {
 }
 ```
 
-#### invokeBeanFactoryPostProcessors 
+#### postProcessBeanFactory 后置处理器
+根据第三方组件拓展新增后置处理器忽略接口依赖
+``` java
+// ServletWebServerApplicationContext 提供的方法 
+protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
+    beanFactory.addBeanPostProcessor(new WebApplicationContextServletContextAwareProcessor(this));
+    beanFactory.ignoreDependencyInterface(ServletContextAware.class);
+    this.registerWebApplicationScopes();
+}
+
+
+protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
+    super.postProcessBeanFactory(beanFactory);
+    if (this.basePackages != null && this.basePackages.length > 0) {
+        this.scanner.scan(this.basePackages);
+    }
+
+    if (!this.annotatedClasses.isEmpty()) {
+        this.reader.register(ClassUtils.toClassArray(this.annotatedClasses));
+    }
+}
+```
+
+#### invokeBeanFactoryPostProcessors 调用 Bean 工厂后置处理器
 1. 迭代上下文中`beanFactoryPostProcessors` 后置处理器集合，如果是`BeanDefinitionRegistryPostProcessor` 则调用执行`postProcessBeanDefinitionRegistry`否则仅收集与`regularPostProcessors`
 2. 循环类型为`BeanDefinitionRegistryPostProcessor`的处理器名字集合判断
 ``` java

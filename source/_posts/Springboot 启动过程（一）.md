@@ -89,8 +89,11 @@ static WebApplicationType deduceFromClasspath() {
 ``` java
 private <T> Collection<T> getSpringFactoriesInstances(Class<T> type, Class<?>[] parameterTypes, Object... args) {
     ClassLoader classLoader = this.getClassLoader();
+    // 获取配置文件中的 ClassName
     Set<String> names = new LinkedHashSet(SpringFactoriesLoader.loadFactoryNames(type, classLoader));
+    // 根据类型创建实例
     List<T> instances = this.createSpringFactoriesInstances(type, parameterTypes, classLoader, args, names);
+    // 按照优先级排序
     AnnotationAwareOrderComparator.sort(instances);
     return instances;
 }
