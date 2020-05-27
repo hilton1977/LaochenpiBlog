@@ -83,3 +83,223 @@ private void prepareContext(ConfigurableApplicationContext context, Configurable
 ```
 
 ### SpringApplicationContext 刷新
+``` java
+public void refresh() throws BeansException, IllegalStateException {
+    synchronized(this.startupShutdownMonitor) {
+        this.prepareRefresh();
+        // 创建 DefalutListableBeanFactory 
+        ConfigurableListableBeanFactory beanFactory = this.obtainFreshBeanFactory();
+        // 后置处理器设置注册各类环境配置Bean
+        this.prepareBeanFactory(beanFactory);
+        try {
+            // 后置处理器空方法用于第三方拓展
+            this.postProcessBeanFactory(beanFactory);
+            this.invokeBeanFactoryPostProcessors(beanFactory);
+            this.registerBeanPostProcessors(beanFactory);
+            this.initMessageSource();
+            this.initApplicationEventMulticaster();
+            this.onRefresh();
+            this.registerListeners();
+            this.finishBeanFactoryInitialization(beanFactory);
+            this.finishRefresh();
+        } catch (BeansException var9) {
+            if (this.logger.isWarnEnabled()) {
+                this.logger.warn("Exception encountered during context initialization - cancelling refresh attempt: " + var9);
+            }
+
+            this.destroyBeans();
+            this.cancelRefresh(var9);
+            throw var9;
+        } finally {
+            this.resetCommonCaches();
+        }
+
+    }
+}
+```
+
+#### prepareBeanFactory
+1. 加载 `ClassLoader`、新增 `StandardBeanExpressionResolver` Bean 表达式解析器、`ResourceEditorRegistrar` 属性编辑注册器
+2. 添加 `ApplicationContextAwareProcessor` 后置处理器用于处理 Bean 初始化前后操作，忽略依赖接口列表新增`EnvironmentAware`、`ApplicationEventPushlisherAware`、`ResouceLoaderAware`、`EmbedderValueResolverAware`、`MessageSourceAware`、`ApplicationContextAware`接口，由于`ApplicationContextAwareProcesser`已实现以上功能
+3. 新增`ApplicationListenerDetector` 监听器检测器用于内置 Bean 发布事件
+4. 注册单例 Bean `environment`、`systemProperties`、`systemEnvironment`
+``` java
+protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) {
+    // 设置 ClassLoader 用于加载 Bean 
+    beanFactory.setBeanClassLoader(this.getClassLoader());
+    // 设置 StandardBeanExpressionResolver（标准 Bean EL 表达式解析器） 用于解析#{}
+    beanFactory.setBeanExpressionResolver(new StandardBeanExpressionResolver(beanFactory.getBeanClassLoader()));
+    // 新增 属性编辑注册器 
+    beanFactory.addPropertyEditorRegistrar(new ResourceEditorRegistrar(this, this.getEnvironment()));
+    // 新增 Bean 后置处理器
+    beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this));
+    // 忽略以下接口类依赖
+    beanFactory.ignoreDependencyInterface(EnvironmentAware.class);
+    beanFactory.ignoreDependencyInterface(EmbeddedValueResolverAware.class);
+    beanFactory.ignoreDependencyInterface(ResourceLoaderAware.class);
+    beanFactory.ignoreDependencyInterface(ApplicationEventPublisherAware.class);
+    beanFactory.ignoreDependencyInterface(MessageSourceAware.class);
+    beanFactory.ignoreDependencyInterface(ApplicationContextAware.class);
+    beanFactory.registerResolvableDependency(BeanFactory.class, beanFactory);
+    beanFactory.registerResolvableDependency(ResourceLoader.class, this);
+    beanFactory.registerResolvableDependency(ApplicationEventPublisher.class, this);
+    beanFactory.registerResolvableDependency(ApplicationContext.class, this);
+    beanFactory.addBeanPostProcessor(new ApplicationListenerDetector(this));
+    if (beanFactory.containsBean("loadTimeWeaver")) {
+        beanFactory.addBeanPostProcessor(new LoadTimeWeaverAwareProcessor(beanFactory));
+        beanFactory.setTempClassLoader(new ContextTypeMatchClassLoader(beanFactory.getBeanClassLoader()));
+    }
+
+    if (!beanFactory.containsLocalBean("environment")) {
+        beanFactory.registerSingleton("environment", this.getEnvironment());
+    }
+
+    if (!beanFactory.containsLocalBean("systemProperties")) {
+        beanFactory.registerSingleton("systemProperties", this.getEnvironment().getSystemProperties());
+    }
+
+    if (!beanFactory.containsLocalBean("systemEnvironment")) {
+        beanFactory.registerSingleton("systemEnvironment", this.getEnvironment().getSystemEnvironment());
+    }
+
+}
+```
+
+#### invokeBeanFactoryPostProcessors 
+1. 迭代上下文中`beanFactoryPostProcessors` 后置处理器集合，如果是`BeanDefinitionRegistryPostProcessor` 则调用执行`postProcessBeanDefinitionRegistry`否则仅收集与`regularPostProcessors`
+2. 循环类型为`BeanDefinitionRegistryPostProcessor`的处理器名字集合判断
+``` java
+public static void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory, List<BeanFactoryPostProcessor> beanFactoryPostProcessors) {
+    Set<String> processedBeans = new HashSet();
+    ArrayList regularPostProcessors;
+    ArrayList registryProcessors;
+    int var9;
+    ArrayList currentRegistryProcessors;
+    String[] postProcessorNames;
+    if (beanFactory instanceof BeanDefinitionRegistry) {
+        BeanDefinitionRegistry registry = (BeanDefinitionRegistry)beanFactory;
+        regularPostProcessors = new ArrayList();
+        registryProcessors = new ArrayList();
+        Iterator var6 = beanFactoryPostProcessors.iterator();
+        // 迭代判断类型分配收集和执行 postProcessBeanDefinitionRegistry
+        while(var6.hasNext()) {
+            BeanFactoryPostProcessor postProcessor = (BeanFactoryPostProcessor)var6.next();
+            if (postProcessor instanceof BeanDefinitionRegistryPostProcessor) {
+                BeanDefinitionRegistryPostProcessor registryProcessor = (BeanDefinitionRegistryPostProcessor)postProcessor;
+                registryProcessor.postProcessBeanDefinitionRegistry(registry);
+                registryProcessors.add(registryProcessor);
+            } else {
+                regularPostProcessors.add(postProcessor);
+            }
+        }
+
+        currentRegistryProcessors = new ArrayList();
+        postProcessorNames = beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);
+        String[] var16 = postProcessorNames;
+        var9 = postProcessorNames.length;
+
+        int var10;
+        String ppName;
+        // 
+        for(var10 = 0; var10 < var9; ++var10) {
+            ppName = var16[var10];
+            if (beanFactory.isTypeMatch(ppName, PriorityOrdered.class)) {
+                currentRegistryProcessors.add(beanFactory.getBean(ppName, BeanDefinitionRegistryPostProcessor.class));
+                processedBeans.add(ppName);
+            }
+        }
+
+        sortPostProcessors(currentRegistryProcessors, beanFactory);
+        registryProcessors.addAll(currentRegistryProcessors);
+        invokeBeanDefinitionRegistryPostProcessors(currentRegistryProcessors, registry);
+        currentRegistryProcessors.clear();
+        postProcessorNames = beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);
+        var16 = postProcessorNames;
+        var9 = postProcessorNames.length;
+
+        for(var10 = 0; var10 < var9; ++var10) {
+            ppName = var16[var10];
+            if (!processedBeans.contains(ppName) && beanFactory.isTypeMatch(ppName, Ordered.class)) {
+                currentRegistryProcessors.add(beanFactory.getBean(ppName, BeanDefinitionRegistryPostProcessor.class));
+                processedBeans.add(ppName);
+            }
+        }
+
+        sortPostProcessors(currentRegistryProcessors, beanFactory);
+        registryProcessors.addAll(currentRegistryProcessors);
+        invokeBeanDefinitionRegistryPostProcessors(currentRegistryProcessors, registry);
+        currentRegistryProcessors.clear();
+        boolean reiterate = true;
+
+        while(reiterate) {
+            reiterate = false;
+            postProcessorNames = beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);
+            String[] var19 = postProcessorNames;
+            var10 = postProcessorNames.length;
+
+            for(int var26 = 0; var26 < var10; ++var26) {
+                String ppName = var19[var26];
+                if (!processedBeans.contains(ppName)) {
+                    currentRegistryProcessors.add(beanFactory.getBean(ppName, BeanDefinitionRegistryPostProcessor.class));
+                    processedBeans.add(ppName);
+                    reiterate = true;
+                }
+            }
+
+            sortPostProcessors(currentRegistryProcessors, beanFactory);
+            registryProcessors.addAll(currentRegistryProcessors);
+            invokeBeanDefinitionRegistryPostProcessors(currentRegistryProcessors, registry);
+            currentRegistryProcessors.clear();
+        }
+
+        invokeBeanFactoryPostProcessors((Collection)registryProcessors, (ConfigurableListableBeanFactory)beanFactory);
+        invokeBeanFactoryPostProcessors((Collection)regularPostProcessors, (ConfigurableListableBeanFactory)beanFactory);
+    } else {
+        invokeBeanFactoryPostProcessors((Collection)beanFactoryPostProcessors, (ConfigurableListableBeanFactory)beanFactory);
+    }
+
+    String[] postProcessorNames = beanFactory.getBeanNamesForType(BeanFactoryPostProcessor.class, true, false);
+    regularPostProcessors = new ArrayList();
+    registryProcessors = new ArrayList();
+    currentRegistryProcessors = new ArrayList();
+    postProcessorNames = postProcessorNames;
+    int var20 = postProcessorNames.length;
+
+    String ppName;
+    for(var9 = 0; var9 < var20; ++var9) {
+        ppName = postProcessorNames[var9];
+        if (!processedBeans.contains(ppName)) {
+            if (beanFactory.isTypeMatch(ppName, PriorityOrdered.class)) {
+                regularPostProcessors.add(beanFactory.getBean(ppName, BeanFactoryPostProcessor.class));
+            } else if (beanFactory.isTypeMatch(ppName, Ordered.class)) {
+                registryProcessors.add(ppName);
+            } else {
+                currentRegistryProcessors.add(ppName);
+            }
+        }
+    }
+
+    sortPostProcessors(regularPostProcessors, beanFactory);
+    invokeBeanFactoryPostProcessors((Collection)regularPostProcessors, (ConfigurableListableBeanFactory)beanFactory);
+    List<BeanFactoryPostProcessor> orderedPostProcessors = new ArrayList(registryProcessors.size());
+    Iterator var21 = registryProcessors.iterator();
+
+    while(var21.hasNext()) {
+        String postProcessorName = (String)var21.next();
+        orderedPostProcessors.add(beanFactory.getBean(postProcessorName, BeanFactoryPostProcessor.class));
+    }
+
+    sortPostProcessors(orderedPostProcessors, beanFactory);
+    invokeBeanFactoryPostProcessors((Collection)orderedPostProcessors, (ConfigurableListableBeanFactory)beanFactory);
+    List<BeanFactoryPostProcessor> nonOrderedPostProcessors = new ArrayList(currentRegistryProcessors.size());
+    Iterator var24 = currentRegistryProcessors.iterator();
+
+    while(var24.hasNext()) {
+        ppName = (String)var24.next();
+        nonOrderedPostProcessors.add(beanFactory.getBean(ppName, BeanFactoryPostProcessor.class));
+    }
+
+    invokeBeanFactoryPostProcessors((Collection)nonOrderedPostProcessors, (ConfigurableListableBeanFactory)beanFactory);
+    beanFactory.clearMetadataCache();
+}
+```
