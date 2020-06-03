@@ -182,3 +182,9 @@ final Node<K,V>[] resize() {
     return newTab;
 }
 ```
+
+> 对于 hash(key)对应的数据下标采用了位与运算 hash(key)&(数组长度-1) ，等价于hash(key)%(数组长度)取模操作，得到的余数对应数组中的下标值
+
+### CurrentHashMap 
+`HashMap`是线程不安全，在多线程情况下操作会造成数据不一致等各类并发问题，对于线程安全有`HashTable`但是由于使用了`synchronized`同步锁住所有数据效率很低，`CurrentHashMap`相对于`HashTable`采用分段式锁更轻量效率更高
+
