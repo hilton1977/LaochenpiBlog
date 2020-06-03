@@ -62,6 +62,7 @@ public AnnotationConfigServletWebServerApplicationContext() {
 - AnnotatedBeanDefinitionReader 注解方法读取
 - ClassPathBeanDefinitionScanner 类路径扫描器
 - GroovyBeanDefinitionReader groovy 方法加载 bean
+
 ``` java
 private void prepareContext(ConfigurableApplicationContext context, ConfigurableEnvironment environment, SpringApplicationRunListeners listeners, ApplicationArguments applicationArguments, Banner printedBanner) {
     // 装载可配置环境

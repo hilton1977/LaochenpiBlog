@@ -1,7 +1,9 @@
 ---
 title: Java 排序方法总结
-tags: []
-categories: []
+tags:
+  - 复习
+categories:
+  - Java
 toc: false
 date: 2019-07-25 16:42:11
 ---
@@ -21,20 +23,19 @@ date: 2019-07-25 16:42:11
 ###### 代码实现
 ``` java
 public static void bubble_sort(int[] sortArray) {
-        for (int i = 0; i < sortArray.length; i++) {
-     	 /**
-         	    * 内循环控制需要比较(length-i-1)次 
-         	    * 每次循环会把最大值置换到最右边 
-          	    */
-            for (int j = 0; j < sortArray.length - i - 1; j++) {
-                if (sortArray[j + 1] < sortArray[j]) {
-                    int temp = sortArray[j + 1];
-                    sortArray[j + 1] = sortArray[j];
-                    sortArray[j] = temp;
-                }
+    for (int i = 0; i < sortArray.length; i++) {
+        // 内循环控制需要比较(length-i-1)次 
+        // 每次循环会把最大值置换到最右边  
+        for (int j = 0; j < sortArray.length - i - 1; j++) {
+            if (sortArray[j] > sortArray[j + 1]) {
+                int temp = sortArray[j + 1];
+                sortArray[j + 1] = sortArray[j];
+                sortArray[j] = temp;
             }
         }
     }
+    System.out.println(Arrays.toString(sortArray));
+}
 ```
 
 ### 选择排序（Selection Sort）
@@ -44,27 +45,22 @@ public static void bubble_sort(int[] sortArray) {
 ##### 代码实现
 ``` java
 public static void selection_sort(int[] sortArray){
-    /**
-         * 外循环控制无序列区的范围 从0  到 length
-         */
-        for(int i=0;i<sortArray.length;i++){
-            int minIndex=i;
-      /**
-             * 内循环查找无序列区最小值下标 无序列区首位置为i
-             */
-            for(int j=i;j<sortArray.length;j++){
-                if(sortArray[j]<sortArray[minIndex]){
-                    minIndex=j;
-                }
+    // 外循环控制无序列区的范围 从0  到 length
+    for(int i=0;i<sortArray.length;i++){
+        int minIndex=i;
+        // 内循环查找无序列区最小值下标 无序列区首位置为i
+        for(int j=i;j<sortArray.length;j++){
+            if(sortArray[j]<sortArray[minIndex]){
+                minIndex=j;
             }
-      /**
-             * 将最小值置换到无序列区首位置
-             */
-            int temp=sortArray[minIndex];
-            sortArray[minIndex]=sortArray[i];
-            sortArray[i]=temp;
         }
+        // 将最小值置换到无序列区首位置
+        int temp=sortArray[minIndex];
+        sortArray[minIndex]=sortArray[i];
+        sortArray[i]=temp;
     }
+    System.out.println(Arrays.toString(sortArray));
+}
 ```
 
 ### 插入排序 （Insertion Sort）
@@ -75,23 +71,20 @@ public static void selection_sort(int[] sortArray){
 ###### 代码实现
 ``` java
 public static void insert_sort(int[] sortArray){
-    	/**
-         	* 外循环取出移动元素
-         	*/
-        for (int i = 1; i < sortArray.length-1; i++) {
-            int comparativeValue = sortArray[i+1];
-      	  /**
-             	    * 内循环比较值前所有元素进行对比
-             	   * 小于则进行位置后移直到所有元素比较完毕或遇到大于等于的元素进去插入
-             	  */
-            int preIndex  = i;
-            while (preIndex  >= 0 && sortArray[preIndex] > comparativeValue) {
-                sortArray[preIndex+1] = sortArray[preIndex];
-                preIndex --;
-            }
-            sortArray[preIndex+1] = comparativeValue;
+    // 外循环取出移动元素
+    for (int i = 1; i < sortArray.length-1; i++) {
+        int comparativeValue = sortArray[i+1];
+        // 内循环比较值前所有元素进行对比
+        // 小于则进行位置后移直到所有元素比较完毕或遇到大于等于的元素进去插入
+        int preIndex  = i;
+        while (preIndex  >= 0 && sortArray[preIndex] > comparativeValue) {
+            sortArray[preIndex+1] = sortArray[preIndex];
+            preIndex --;
         }
+        sortArray[preIndex+1] = comparativeValue;
     }
+    System.out.println(Arrays.toString(sortArray));
+}
 ```
 
 ### 希尔排序（Shell Sort）
