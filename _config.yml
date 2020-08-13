@@ -41,7 +41,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: true
+  auto_detect: false
   tab_replace:
   
 # Home page setting
@@ -79,5 +79,5 @@ theme: hexo-theme-hueman
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo : git@45.13.244.238:/tmp/laochenpiBlog.git
+  repo : git@45.133.119.79:/wwww/gitRep/laochenpi.git
   branch: master

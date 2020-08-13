@@ -73,7 +73,7 @@ return new ThreadPoolExecutor(nThreads, nThreads,
 虽然 maximumPoolSize、corePoolSize 可自行设置，但是由于使用 LinkedBlockingQueue 默认大小问题一样会导致队列堆积产生 OOM
 
 ### 线程池执行过程
-![线程池执行过程](/images/ThreadPoolExcutor.webp)
+![线程池执行过程](/images/ThreadPoolExcutor.jpg)
 
 ##### 源码分析
 ``` java
@@ -235,11 +235,12 @@ private boolean addWorker(Runnable firstTask, boolean core) {
 - 当线程池任务大于 corePoolSize 时，则会从线程队列中取出空闲现场执行任务
 - 当线程池任务大于 corePoolSize　且线程队列中无空闲现场，则会创建新的线程执行任务直到创建线程数大于　maximumPoolSize，线程池便会执行 RejectedExecutionHandler 拒绝策略
 
-默认策略
+#### 默认策略
+
 |名称|策略|
 |-|-|
 |AbortPolicy|线程池满达到上限啧抛出异常|
-|DiscardOledestPolicy|线程池满达到上限丢弃最老的一个任务即最先被丢入缓存队列的任务|
+|DiscardOldestPolicy|线程池满达到上限丢弃最老的一个任务即最先被丢入缓存队列的任务|
 |DiscardPolicy|线程池满达到上限直接丢弃任务|
 
-根据业务的需求可以实现 RejectedExcutionHandler 接口自定义拒绝的策略
+根据业务的需求可以实现 RejectedExecutionHandler 接口自定义拒绝的策略
