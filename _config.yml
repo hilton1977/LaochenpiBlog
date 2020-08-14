@@ -79,5 +79,5 @@ theme: hexo-theme-hueman
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo : git@45.133.119.79:/wwww/gitRep/laochenpi.git
+  repo : git@45.133.119.79:/www/gitRep/laochenpi.git
   branch: master
