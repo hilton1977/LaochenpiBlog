@@ -8,10 +8,12 @@ toc: false
 date: 2020-08-14 14:32:43
 ---
 
+![Java](/images/java.jpg)
+
 > 项目里经常会用到报表导出功能或者导入功能，最近发现阿里也出了开源的Excel组件 EasyExcel，写一个DEMO尝试用下
 
 ### EasyExcel 
-先附上 Github 开源地址 :https://github.com/alibaba/easyexcel，以maven项目为列引入
+先附上 [Github 开源地址](https://github.com/alibaba/easyexcel) [官方文档](https://www.yuque.com/easyexcel/doc/easyexcel)，maven 加入依赖就可以迅速开始开发
 ``` xml
 <dependency>
   <groupId>com.alibaba</groupId>
@@ -54,7 +56,8 @@ public class DemoData {
 ```
 
 #### @ExcelProperty
-|属性|类型|用处|
+
+|参数|类型|用处|
 |-|-|-|
 |value|String[]|表格中的列名，当为空时默认使用字段名，多个列名可以组合复杂的表头|
 |index|int|写入表格中指定列|
@@ -63,6 +66,7 @@ public class DemoData {
 
 #### @ContentFontStyle @HeadFontStyle
 用于设置单元格和表头内容字体格式的注解
+
 |参数|类型|含义|
 |-|-|-|
 |fontName|string|字体名称|
@@ -77,9 +81,10 @@ public class DemoData {
 
 #### @ContentStyle @HeadStyle
 用于设置单元格和表头样式注解
+
 |参数|类型|含义|
 |-|-|-|
-|dataFormat|short|数据格式化|
+|dataFormat|shor|数据格式化|
 |hidden|boolean|样式隐藏|
 |locked|boolean|样式锁定|
 |quotePrefix|boolean|在单元格前面增加`符号，数字或公式将以字符串形式展示|
@@ -103,15 +108,59 @@ public class DemoData {
 
 #### @ContentRowHeight @HeadRowHeight
 用于设置单元和和表头行高注解
+
 |参数|类型|含义|
 |-|-|-|
 |value|short|行高|
 
 #### @ColumnWidth 
 用于设置单元格的列宽，作用类属于全局，当某字段作用覆盖全局设置，最大值为255
+
 |参数|类型|含义|
 |-|-|-|
 |value|short|列宽|
 
 #### @ExcelIgnore
 用于屏蔽不需要写入Excel的字段标记
+
+#### @DateTimeFormat @NumberFormat 
+时间类字符串格式化、数字格式例如金额千分值、百分号等
+
+#### HorizontalCellStyleStrategy 自定义单元格样式策略
+自定义样式通过·registerWriteHandler 注册写入处理器
+``` java
+    /**
+     * 自定义样式
+     * <p>1. 创建excel对应的实体对象 参照{@link DemoData}
+     * <p>2. 创建一个style策略 并注册
+     * <p>3. 直接写即可
+     */
+    @Test
+    public void styleWrite() {
+        String fileName = TestFileUtil.getPath() + "styleWrite" + System.currentTimeMillis() + ".xlsx";
+        // 头的策略
+        WriteCellStyle headWriteCellStyle = new WriteCellStyle();
+        // 背景设置为红色
+        headWriteCellStyle.setFillForegroundColor(IndexedColors.RED.getIndex());
+        WriteFont headWriteFont = new WriteFont();
+        headWriteFont.setFontHeightInPoints((short)20);
+        headWriteCellStyle.setWriteFont(headWriteFont);
+        // 内容的策略
+        WriteCellStyle contentWriteCellStyle = new WriteCellStyle();
+        // 这里需要指定 FillPatternType 为FillPatternType.SOLID_FOREGROUND 不然无法显示背景颜色.头默认了 FillPatternType所以可以不指定
+        contentWriteCellStyle.setFillPatternType(FillPatternType.SOLID_FOREGROUND);
+        // 背景绿色
+        contentWriteCellStyle.setFillForegroundColor(IndexedColors.GREEN.getIndex());
+        WriteFont contentWriteFont = new WriteFont();
+        // 字体大小
+        contentWriteFont.setFontHeightInPoints((short)20);
+        contentWriteCellStyle.setWriteFont(contentWriteFont);
+        // 这个策略是 头是头的样式 内容是内容的样式 其他的策略可以自己实现
+        HorizontalCellStyleStrategy horizontalCellStyleStrategy =
+            new HorizontalCellStyleStrategy(headWriteCellStyle, contentWriteCellStyle);
+
+        // 这里 需要指定写用哪个class去写，然后写到第一个sheet，名字为模板 然后文件流会自动关闭
+        EasyExcel.write(fileName, DemoData.class).registerWriteHandler(horizontalCellStyleStrategy).sheet("模板")
+            .doWrite(data());
+    }
+```
