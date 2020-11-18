@@ -1,7 +1,7 @@
 ---
 title: Redis的淘汰机制LRU算法
 tags: []
-categories: []
+categories: [redis]
 toc: false
 date: 2020-09-14 14:46:09
 ---
@@ -12,9 +12,8 @@ date: 2020-09-14 14:46:09
 LRU 全程 Least Recently Used（最近最久未使用），设计原则为：如果有一个数在一段时间未被访问，那么将来被访问的可能性就很小，当资源超过限制范围时应淘汰最久未被访问的数据
 
 ### LinkerHashMap 实现 LRU
-`LinkerHsahMap`双向链表数据结构，在创建时可以选择`accessOrder`参数，默认`false`是按插入顺序进行排序，当我们设置`true`则按访问的顺序来进行排序
+`LinkerHsahMap`双向链表数据结构，在创建时可以选择`accessOrder`参数，默认`false`是按插入顺序进行排序，当我们设置`true`则按访问的顺序来进行排序，每当调用`get()`方法会执行`afterNodeAccess`方法将被访者置换尾部
 
-`LinkerHsahMap`调用`get()`方法会根据`accessOrder`调用`afterNodeAccess`方法将被访者置换尾部
 ``` java
 void afterNodeAccess(Node<K,V> e) { // move node to last
         LinkedHashMap.Entry<K,V> last;
@@ -41,7 +40,9 @@ void afterNodeAccess(Node<K,V> e) { // move node to last
         }
   }
 ```
+
 当插入新的数据会调用`removeEldestEntry`返回的boolean是否删除链表头部元素，重写该方法当缓存的长度大于限制则删除链表头部元素即删除了最久未被访问的元素，因为被访问过的元素会置换到链表的尾部
+
 ``` java
 void afterNodeInsertion(boolean evict) { // possibly remove eldest
        LinkedHashMap.Entry<K,V> first;
@@ -78,7 +79,7 @@ public class LRUCache<K,V> extends LinkedHashMap<K,V> {
         c.put("k1", 1);
         c.put("k2", 2);
         c.put("k3", 3);
-   	c.get("k2");
+   	    c.get("k2");
         c.put("k4", 4);
      
         System.out.println(c);

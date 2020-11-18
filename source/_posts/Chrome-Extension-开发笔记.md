@@ -1,7 +1,7 @@
 ---
 title: Chrome Extension 开发笔记
 tags: []
-categories: []
+categories: [java]
 toc: false
 date: 2020-01-17 15:22:32
 ---
@@ -111,5 +111,22 @@ function injectJs(path) {
 #### contextMenus
 右键菜单可以更丰富的操作习惯，例如翻译插件选中一段文字右键可以进行选中翻译，主要通过`chrome.centextMenus` Api 实现，我就想想在逛论坛遇到喜欢的傻吊图右键一键保存岂不是方便多了，代码如下
 ``` javascript
-
+// background.js
+chrome.contextMenus.create({
+	type: 'normal'， // 类型，可选：["normal", "checkbox", "radio", "separator"]，默认 normal
+	title: '菜单的名字', // 显示的文字，除非为“separator”类型否则此参数必需，如果类型为“selection”，可以使用%s显示选定的文本
+	contexts: ['page'], // 上下文环境，可选：["all", "page", "frame", "selection", "link", "editable", "image", "video", "audio"]，默认page
+	onclick: function(){}, // 单击时触发的方法
+	parentId: 1, // 右键菜单项的父菜单项ID。指定父菜单项将会使此菜单项成为父菜单项的子菜单
+	documentUrlPatterns: 'https://*.baidu.com/*' // 只在某些页面显示此右键菜单
+});
+// 删除某一个菜单项
+chrome.contextMenus.remove(menuItemId)；
+// 删除所有自定义右键菜单
+chrome.contextMenus.removeAll();
+// 更新某一个菜单项
+chrome.contextMenus.update(menuItemId, updateProperties);
 ```
+这里只是简单列举一些常用的，完整API参见：https://developer.chrome.com/extensions/contextMenus
+
+
