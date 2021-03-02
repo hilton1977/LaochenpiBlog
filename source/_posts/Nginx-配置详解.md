@@ -128,12 +128,11 @@ upstream mysvr {
 server {
         keepalive_requests 120; #单连接请求上限次数。
         listen       4545;   #监听端口
-	acccess_log /var/access.log;
+	    acccess_log /var/access.log;
         server_name  127.0.0.1;   #监听地址      
-	root /var/www;
+	    root /var/www;
+
         location  ~*^.+$ {      
-           #root path;  
-           #index vv.txt;  
            proxy_pass  http://mysvr;
            deny 127.0.0.1;  #拒绝的ip
            allow 172.18.5.54; #允许的ip           

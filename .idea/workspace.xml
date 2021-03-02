@@ -3,12 +3,242 @@
   <component name="AnalysisUIOptions">
     <option name="GROUP_BY_SEVERITY" value="true" />
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a6ce402a-f5b3-4ad3-bd10-cd918c0c1c4a" name="Default" comment="新增文章">
+      <change afterPath="$PROJECT_DIR$/themes/hexo-theme-fluid/source/img/default.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Java-引用类型.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Java-引用类型.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Docker环境搭建.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Docker环境搭建.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Nginx-配置详解.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Nginx-配置详解.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Springboot 启动过程（一）.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Springboot 启动过程（一）.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/VPS-一键搭建脚本.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/_config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/ca.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/en.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/es.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/fr.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/hu.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/id.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/ja.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/ko.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/pt-BR.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/ru.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/tr.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/vi.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/zh-CN.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/languages/zh-TW.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/archive.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/category.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/comment/changyan.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/comment/counter.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/comment/disqus.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/comment/facebook.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/comment/index.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/comment/isso.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/comment/livere.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/comment/scripts.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/comment/valine.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/comment/youyan.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/archive.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/article.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/content-title.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/footer.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/head.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/header.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/post/date.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/post/gallery.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/post/nav.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/post/tag.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/post/title.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/scripts.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/sidebar.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/summary.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/common/thumbnail.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/index.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/layout.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/page.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/plugin/baidu-analytics.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/plugin/google-analytics.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/plugin/scripts.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/plugin/statcounter.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/post.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/pwa/index.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/search/baidu.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/search/index.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/search/insight.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/search/swiftype.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/share/addtoany.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/share/bdshare.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/share/default.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/share/index.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/share/jiathis.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/tag.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/widget/archive.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/widget/catalog.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/widget/category.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/widget/links.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/widget/recent_posts.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/widget/sticky_posts.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/widget/tag.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/layout/widget/tagcloud.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/scripts/excerpt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/scripts/meta.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/scripts/thumbnail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_extend.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/agate.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/androidstudio.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/arduino-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/arta.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/ascetic.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-cave-dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-cave-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-dune-dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-dune-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-estuary-dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-estuary-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-forest-dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-forest-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-heath-dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-heath-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-lakeside-dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-lakeside-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-plateau-dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-plateau-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-savanna-dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-savanna-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-seaside-dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-seaside-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-sulphurpool-dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/atelier-sulphurpool-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/brown-paper.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/brown-papersq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/codepen-embed.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/color-brewer.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/darkula.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/docco.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/far.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/foundation.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/github-gist.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/github.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/googlecode.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/grayscale.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/highlightjs.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/hopscotch.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/hybrid.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/idea.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/index.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/ir-black.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/kimbie.dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/kimbie.light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/magula.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/mono-blue.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/monokai-sublime.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/monokai.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/obsidian.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/paraiso-dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/paraiso-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/pojoaque.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/pojoaque.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/railscasts.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/rainbow.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/school-book.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/school-book.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/solarized-dark.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/solarized-light.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/sunburst.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/tomorrow-night-blue.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/tomorrow-night-bright.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/tomorrow-night-eighties.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/tomorrow-night.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/tomorrow.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/vs.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/xcode.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_highlight/zenburn.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/archive.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/article.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/assets.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/comment.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/footer.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/header.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/insight.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/nav.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_partial/sidebar.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_responsive.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/_variables.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/images/logo-header.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/images/logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/images/opacity-10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/images/s-left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/images/thumb-default-small.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/images/thumb-default.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/css/style.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/js/insight.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/font-awesome/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/font-awesome/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/font-awesome/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/font-awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/jquery/3.3.1/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/justified-gallery/jquery.justifiedGallery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/justified-gallery/justifiedGallery.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/css/lg-fb-comment-box.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/css/lg-fb-comment-box.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/css/lg-fb-comment-box.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/css/lg-transitions.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/css/lg-transitions.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/css/lg-transitions.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/css/lightgallery.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/css/lightgallery.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/css/lightgallery.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/fonts/lg.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/fonts/lg.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/fonts/lg.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/fonts/lg.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/img/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/img/video-play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/img/vimeo-play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/img/youtube-play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-autoplay.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-autoplay.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-fullscreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-fullscreen.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-hash.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-hash.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-pager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-pager.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-share.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-share.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-thumbnail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-thumbnail.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-video.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-video.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-zoom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lg-zoom.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lightgallery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/lightgallery/js/lightgallery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/source-code-pro/fonts/mrl8jkM18OlOQN8JLgasD9V_2ngZ8dMf8fLgjYEouxg.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/source-code-pro/fonts/mrl8jkM18OlOQN8JLgasDy2Q8seG17bfDXYR_jUsrzg.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/source-code-pro/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/titillium-web/fonts/7XUFZ5tgS-tD6QamInJTcSo_WB_cotcEMUw1LsIE8mM.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/titillium-web/fonts/7XUFZ5tgS-tD6QamInJTcZSnX671uNZIV63UdXh3Mg0.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/titillium-web/fonts/anMUvcNT0H1YN4FII8wpr4-67659ICLY8bMrYhtePPA.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/titillium-web/fonts/anMUvcNT0H1YN4FII8wpr46gJz9aNFrmnwBdd69aqzY.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/titillium-web/fonts/anMUvcNT0H1YN4FII8wpr9INifKjd1RJ3NxxEi9Cy2w.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/titillium-web/fonts/anMUvcNT0H1YN4FII8wpr_SNRT0fZ5CX-AqRkMYgJJo.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-hueman/source/libs/titillium-web/styles.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,13 +250,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="D:\dev project\LaochenpiBlog\.idea" />
-      </set>
-    </option>
   </component>
   <component name="ProjectId" id="1aQt8HeqAbDdzGDQqYfADDN2uXU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -42,7 +265,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../easyExcelDemo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -53,10 +276,11 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\dev project\LaochenpiBlog\themes\hexo-theme-fluid\source\img" />
       <recent name="D:\dev project\LaochenpiBlog\source\images" />
     </key>
   </component>
@@ -84,6 +308,15 @@
       <setting name="depsClasspath" value="false" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -97,7 +330,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <option name="filePath" />
       <option name="vmParameters" />
       <option name="alternativeJrePath" />
@@ -149,17 +382,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method v="2" />
-    </configuration>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
   </component>
@@ -204,6 +428,21 @@
       <workItem from="1598430775772" duration="2564000" />
       <workItem from="1598489204345" duration="123000" />
       <workItem from="1600071300616" duration="619000" />
+      <workItem from="1600399062237" duration="1355000" />
+      <workItem from="1603764549240" duration="11340000" />
+      <workItem from="1604554718206" duration="1272000" />
+      <workItem from="1604643873099" duration="2538000" />
+      <workItem from="1604884128208" duration="3766000" />
+      <workItem from="1605668039633" duration="5931000" />
+      <workItem from="1605685193191" duration="980000" />
+      <workItem from="1605691210776" duration="2484000" />
+      <workItem from="1605748198866" duration="10098000" />
+      <workItem from="1605762876730" duration="438000" />
+      <workItem from="1605771103396" duration="3763000" />
+      <workItem from="1605841566719" duration="14000" />
+      <workItem from="1605841692704" duration="13000" />
+      <workItem from="1605853668447" duration="440000" />
+      <workItem from="1614648096802" duration="171000" />
     </task>
     <task id="LOCAL-00001" summary="提交">
       <created>1535014017371</created>
@@ -492,7 +731,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563762290961</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="新增文章">
+      <created>1605669716902</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1605669716902</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,77 +778,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="新增文章" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597302530939">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1614648267680">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597302530939" />
-    <state x="596" y="106" key="CommitChangelistDialog2" timestamp="1597309787995">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="596" y="106" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1597309787995" />
-    <state x="184" y="86" key="DiffContextDialog" timestamp="1597309617293">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="184" y="86" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597309617293" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1600071922300">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600071922300" />
-    <state width="1860" height="281" key="GridCell.Tab.0.bottom" timestamp="1597399378484">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597399378484" />
-    <state width="1860" height="281" key="GridCell.Tab.0.center" timestamp="1597399378484">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597399378484" />
-    <state width="1860" height="281" key="GridCell.Tab.0.left" timestamp="1597399378483">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597399378483" />
-    <state width="1860" height="281" key="GridCell.Tab.0.right" timestamp="1597399378484">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597399378484" />
-    <state x="411" y="221" key="RollbackChangesDialog" timestamp="1597302641334">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="411" y="221" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597302641334" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1597909108881">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597909108881" />
-    <state width="520" height="446" key="SwitcherDM" timestamp="1597308229722">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="520" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1597308229722" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597392543032">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597392543032" />
-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1598426055148">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598426055148" />
-    <state x="763" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597309806643">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="763" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597309806643" />
-    <state x="636" y="253" width="647" height="534" key="find.popup" timestamp="1597911801477">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="636" y="253" width="647" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597911801477" />
-    <state x="730" y="419" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1597309877374">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="730" y="419" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597309877374" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1597909103528">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597909103528" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597909148252">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597909148252" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614648267680" />
   </component>
 </project>

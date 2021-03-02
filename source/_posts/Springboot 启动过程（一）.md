@@ -211,8 +211,8 @@ public ConfigurableApplicationContext run(String... args) {
         Banner printedBanner = this.printBanner(environment);
         context = this.createApplicationContext();
         // 初始化异常上报
-        exceptionReporters = this.getSpringFactoriesInstances(SpringBootExceptionReporter.class, new Class[]{ConfigurableApplicationContext.class}, context);
-        // 准备 刷新 容器
+        exceptionReporters = this.getSpringFactoriesInstances(SpringBootExceptionReporter.class,new Class[]{ConfigurableApplicationContext.class},context);
+        // 准备刷新容器
         this.prepareContext(context, environment, listeners, applicationArguments, printedBanner);
         this.refreshContext(context);
         this.afterRefresh(context, applicationArguments);
@@ -220,7 +220,6 @@ public ConfigurableApplicationContext run(String... args) {
         if (this.logStartupInfo) {
             (new StartupInfoLogger(this.mainApplicationClass)).logStarted(this.getApplicationLog(), stopWatch);
         }
-        
         listeners.started(context);
         this.callRunners(context, applicationArguments);
     } catch (Throwable var10) {

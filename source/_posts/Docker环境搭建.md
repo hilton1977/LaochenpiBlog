@@ -29,8 +29,6 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 yum list docker-ce --showduplicates | sort -r 
 #指定安装18.06.0 版本
 yum install dock-ce-18.06.0.ce
-<<<<<<< HEAD
-=======
 ```
 安装docker，默认是安装最高版本测试可以用，但是生产环境为了稳定尽量指定版本(stable稳定版)
 
