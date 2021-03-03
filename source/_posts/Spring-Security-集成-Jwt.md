@@ -20,8 +20,7 @@ Spring Security 权限安全框架
 </dependency>
 
 <!--jwt-->
-<dependency>
-    <groupId>io.jsonwebtoken</groupId>
+<dependency> <groupId>io.jsonwebtoken</groupId>
     <artifactId>jjwt</artifactId>
     <version>0.9.1</version>
 </dependency>
